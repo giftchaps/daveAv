@@ -4,11 +4,11 @@ import { ArrowRight, Play, MapPin } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative min-h-[580px] lg:min-h-[700px] overflow-hidden bg-[#dceefa]" aria-label="A/V DAVEY introduction">
-      <Image src="/images/hero-sky-preview-v2.jpg" alt="" fill priority sizes="100vw" className="object-cover object-[35%_center] lg:object-center" />
-      <div className="absolute inset-0 bg-white/15" aria-hidden="true" />
-      <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-6 lg:gap-4">
+    <section className="relative isolate min-h-[620px] overflow-hidden bg-[#dceefa] sm:min-h-[650px] lg:min-h-[700px]" aria-label="A/V DAVEY introduction">
+      <Image src="/images/hero-sky-preview-v2.jpg" alt="Soft blue sky background" fill priority sizes="100vw" className="object-cover object-[35%_center] lg:object-center" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/35 to-white/10" aria-hidden="true" />
+      <div className="relative mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-4">
           <div className="lg:col-span-5">
             <p className="flex items-center gap-3 font-bold text-sm tracking-wider uppercase mb-5 text-[#071E55]"><span className="w-8 h-[3px] bg-[#B2081B] shrink-0" />Connecticut&apos;s Trusted AV Partner</p>
             <h1 className="font-['Barlow_Condensed'] font-extrabold uppercase leading-none mb-6" style={{ fontSize: 'clamp(2.7rem, 6vw, 5.2rem)' }}>
@@ -21,14 +21,17 @@ export function Hero() {
             </div>
             <p className="flex items-start gap-2 text-[#071E55] text-sm"><MapPin size={17} className="shrink-0 mt-0.5" />Based in Bridgeport &middot; Serving Connecticut &amp; the Greater Tri-State Region</p>
           </div>
-          <div className="hidden lg:flex lg:col-span-3 justify-center">
-            <Image src="/images/avators-emblem.png" alt="A/V-ATORS. First to Show, Last to Go. Honor Those Who Serve." width={270} height={297} className="w-56 xl:w-64 h-auto" sizes="(max-width: 1024px) 208px, 270px" />
+          <div className="order-3 flex justify-center lg:order-2 lg:col-span-3">
+            <div className="relative w-full max-w-[290px] rounded-[2rem] border border-white/70 bg-white/55 p-4 shadow-lg backdrop-blur-sm sm:p-6 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none lg:backdrop-blur-none">
+              <Image src="/images/davey-line-art.png" alt="One-line cartoon portrait of Davey Katz" width={600} height={420} className="h-auto w-full mix-blend-multiply" sizes="(max-width: 1024px) 290px, 300px" />
+              <p className="mt-2 text-center font-['Barlow_Condensed'] text-sm font-bold uppercase tracking-[0.14em] text-[#102f68]">The wise AV operator</p>
+            </div>
           </div>
-          <div className="lg:col-span-4 flex justify-center lg:justify-end">
-            <div className="bg-[#071E55]/95 text-white p-5 w-full max-w-[280px] shadow-xl border-l-4 border-[#B2081B]">
-              <h2 className="font-['Barlow_Condensed'] font-bold text-2xl uppercase">Davey Katz</h2>
-              <p className="text-[#b9ddff] text-sm font-semibold uppercase mb-3">CEO / Head Cheerleader</p>
-              <p className="text-white text-sm leading-relaxed">Davey founded A/V DAVEY in May 1989, bringing hands-on AV experience and personal service to every project.</p>
+          <div className="order-2 flex justify-center lg:order-3 lg:col-span-4 lg:justify-end">
+            <div className="w-full max-w-[360px] border-l-4 border-[#c3172b] bg-[#102f68]/95 p-5 text-white shadow-xl sm:p-6">
+              <h2 className="font-['Barlow_Condensed'] text-2xl font-bold uppercase sm:text-3xl">Davey Katz</h2>
+              <p className="mb-3 text-sm font-semibold uppercase text-[#b9ddff]">CEO / Head Cheerleader</p>
+              <p className="text-sm leading-relaxed text-white/90">Since 1989, Davey has brought hands-on AV experience, calm leadership, and personal service to every project.</p>
             </div>
           </div>
         </div>

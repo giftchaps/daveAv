@@ -3,20 +3,31 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #ffffff;
-  --color-foreground: #0a0a0a;
+  --color-background: #fbfcfe;
+  --color-foreground: #102044;
+  --color-card: #ffffff;
+  --color-card-foreground: #102044;
+  --color-primary: #102f68;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #eaf2fa;
+  --color-secondary-foreground: #102044;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #52627a;
+  --color-accent: #c3172b;
+  --color-accent-foreground: #ffffff;
+  --color-border: #dbe4ef;
+  --color-ring: #2171b8;
 
-  /* A/V DAVEY Brand Colors */
-  --color-navy: #071E55;
-  --color-navy-light: #0d2a6e;
-  --color-red: #B2081B;
-  --color-red-dark: #8e0615;
-  --color-blue: #1265B7;
-  --color-blue-light: #1a7de0;
-  --color-sky: #4A90D9;
-  --color-gold: #F5C518;
-  --color-gray-cool: #F4F6FA;
-  --color-gray-border: #DDE3EE;
+  --color-navy: #102f68;
+  --color-navy-light: #194487;
+  --color-red: #c3172b;
+  --color-red-dark: #991326;
+  --color-blue: #2171b8;
+  --color-blue-light: #3d8ecf;
+  --color-sky: #6aadd6;
+  --color-gold: #e5b52f;
+  --color-gray-cool: #f1f5f9;
+  --color-gray-border: #dbe4ef;
 
   --font-sans: 'Barlow', sans-serif;
   --font-condensed: 'Barlow Condensed', sans-serif;

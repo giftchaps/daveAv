@@ -23,6 +23,19 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "A/V DAVEY",
+    title: "A/V DAVEY | Audio Visual Solutions That Just Work",
+    description:
+      "A/V DAVEY delivers dependable AV installation, live event production, and technical support across Connecticut and the Tri-State region.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "A/V DAVEY | Audio Visual Solutions That Just Work",
+    description:
+      "Dependable AV installation, live event production, and technical support across Connecticut.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
