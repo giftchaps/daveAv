@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# loose root-level screenshot/audit files
+/after-below-hero.png
+/before-below-hero.png
+/below-hero-mobile.png
+/final-below-hero.png
+/mobile-services.png
+/mobile-trust-clients.png
+/IMPLEMENTATION-AUDIT.md
+/VISUAL-ASSETS.md

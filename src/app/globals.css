@@ -1,26 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+
+  /* A/V DAVEY Brand Colors */
+  --color-navy: #071E55;
+  --color-navy-light: #0d2a6e;
+  --color-red: #B2081B;
+  --color-red-dark: #8e0615;
+  --color-blue: #1265B7;
+  --color-blue-light: #1a7de0;
+  --color-sky: #4A90D9;
+  --color-gold: #F5C518;
+  --color-gray-cool: #F4F6FA;
+  --color-gray-border: #DDE3EE;
+
+  --font-sans: 'Barlow', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #071E55;
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Utility: Red accent line */
+.red-accent::before {
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 3px;
+  background: #B2081B;
+  vertical-align: middle;
+  margin-right: 0.6rem;
+}
+
+/* Utility: section heading style */
+.section-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #B2081B;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 3px;
+  background: #B2081B;
+  flex-shrink: 0;
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 3px solid #1265B7;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Smooth image transitions */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
