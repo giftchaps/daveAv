@@ -1,24 +1,42 @@
-.trustSection { position: relative; z-index: 20; padding: 0 16px 18px; margin-top: -48px; }
-.trustPanel { max-width: 1216px; margin: 0 auto; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); background: #fff; border-radius: 12px; box-shadow: 0 10px 28px #071e551c; padding: 16px 0; color: #071e55; font-family: 'Barlow', Arial, sans-serif; }
-.stat { display: flex; align-items: center; gap: 12px; padding: 16px; }
-.stat svg { flex-shrink: 0; width: 30px; }
-.statValue { font-size: 16px; font-weight: 800; line-height: 1.08; text-transform: uppercase; margin: 0 0 5px; }
-.statLabel { font-size: 12px; font-weight: 500; line-height: 1.2; text-transform: uppercase; margin: 0; }
-.clientsSection { background: linear-gradient(180deg,#eef1f7,#f7f8fb); padding: 16px 0; }
-.clientsInner { max-width: 1400px; padding: 0 24px; margin: auto; font-family: 'Barlow',Arial,sans-serif; }
-.clientsHeading { color: #071e55; text-transform: uppercase; font-weight: 800; font-size: 15px; line-height: 1.1; margin: 0 0 16px; flex-shrink: 0; }
-.clientsHeading span { display: block; font-size: 30px; }
-.clientsHeading::after { content: ''; display: block; width: 38px; height: 2px; background: #b2081b; margin-top: 9px; }
-.clientLogos { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-items: center; gap: 12px 20px; flex: 1; min-width: 0; margin: 0; padding: 0; list-style: none; }
-.clientLogo { display: flex; justify-content: center; align-items: center; min-width: 0; }
-.services { background: #fff; padding: 22px 16px 32px; font-family: 'Barlow',Arial,sans-serif; }
+/* ── Trust Bar ─────────────────────────────────────────────────────── */
+/* The white bridge sits between hero and gray clients — trust card straddles the top edge of this white section */
+.trustBridge { background: #fff; padding-top: 0; padding-bottom: 28px; }
+.trustSection { position: relative; z-index: 20; padding: 0 24px; margin-top: -44px; }
+.trustPanel {
+  max-width: 1400px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(7,30,85,0.13);
+  color: #071e55; font-family: 'Barlow', Arial, sans-serif;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+.stat { display: flex; align-items: center; gap: 16px; padding: 18px 24px; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+.stat:nth-child(even) { border-right: none; }
+.stat:nth-child(3), .stat:nth-child(4) { border-bottom: none; }
+.stat svg { flex-shrink: 0; color: #071e55; }
+.statValue { font-size: 15px; font-weight: 800; line-height: 1.1; text-transform: uppercase; margin: 0 0 2px; }
+.statLabel { font-size: 11px; font-weight: 500; line-height: 1.3; text-transform: uppercase; color: #64748b; margin: 0; }
+
+/* ── Client Strip ──────────────────────────────────────────────────── */
+.clientsSection { background: #fff; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 36px 0 32px; }
+.clientsInner { max-width: 1400px; padding: 0 24px; margin: auto; font-family: 'Barlow', Arial, sans-serif; }
+.clientsHeading { color: #071e55; text-transform: uppercase; font-weight: 800; font-size: 12px; line-height: 1.1; margin: 0 0 20px; letter-spacing: .06em; }
+.clientsHeading span { display: block; font-size: 24px; }
+.clientsHeading::after { content: ''; display: block; width: 28px; height: 2px; background: #b2081b; margin-top: 6px; }
+.clientLogos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px 36px; margin: 0; padding: 0; list-style: none; }
+.clientLogo { display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
+
+/* ── Services ──────────────────────────────────────────────────────── */
+.services { background: #f4f6fa; padding: 48px 16px; font-family: 'Barlow', Arial, sans-serif; }
 .servicesInner { max-width: 1400px; margin: auto; }
-.servicesHeader { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 12px; color: #071e55; }
-.servicesHeading { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 800; line-height: 1.2; text-transform: uppercase; margin: 0; }
+.servicesHeader { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 20px; color: #071e55; }
+.servicesHeading { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 800; line-height: 1.2; text-transform: uppercase; margin: 0; }
 .servicesHeading::before { content: ''; height: 2px; width: 20px; background: #b2081b; }
-.servicesSubtitle { font-size: 12px; text-transform: uppercase; letter-spacing: .09em; margin: 0; }
+.servicesSubtitle { font-size: 13px; text-transform: uppercase; letter-spacing: .09em; margin: 0; color: #64748b; }
 .servicesLink { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; min-height: 44px; }
-.serviceGrid { display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; }
+.serviceGrid { display: grid; grid-template-columns: minmax(0,1fr); gap: 14px; }
 .serviceCard { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 256px; border-radius: 5px; overflow: hidden; background: #071e55; color: #fff; text-decoration: none; }
 .servicePhoto { object-fit: cover; transition: transform .25s ease; }
 .serviceCard:hover .servicePhoto,.serviceCard:focus-visible .servicePhoto { transform: scale(1.04); }
@@ -28,7 +46,37 @@
 .serviceDescription { font: 400 14px/1.3 'Barlow',Arial,sans-serif; min-height: 55px; margin: 0; color: #fff; }
 .serviceArrow { position: absolute; right: 12px; top: 12px; width: 28px; height: 28px; display: grid; place-items: center; background: #071e55cc; border-radius: 50%; opacity: 0; transition: opacity .2s; }
 .serviceCard:hover .serviceArrow,.serviceCard:focus-visible .serviceArrow { opacity: 1; }
-@media(min-width:640px) { .clientLogos { grid-template-columns: repeat(4,minmax(0,1fr)); } .serviceGrid { grid-template-columns: repeat(2,minmax(0,1fr)); } .services { padding-left: 24px; padding-right: 24px; } .servicesLink { margin-left: auto; } }
-@media(min-width:1024px) { .trustPanel { grid-template-columns: repeat(4,minmax(0,1fr)); padding: 18px 0; } .stat { padding: 0 24px; min-height: 60px; gap: 18px; } .stat + .stat { border-left: 1px solid #c8d0e0; } .stat svg { width: 44px; } .statValue { font-size: 18px; } .statLabel { font-size: 14px; } .serviceGrid { grid-template-columns: repeat(3,minmax(0,1fr)); } }
-@media(min-width:1280px) { .clientsInner { display: flex; align-items: center; gap: 28px; } .clientsHeading { margin: 0; } .clientLogos { grid-template-columns: repeat(8,minmax(0,1fr)); gap: 18px; } .serviceGrid { grid-template-columns: repeat(5,minmax(0,1fr)); } .serviceCard { min-height: 240px; } }
+.servicesWithTestimonial { display: grid; gap: 18px; }
+
+@media(min-width:640px) {
+  .serviceGrid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .services { padding-left: 24px; padding-right: 24px; }
+  .servicesLink { margin-left: auto; }
+}
+@media(min-width:1024px) {
+  .trustPanel { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  .stat { padding: 22px 32px; border-bottom: none; }
+  .stat:nth-child(even) { border-right: 1px solid #e2e8f0; }
+  .stat:last-child { border-right: none; }
+  .statValue { font-size: 17px; }
+  .statLabel { font-size: 12px; }
+  .clientsSection { padding: 32px 0 28px; }
+  .clientsInner { display: flex; align-items: center; gap: 48px; }
+  .clientsHeading { margin: 0; flex-shrink: 0; }
+  .clientLogos { justify-content: flex-start; flex-wrap: nowrap; gap: 36px; }
+  .serviceGrid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+}
+@media(min-width:1280px) {
+  .serviceGrid { grid-template-columns: repeat(5,minmax(0,1fr)); }
+  .serviceCard { min-height: 240px; }
+}
 @media(prefers-reduced-motion:reduce) { .servicePhoto,.serviceArrow { transition: none; } }
+
+/* Testimonial */
+.testimonial { display: flex; flex-direction: column; justify-content: center; border: 1px solid #d4dcea; border-radius: 8px; padding: 22px; color: #071e55; background: linear-gradient(135deg,#fff,#f4f6fa); }
+.testimonial h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 16px; font: 700 13px/1.3 'Barlow',Arial,sans-serif; text-transform: uppercase; }
+.testimonial h3::before { content: ''; width: 18px; height: 2px; background: #b2081b; flex-shrink: 0; }
+.testimonial blockquote { margin: 0; }
+.testimonial blockquote p { margin: 0; font: italic 500 16px/1.5 'Barlow',Arial,sans-serif; }
+.testimonialAttribution { margin: 14px 0 0; font-size: 14px; font-weight: 600; }
+.testimonialSample { margin: 12px 0 0; font-size: 12px; line-height: 1.4; color: #475569; }

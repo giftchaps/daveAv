@@ -38,10 +38,10 @@ const projects = [
 
 export function FeaturedProjects() {
   return (
-    <section className="py-14 lg:py-24 bg-[#071E55]" aria-labelledby="projects-heading">
+    <section className="py-10 lg:py-14 bg-[#071E55]" aria-labelledby="projects-heading">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
           <div>
             <div className="flex items-center gap-3 mb-3">
               <span className="block w-8 h-[3px] bg-[#B2081B] flex-shrink-0" />
@@ -73,7 +73,7 @@ export function FeaturedProjects() {
             <Link
               key={project.id}
               href={project.href}
-              className="group block bg-[#0d2a6e] border border-white/10 hover:border-[#1265B7]/50 transition-all duration-300"
+              className="group flex flex-col rounded-lg overflow-hidden bg-[#0d2a6e] border border-white/10 hover:border-[#1265B7]/50 transition-all duration-300"
               aria-label={`View project: ${project.title}`}
             >
               {/* Image */}
@@ -95,17 +95,17 @@ export function FeaturedProjects() {
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="font-['Barlow_Condensed'] font-bold text-white uppercase text-xl leading-tight mb-1">
+              <div className="p-5 flex flex-col flex-1">
+                <h3 className="font-['Barlow'] font-semibold text-white text-xl leading-snug mb-2">
                   {project.title}
                 </h3>
-                <p className="font-['Barlow'] text-white/85 text-xs uppercase tracking-wide mb-3">
+                <p className="font-['Barlow'] text-white/85 text-sm uppercase tracking-wide mb-3">
                   {project.location}
                 </p>
-                <p className="font-['Barlow'] text-white/85 text-sm leading-relaxed mb-4">
+                <p className="font-['Barlow'] text-white/95 text-base leading-relaxed mb-4">
                   {project.summary}
                 </p>
-                <div className="flex items-center gap-2 text-[#b9ddff] font-['Barlow'] font-bold text-xs uppercase tracking-wide group-hover:text-white transition-colors">
+                <div className="mt-auto flex items-center gap-2 text-[#b9ddff] font-['Barlow'] font-bold text-sm uppercase tracking-wide group-hover:text-white transition-colors">
                   View Project <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
                 </div>
               </div>

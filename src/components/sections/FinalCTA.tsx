@@ -6,7 +6,7 @@ import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, LOCATION } from '@/lib/constants'
 export function FinalCTA() {
   return (
     <section
-      className="relative py-16 lg:py-24 overflow-hidden bg-[#1265B7]"
+      className="relative py-10 lg:py-12 overflow-hidden bg-[#1265B7]"
       aria-labelledby="cta-heading"
     >
       {/* Background pattern */}
@@ -16,24 +16,24 @@ export function FinalCTA() {
       </div>
 
       <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-7 lg:gap-10">
           {/* Left: Heading + CTA */}
           <div className="text-center lg:text-left">
             <h2
               id="cta-heading"
-              className="font-['Barlow_Condensed'] font-extrabold uppercase text-white leading-[1.05] mb-4"
-              style={{ fontSize: 'clamp(2rem, 4vw, 3.6rem)' }}
+              className="font-['Barlow_Condensed'] font-extrabold uppercase text-white leading-[1.05] mb-3"
+              style={{ fontSize: 'clamp(1.875rem, 3vw, 2.75rem)' }}
             >
               Ready to Elevate Your
               <br />
-              <span className="text-white/80">Next Project?</span>
+              <span className="text-white">Next Project?</span>
             </h2>
-            <p className="font-['Barlow'] text-white/80 text-lg mb-8 max-w-lg">
+            <p className="font-['Barlow'] text-white text-base sm:text-lg mb-5 max-w-lg">
               Our team is here to help you design the perfect AV solution. No pressure. Just expertise.
             </p>
             <Link
               href="/request-quote"
-              className="inline-flex items-center gap-2 bg-[#B2081B] text-white px-8 py-4 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors group text-lg shadow-lg"
+              className="inline-flex items-center gap-2 bg-[#B2081B] text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors group text-base shadow-lg"
             >
               Request a Quote
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
@@ -41,10 +41,10 @@ export function FinalCTA() {
           </div>
 
           {/* Right: Contact details */}
-          <div className="flex flex-col sm:flex-row lg:flex-col gap-5 text-white">
+          <div className="flex flex-col sm:flex-row lg:flex-col gap-4 text-white">
             <a
               href={PHONE_HREF}
-              className="flex items-center gap-4 hover:text-white/80 transition-colors group"
+              className="flex items-center gap-4 hover:text-white transition-colors group"
             >
               <div className="w-10 h-10 flex items-center justify-center border border-white/30 group-hover:border-white/60 transition-colors flex-shrink-0">
                 <Phone size={18} aria-hidden="true" />
@@ -56,7 +56,7 @@ export function FinalCTA() {
             </a>
             <a
               href={EMAIL_HREF}
-              className="flex items-center gap-4 hover:text-white/80 transition-colors group"
+              className="flex items-center gap-4 hover:text-white transition-colors group"
             >
               <div className="w-10 h-10 flex items-center justify-center border border-white/30 group-hover:border-white/60 transition-colors flex-shrink-0">
                 <Mail size={18} aria-hidden="true" />
