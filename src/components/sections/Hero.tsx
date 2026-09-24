@@ -22,9 +22,12 @@ export function Hero() {
             <p className="flex items-start gap-2 text-[#071E55] text-sm"><MapPin size={17} className="shrink-0 mt-0.5" />Based in Bridgeport &middot; Serving Connecticut &amp; the Greater Tri-State Region</p>
           </div>
           <div className="order-3 flex justify-center lg:order-2 lg:col-span-3">
-            <div className="relative w-full max-w-[290px] rounded-[2rem] border border-white/70 bg-white/55 p-4 shadow-lg backdrop-blur-sm sm:p-6 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none lg:backdrop-blur-none">
-              <Image src="/images/davey-line-art.png" alt="One-line cartoon portrait of Davey Katz" width={600} height={420} className="h-auto w-full mix-blend-multiply" sizes="(max-width: 1024px) 290px, 300px" />
-              <p className="mt-2 text-center font-['Barlow_Condensed'] text-sm font-bold uppercase tracking-[0.14em] text-[#102f68]">The wise AV operator</p>
+            <div className="flex w-full max-w-[290px] flex-col items-center gap-4">
+              <Image src="/images/avators-emblem.png" alt="A/V-ATORS. First to Show, Last to Go. Honor Those Who Serve." width={270} height={297} className="hidden h-auto w-52 drop-shadow-lg lg:block xl:w-60" sizes="(max-width: 1280px) 208px, 240px" />
+              <div className="relative w-full rounded-[2rem] border border-white/70 bg-white/55 p-4 shadow-lg backdrop-blur-sm sm:p-6 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none lg:backdrop-blur-none">
+                <Image src="/images/davey-line-art.png" alt="One-line cartoon portrait of Davey Katz" width={600} height={420} className="h-auto w-full mix-blend-multiply" sizes="(max-width: 1024px) 290px, 300px" />
+                <p className="mt-2 text-center font-['Barlow_Condensed'] text-sm font-bold uppercase tracking-[0.14em] text-[#102f68]">The wise AV operator</p>
+              </div>
             </div>
           </div>
           <div className="order-2 flex justify-center lg:order-3 lg:col-span-4 lg:justify-end">
