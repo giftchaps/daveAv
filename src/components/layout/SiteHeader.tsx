@@ -54,7 +54,7 @@ export function SiteHeader() {
             <Link href="/" className="flex-shrink-0 flex items-center" aria-label="A/V DAVEY Home">
               <div
                 className="relative transition-all duration-300"
-                style={scrolled ? { width: '140px', height: '58px' } : { width: '160px', height: '67px' }}
+                style={scrolled ? { width: '120px', height: '50px' } : { width: '140px', height: '58px' }}
               >
                 <Image src="/images/logo-avdavey.png" alt="A/V DAVEY" fill sizes="220px" className="object-contain object-left" />
             </div>
