@@ -19,7 +19,7 @@ const projects = [
     location: "New Haven, CT",
     summary:
       "Complete audio, video and control system integration for a multi-room conference center including video conferencing, digital signage and touch control solutions.",
-    image: "/images/projects/project-1-preview-v2.jpg",
+    image: "https://images.unsplash.com/photo-1462826303086-329426d1aef5?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const projects = [
     location: "Bridgeport, CT",
     summary:
       "Full-service event production including professional sound, lighting, projection, staging and on-site technical management for a 500-guest corporate gala.",
-    image: "/images/projects/project-2-preview-v2.jpg",
+    image: "https://images.unsplash.com/photo-1653821355736-0c2598d0a63e?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const projects = [
     location: "Stamford, CT",
     summary:
       "Multi-camera studio-quality video production and live streaming for a quarterly executive communications series, delivered live and on-demand.",
-    image: "/images/projects/project-3-preview-v2.jpg",
+    image: "https://images.unsplash.com/photo-1497015289639-54688650d173?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ const projects = [
     location: "New Haven, CT",
     summary:
       "Complete AV system upgrade for a 200-seat lecture hall including new projection, sound reinforcement, lecture capture and control systems.",
-    image: "/images/projects/project-4-preview-v2.jpg",
+    image: "https://images.unsplash.com/photo-1640416639872-93aabd8d91d3?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: 5,
@@ -55,7 +55,7 @@ const projects = [
     location: "Bridgeport, CT",
     summary:
       "Audio, lighting and video production for an annual awards dinner, including live streaming for remote attendees.",
-    image: "/images/projects/project-5-preview-v2.jpg",
+    image: "https://images.unsplash.com/photo-1730134322176-862f1cf9bc9f?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: 6,
@@ -64,7 +64,7 @@ const projects = [
     location: "Fairfield, CT",
     summary:
       "Complete whole-home AV integration including dedicated home theater, distributed audio, centralized control and outdoor AV systems.",
-    image: "/images/projects/project-6-preview-v2.jpg",
+    image: "https://images.unsplash.com/photo-1710131459450-7c384b8be18f?auto=format&fit=crop&w=1600&q=80",
   },
 ];
 
@@ -81,7 +81,6 @@ export default function ProjectsPage() {
 
       <section className="py-14 lg:py-20 bg-white" aria-labelledby="projects-grid-heading">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-slate-700 text-sm mb-6">Illustrative project examples with generated placeholder imagery. Actual project photography and details are coming soon.</p>
           <h2 id="projects-grid-heading" className="sr-only">Project portfolio</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

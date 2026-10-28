@@ -124,7 +124,7 @@ export default function InstallationPage() {
 
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src="/images/services/installation-preview-v2.jpg"
+                src="https://images.unsplash.com/photo-1661169399398-dd271af8f651?auto=format&fit=crop&w=1600&q=80"
                 alt="Professional AV installation in a conference room"
                 fill
                 className="object-cover"

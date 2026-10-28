@@ -11,7 +11,7 @@ const projects = [
     location: 'New Haven, CT',
     summary:
       'Complete audio, video and control system integration for a multi-room conference center including video conferencing, digital signage and touch control.',
-    image: '/images/projects/project-1-preview-v2.jpg',
+    image: 'https://images.unsplash.com/photo-1462826303086-329426d1aef5?auto=format&fit=crop&w=1600&q=80',
     href: '/projects',
   },
   {
@@ -21,7 +21,7 @@ const projects = [
     location: 'Bridgeport, CT',
     summary:
       'Full-service event production including sound, lighting, projection, staging and on-site technical management for a 500-guest corporate event.',
-    image: '/images/projects/project-2-preview-v2.jpg',
+    image: 'https://images.unsplash.com/photo-1653821355736-0c2598d0a63e?auto=format&fit=crop&w=1600&q=80',
     href: '/projects',
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     location: 'Stamford, CT',
     summary:
       'Multi-camera studio-quality video production and streaming for a quarterly executive communications series, delivered live and on-demand.',
-    image: '/images/projects/project-3-preview-v2.jpg',
+    image: 'https://images.unsplash.com/photo-1497015289639-54688650d173?auto=format&fit=crop&w=1600&q=80',
     href: '/projects',
   },
 ];
@@ -66,7 +66,6 @@ export function FeaturedProjects() {
           </Link>
         </div>
 
-        <p className="text-white text-sm mb-5">Illustrative project examples with generated placeholder imagery. Actual project photography and details are coming soon.</p>
         {/* Projects grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (

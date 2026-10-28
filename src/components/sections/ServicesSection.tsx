@@ -9,7 +9,7 @@ const services = [
     title: 'Installation & Integration',
     description: 'Custom audio, video, control and collaboration solutions.',
     href: '/services/installation',
-    image: '/images/services/installation-preview-v2.jpg',
+    image: 'https://images.unsplash.com/photo-1661169399398-dd271af8f651?auto=format&fit=crop&w=1600&q=80',
     imageAlt: 'Professional AV installation in a conference room',
   },
   {
@@ -17,7 +17,7 @@ const services = [
     title: 'Event Production & Staging',
     description: 'Full-service AV for corporate events, live shows and conferences.',
     href: '/services/event-production',
-    image: '/images/services/event-production-preview-v2.jpg',
+    image: 'https://images.unsplash.com/photo-1700514077430-3659e38eb5e7?auto=format&fit=crop&w=1600&q=80',
     imageAlt: 'Live event production with professional lighting and staging',
   },
   {
@@ -25,7 +25,7 @@ const services = [
     title: 'Service & Support',
     description: 'Responsive support and preventive maintenance to keep your systems running.',
     href: '/services/service-support',
-    image: '/images/services/service-support-preview-v2.jpg',
+    image: 'https://images.unsplash.com/photo-1682559736721-c2e77ff4c650?auto=format&fit=crop&w=1600&q=80',
     imageAlt: 'AV technician providing on-site service and support',
   },
   {
@@ -33,7 +33,7 @@ const services = [
     title: 'Video Production & Streaming',
     description: 'Deliver your message with high-quality video and live streaming.',
     href: '/services/video-production',
-    image: '/images/services/video-production-preview-v2.jpg',
+    image: 'https://images.unsplash.com/photo-1637159147941-cffa2aafc059?auto=format&fit=crop&w=1600&q=80',
     imageAlt: 'Professional video production setup with cameras and mixing board',
   },
   {
@@ -41,7 +41,7 @@ const services = [
     title: 'Equipment Sales',
     description: 'Professional-grade AV equipment from the brands you trust.',
     href: '/services/equipment-sales',
-    image: '/images/services/equipment-sales-preview-v2.jpg',
+    image: 'https://images.unsplash.com/photo-1504904126298-3fde501c9b31?auto=format&fit=crop&w=1600&q=80',
     imageAlt: 'Professional AV equipment including mixers and monitors',
   },
 ];
