@@ -77,9 +77,9 @@ function PostCard({ post }: { post: FacebookPost }) {
 
 function EmptyState() {
   return (
-    <div className="col-span-full flex flex-col items-center justify-center py-16 text-white/60">
+    <div className="col-span-full flex flex-col items-center justify-center py-16 text-slate-400">
       <FbIcon size={40} className="mb-4 opacity-40" />
-      <p className="font-['Barlow'] text-base">Posts will appear here once the Facebook connection is configured.</p>
+      <p className="font-['Barlow'] text-base text-center">Follow us on Facebook to see Davey&apos;s latest jobs — posts will appear here once connected.</p>
     </div>
   );
 }
