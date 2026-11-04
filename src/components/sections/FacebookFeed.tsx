@@ -1,5 +1,13 @@
 import Image from 'next/image';
-import { ExternalLink, Facebook } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+
+function FbIcon({ size = 16, className = '' }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  );
+}
 import { fetchFacebookPosts, type FacebookPost } from '@/lib/facebook';
 
 function formatDate(iso: string) {
@@ -48,7 +56,7 @@ function PostCard({ post }: { post: FacebookPost }) {
             {formatDate(post.created_time)}
           </span>
           <span className="flex items-center gap-1 text-[#1877F2]">
-            <Facebook size={14} aria-hidden="true" />
+            <FbIcon size={14} />
             <span className="font-['Barlow'] text-xs font-semibold">Facebook</span>
           </span>
         </div>
@@ -70,7 +78,7 @@ function PostCard({ post }: { post: FacebookPost }) {
 function EmptyState() {
   return (
     <div className="col-span-full flex flex-col items-center justify-center py-16 text-white/60">
-      <Facebook size={40} className="mb-4 opacity-40" aria-hidden="true" />
+      <FbIcon size={40} className="mb-4 opacity-40" />
       <p className="font-['Barlow'] text-base">Posts will appear here once the Facebook connection is configured.</p>
     </div>
   );
@@ -109,7 +117,7 @@ export async function FacebookFeed() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 font-['Barlow'] font-bold text-sm uppercase tracking-wide text-[#1877F2] hover:text-[#071E55] transition-colors group flex-shrink-0"
           >
-            <Facebook size={16} aria-hidden="true" />
+            <FbIcon size={16} />
             Follow on Facebook
             <ExternalLink size={13} className="transition-transform group-hover:translate-x-0.5" />
           </a>

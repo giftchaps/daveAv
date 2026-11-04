@@ -2,7 +2,15 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MapPin, Phone, Mail, Facebook } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
+
+function FbIcon({ size = 16, className = '' }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  );
+}
 import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, LOCATION } from '@/lib/constants';
 
 const footerNav = {
@@ -77,7 +85,7 @@ export function SiteFooter() {
                 className="flex items-center justify-center w-9 h-9 rounded-sm bg-white/10 hover:bg-[#1877F2] border border-white/10 hover:border-[#1877F2] transition-all duration-200"
                 aria-label="A/V DAVEY on Facebook"
               >
-                <Facebook size={16} className="text-white" aria-hidden="true" />
+                <FbIcon size={16} className="text-white" />
               </a>
             </div>
           </div>
