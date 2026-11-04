@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const capabilities = [
   { category: "Audio", items: ["Professional sound systems", "Wireless microphones", "In-ear monitoring", "Live mixing"] },
   { category: "Lighting", items: ["Architectural lighting", "Stage wash & specials", "Intelligent lighting", "Lighting control"] },
-  { category: "Video", items: ["Video switching & switching", "IMAG systems", "LED video walls", "Confidence monitors"] },
+  { category: "Video", items: ["Video switching & playback", "IMAG systems", "LED video walls", "Confidence monitors"] },
   { category: "Staging", items: ["Stage design & build", "Podiums & lecterns", "Drapery & backdrops", "Custom staging elements"] },
 ];
 
@@ -34,7 +34,7 @@ export default function EventProductionPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src="/images/services/event-production-preview-v2.jpg"
+                src="https://images.unsplash.com/photo-1700514077430-3659e38eb5e7?auto=format&fit=crop&w=1600&q=80"
                 alt="Professional event production with lighting and staging"
                 fill
                 className="object-cover"

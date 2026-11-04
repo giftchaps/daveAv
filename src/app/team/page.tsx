@@ -14,14 +14,14 @@ const team = [
     name: "Davey Katz",
     title: "CEO / Head Cheerleader",
     bio: "Davey founded A/V DAVEY in May 1989 after years of hands-on AV work in New York and Connecticut. He brings decades of real-world AV experience to every project and remains personally involved in client relationships and project oversight.",
-    image: "/images/team/davey-katz-preview-v2.jpg",
+    image: "https://images.unsplash.com/photo-1564064927589-19a68c199e42?auto=format&fit=crop&w=1600&q=80",
     specialties: ["AV System Design", "Project Management", "Client Relations", "Event Production"],
   },
   {
     name: "Felix Rosales",
     title: "AV Technician & Production Assistant",
     bio: "Felix brings technical expertise and a hands-on approach to every installation and event. He works alongside Davey on installations, service calls, and event production, ensuring systems are installed and supported to A/V DAVEY standards.",
-    image: "/images/team/felix-rosales-preview-v2.jpg",
+    image: "https://images.unsplash.com/photo-1667264501379-c1537934c7ab?auto=format&fit=crop&w=1600&q=80",
     specialties: ["AV Installation", "Event Production", "System Service", "Technical Support"],
   },
 ];
@@ -49,14 +49,13 @@ export default function TeamPage() {
                 <div className="relative overflow-hidden bg-[#F4F6FA] mb-0" style={{ aspectRatio: "4/3" }}>
                   <Image
                     src={member.image}
-                    alt="Generated AV equipment illustration, awaiting a team portrait"
+                    alt=""
                     fill
                     className="object-cover object-top"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
 
-                <p className="bg-[#F4F6FA] px-4 py-2 text-sm text-slate-700">AV illustration. Team portrait coming soon.</p>
                 {/* Info */}
                 <div className="bg-white border border-[#DDE3EE] border-t-4 border-t-[#071E55] p-6">
                   <h3 className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-2xl leading-tight">

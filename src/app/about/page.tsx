@@ -91,8 +91,8 @@ export default function AboutPage() {
             <div className="flex flex-col gap-0">
               <div className="relative overflow-hidden bg-[#F4F6FA]" style={{ aspectRatio: "4/3" }}>
                 <Image
-                  src="/images/davey-hero.png"
-                  alt="Generated AV equipment illustration, awaiting Davey's portrait"
+                  src="https://images.unsplash.com/photo-1564064927589-19a68c199e42?auto=format&fit=crop&w=1600&q=80"
+                  alt="Digital audio mixing console"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -138,7 +138,7 @@ export default function AboutPage() {
                 <div key={event.year} className="flex gap-6 sm:gap-10 items-start">
                   {/* Year bubble */}
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#071E55] flex items-center justify-center text-white font-['Barlow_Condensed'] font-bold text-xs uppercase relative z-10">
-                    <span className="leading-tight text-center">{event.year.replace(/s$/, '').slice(-2)}<span className="text-[8px]">{event.year.endsWith('s') ? 's' : ''}</span></span>
+                    <span className="leading-tight text-center">{/^\d/.test(event.year) ? event.year.replace(/s$/, '').slice(-2) : event.year}<span className="text-[8px]">{/^\d{4}s$/.test(event.year) ? 's' : ''}</span></span>
                   </div>
                   <div className="flex-1 pb-2">
                     <div className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-lg mb-1">
