@@ -6,32 +6,35 @@ import { ArrowRight } from 'lucide-react';
 const projects = [
   {
     id: 1,
-    category: 'Commercial Integration',
-    title: 'Corporate Conference Center AV',
-    location: 'New Haven, CT',
+    category: 'Conference & Streaming',
+    title: 'Nuvance Health Fourth Annual Global Health Conference',
+    location: 'Ethan Allen Hotel, Danbury, CT',
     summary:
-      'Complete audio, video and control system integration for a multi-room conference center including video conferencing, digital signage and touch control.',
-    image: 'https://images.unsplash.com/photo-1462826303086-329426d1aef5?auto=format&fit=crop&w=1600&q=80',
+      '2.5 days of meetings streamed internationally, with dual projection, sound and every room audio recorded across two ballroom events and four breakouts.',
+    image: '/images/projects/nuvance-global-health.jpg',
+    alt: 'A/V DAVEY control table with switching console overlooking the Nuvance Health conference ballroom',
     href: '/projects',
   },
   {
     id: 2,
-    category: 'Live Event',
-    title: 'Annual Corporate Gala',
-    location: 'Bridgeport, CT',
+    category: 'Architectural Lighting',
+    title: 'Garde Arts Theater 100th Anniversary',
+    location: 'New London, CT',
     summary:
-      'Full-service event production including sound, lighting, projection, staging and on-site technical management for a 500-guest corporate event.',
-    image: 'https://images.unsplash.com/photo-1653821355736-0c2598d0a63e?auto=format&fit=crop&w=1600&q=80',
+      'Architectural uplighting and follow spots to capture the feel of the theater\'s 1926 opening night.',
+    image: '/images/projects/garde-arts-theater.jpg',
+    alt: 'Garde Arts Theater facade lit with architectural uplighting at night',
     href: '/projects',
   },
   {
     id: 3,
-    category: 'Video Production',
-    title: 'Executive Interview Series',
-    location: 'Stamford, CT',
+    category: 'Live Event',
+    title: 'The August at Steelpointe Ribbon Cutting',
+    location: 'Bridgeport, CT',
     summary:
-      'Multi-camera studio-quality video production and streaming for a quarterly executive communications series, delivered live and on-demand.',
-    image: 'https://images.unsplash.com/photo-1497015289639-54688650d173?auto=format&fit=crop&w=1600&q=80',
+      'Sound, video cues and a press feed for the ribbon cutting that launched this new Bridgeport complex.',
+    image: '/images/projects/the-august-ribbon-cutting.jpg',
+    alt: 'Digital mixer and video laptop running The August ribbon cutting in Bridgeport',
     href: '/projects',
   },
 ];
@@ -79,7 +82,7 @@ export function FeaturedProjects() {
               <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={project.alt}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

@@ -8,63 +8,69 @@ import { ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Our Projects",
   description:
-    "AV projects from A/V DAVEY, commercial integration, live event production, video production and residential systems throughout Connecticut.",
+    "Recent A/V DAVEY projects across Connecticut: conference streaming, corporate meetings, architectural lighting and live events for Nuvance Health, Belimo, Garde Arts Theater and more.",
 };
 
 const projects = [
   {
     id: 1,
-    category: "Commercial Integration",
-    title: "Corporate Conference Center AV",
-    location: "New Haven, CT",
+    category: "Conference & Streaming",
+    title: "Nuvance Health Fourth Annual Global Health Conference",
+    location: "Ethan Allen Hotel, Danbury, CT",
     summary:
-      "Complete audio, video and control system integration for a multi-room conference center including video conferencing, digital signage and touch control solutions.",
-    image: "https://images.unsplash.com/photo-1462826303086-329426d1aef5?auto=format&fit=crop&w=1600&q=80",
+      "2.5 days of meetings streamed internationally, with every room audio recorded. Dual projection, sound and a console to switch any source to either screen across two ballroom events and four breakout sessions.",
+    image: "/images/projects/nuvance-global-health.jpg",
+    alt: "A/V DAVEY control table with switching console overlooking the Nuvance Health conference ballroom",
   },
   {
     id: 2,
-    category: "Live Event",
-    title: "Annual Corporate Gala",
-    location: "Bridgeport, CT",
+    category: "Architectural Lighting",
+    title: "Garde Arts Theater 100th Anniversary",
+    location: "New London, CT",
     summary:
-      "Full-service event production including professional sound, lighting, projection, staging and on-site technical management for a 500-guest corporate gala.",
-    image: "https://images.unsplash.com/photo-1653821355736-0c2598d0a63e?auto=format&fit=crop&w=1600&q=80",
+      "Architectural uplighting and follow spots to capture the feel of opening night when the theater first opened its doors in 1926.",
+    image: "/images/projects/garde-arts-theater.jpg",
+    alt: "Garde Arts Theater facade lit with architectural uplighting at night",
   },
   {
     id: 3,
-    category: "Video Production",
-    title: "Executive Interview Series",
-    location: "Stamford, CT",
+    category: "Live Event",
+    title: "The August at Steelpointe Ribbon Cutting",
+    location: "Bridgeport, CT",
     summary:
-      "Multi-camera studio-quality video production and live streaming for a quarterly executive communications series, delivered live and on-demand.",
-    image: "https://images.unsplash.com/photo-1497015289639-54688650d173?auto=format&fit=crop&w=1600&q=80",
+      "Sound, video cues and a press feed in the lobby for the ribbon cutting that launched this new Bridgeport residential complex, with a series of speeches from local officials.",
+    image: "/images/projects/the-august-ribbon-cutting.jpg",
+    alt: "Digital mixer and video laptop running The August ribbon cutting in Bridgeport",
   },
   {
     id: 4,
-    category: "Commercial Integration",
-    title: "University Lecture Hall Upgrade",
-    location: "New Haven, CT",
+    category: "Corporate Meeting",
+    title: "Belimo Annual Meeting",
+    location: "Ethan Allen Hotel, Danbury, CT",
     summary:
-      "Complete AV system upgrade for a 200-seat lecture hall including new projection, sound reinforcement, lecture capture and control systems.",
-    image: "https://images.unsplash.com/photo-1640416639872-93aabd8d91d3?auto=format&fit=crop&w=1600&q=80",
+      "Our fourth year with Belimo: a full-range sound system, a draped wall with two 7' x 12' screens and 8,500-lumen projectors, two digital consoles, three breakout rooms and power for 21 trade show tables.",
+    image: "/images/projects/belimo-ethan-allen.jpg",
+    alt: "Belimo meeting in the Ethan Allen Hotel ballroom with twin projection screens",
   },
   {
     id: 5,
-    category: "Live Event",
-    title: "Non-Profit Awards Ceremony",
-    location: "Bridgeport, CT",
+    category: "Hybrid Meeting",
+    title: "Global Jet Annual All-Hands Meeting",
+    location: "Hotel Zero, Danbury, CT",
     summary:
-      "Audio, lighting and video production for an annual awards dinner, including live streaming for remote attendees.",
-    image: "https://images.unsplash.com/photo-1730134322176-862f1cf9bc9f?auto=format&fit=crop&w=1600&q=80",
+      "When a snowstorm cancelled attendees' flights, we set up ahead of the storm, moved the meeting a day and added an interactive Zoom stream so key people could join the conversation remotely.",
+    image: "/images/projects/global-jet-all-hands.jpg",
+    alt: "Presenter on stage between two projection screens at the Global Jet all-hands meeting",
   },
   {
     id: 6,
-    category: "Residential",
-    title: "Custom Home Theater & Whole-Home AV",
-    location: "Fairfield, CT",
+    category: "Corporate Meeting",
+    title: "Newtown Savings Bank Annual Meeting",
+    location: "Wyndham Southbury, Southbury, CT",
     summary:
-      "Complete whole-home AV integration including dedicated home theater, distributed audio, centralized control and outdoor AV systems.",
-    image: "https://images.unsplash.com/photo-1710131459450-7c384b8be18f?auto=format&fit=crop&w=1600&q=80",
+      "Another year of sound and visuals for the bank's employee meeting, upgraded to 10' wide screens and 8,500-lumen projectors, plus a choir mic setup for a performance by five audience members.",
+    image: "/images/projects/newtown-savings-bank.jpg",
+    alt: "Carolers performing at the Newtown Savings Bank annual meeting with large screens on either side",
   },
 ];
 
@@ -75,7 +81,7 @@ export default function ProjectsPage() {
         eyebrow="Our Work"
         title="Real Projects."
         titleRed="Real AV Solutions."
-        subtitle="From commercial conference rooms and large-scale events to video production and residential systems, A/V DAVEY delivers results that work in the real world."
+        subtitle="From international conferences and annual meetings to theater lighting and ribbon cuttings, here is a look at recent A/V DAVEY work across Connecticut."
         breadcrumbs={[{ label: "Projects" }]}
       />
 
@@ -93,7 +99,7 @@ export default function ProjectsPage() {
                 <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={project.alt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
