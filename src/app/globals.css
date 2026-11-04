@@ -75,7 +75,7 @@ body {
 
 /* Focus visible styles */
 :focus-visible {
-  outline: 3px solid #1265B7;
+  outline: 2px solid #1265B7;
   outline-offset: 3px;
   border-radius: 3px;
 }
@@ -85,6 +85,18 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Selection color */
+::selection {
+  background: #1265B7;
+  color: #fff;
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f4f6fa; }
+::-webkit-scrollbar-thumb { background: #c0c8d8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #071E55; }
 
 /* Prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {

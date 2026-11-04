@@ -40,8 +40,10 @@ export function SiteHeader() {
       <TopBar />
       <header
         ref={headerRef}
-        className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${
-          scrolled ? 'shadow-md' : 'shadow-sm'
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-[0_2px_20px_rgba(7,30,85,0.10)]'
+            : 'bg-white shadow-sm'
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,7 +136,7 @@ export function SiteHeader() {
             <div className="flex items-center gap-3">
               <Link
                 href="/request-quote"
-                className="hidden sm:inline-flex items-center gap-2 bg-[#B2081B] text-white px-5 py-2.5 font-['Barlow'] font-bold text-sm uppercase tracking-wide hover:bg-[#8e0615] transition-colors group"
+                className="hidden sm:inline-flex items-center gap-2 bg-[#B2081B] text-white px-5 py-2.5 font-['Barlow'] font-bold text-sm uppercase tracking-wide hover:bg-[#8e0615] active:scale-[0.98] transition-all duration-150 group shadow-sm hover:shadow-md"
               >
                 Request a Quote
                 <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />

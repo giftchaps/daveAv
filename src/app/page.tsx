@@ -5,6 +5,7 @@ import { ClientStrip } from "@/components/sections/ClientStrip";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { WhyAvDavey } from "@/components/sections/WhyAvDavey";
 import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
+import { FacebookFeed } from "@/components/sections/FacebookFeed";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function HomePage() {
       <ServicesSection />
       <WhyAvDavey />
       <FeaturedProjects />
+      <FacebookFeed />
       <FinalCTA />
     </>
   );

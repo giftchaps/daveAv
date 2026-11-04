@@ -4,17 +4,17 @@ import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, LOCATION, SITE_TAGLINE } from '@/
 
 export function TopBar() {
   return (
-    <div className="bg-[#071E55] text-white hidden sm:block">
+    <div className="bg-[#040f2e] text-white hidden sm:block border-b border-white/5">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-9 text-xs font-['Barlow'] font-medium">
           {/* Left: Location */}
           <div className="flex items-center gap-1.5 shrink-0">
-            <MapPin size={12} className="text-[#B2081B]" aria-hidden="true" />
-            <span>{LOCATION}</span>
+            <MapPin size={11} className="text-[#B2081B]" aria-hidden="true" />
+            <span className="text-white/70">{LOCATION}</span>
           </div>
 
           {/* Center: Tagline */}
-          <div className="flex-1 text-center tracking-wide hidden md:block text-white/80">
+          <div className="flex-1 text-center tracking-[0.08em] hidden md:block text-white/50 text-[11px] uppercase">
             {SITE_TAGLINE}
           </div>
 
@@ -22,18 +22,18 @@ export function TopBar() {
           <div className="flex items-center gap-4 shrink-0">
             <a
               href={PHONE_HREF}
-              className="flex items-center gap-1.5 hover:text-[#B2081B] transition-colors"
+              className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors"
               aria-label={`Call us at ${PHONE}`}
             >
-              <Phone size={12} aria-hidden="true" />
+              <Phone size={11} aria-hidden="true" />
               <span>{PHONE}</span>
             </a>
             <a
               href={EMAIL_HREF}
-              className="flex items-center gap-1.5 hover:text-[#B2081B] transition-colors hidden lg:flex"
+              className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors hidden lg:flex"
               aria-label={`Email us at ${EMAIL}`}
             >
-              <Mail size={12} aria-hidden="true" />
+              <Mail size={11} aria-hidden="true" />
               <span>{EMAIL}</span>
             </a>
           </div>

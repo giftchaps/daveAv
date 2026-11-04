@@ -73,7 +73,7 @@ export function FeaturedProjects() {
             <Link
               key={project.id}
               href={project.href}
-              className="group flex flex-col rounded-lg overflow-hidden bg-[#0d2a6e] border border-white/10 hover:border-[#1265B7]/50 transition-all duration-300"
+              className="group flex flex-col rounded-lg overflow-hidden bg-[#0d2a6e] border border-white/10 hover:border-[#1265B7]/60 hover:shadow-[0_8px_32px_rgba(7,30,85,0.5)] hover:-translate-y-0.5 transition-all duration-300"
               aria-label={`View project: ${project.title}`}
             >
               {/* Image */}

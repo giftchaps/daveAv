@@ -6,13 +6,14 @@ import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, LOCATION } from '@/lib/constants'
 export function FinalCTA() {
   return (
     <section
-      className="relative py-10 lg:py-12 overflow-hidden bg-[#1265B7]"
+      className="relative py-10 lg:py-12 overflow-hidden bg-gradient-to-br from-[#0d2a6e] via-[#1265B7] to-[#1a7de0]"
       aria-labelledby="cta-heading"
     >
       {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5" aria-hidden="true">
-        <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full border-[40px] border-white" />
-        <div className="absolute -left-10 -bottom-10 w-72 h-72 rounded-full border-[30px] border-white" />
+      <div className="absolute inset-0" aria-hidden="true">
+        <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full border-[40px] border-white/5" />
+        <div className="absolute -left-10 -bottom-10 w-72 h-72 rounded-full border-[30px] border-white/5" />
+        <div className="absolute right-1/4 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-white/[0.03]" />
       </div>
 
       <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,7 +34,7 @@ export function FinalCTA() {
             </p>
             <Link
               href="/request-quote"
-              className="inline-flex items-center gap-2 bg-[#B2081B] text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors group text-base shadow-lg"
+              className="inline-flex items-center gap-2 bg-[#B2081B] text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] active:scale-[0.98] transition-all duration-150 group text-base shadow-lg hover:shadow-xl"
             >
               Request a Quote
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
@@ -44,9 +45,9 @@ export function FinalCTA() {
           <div className="flex flex-col sm:flex-row lg:flex-col gap-4 text-white">
             <a
               href={PHONE_HREF}
-              className="flex items-center gap-4 hover:text-white transition-colors group"
+              className="flex items-center gap-4 hover:text-white transition-colors group rounded-lg hover:bg-white/5 px-3 py-2 -mx-3"
             >
-              <div className="w-10 h-10 flex items-center justify-center border border-white/30 group-hover:border-white/60 transition-colors flex-shrink-0">
+              <div className="w-10 h-10 flex items-center justify-center border border-white/20 bg-white/10 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-200 flex-shrink-0 rounded-sm">
                 <Phone size={18} aria-hidden="true" />
               </div>
               <div>
@@ -56,9 +57,9 @@ export function FinalCTA() {
             </a>
             <a
               href={EMAIL_HREF}
-              className="flex items-center gap-4 hover:text-white transition-colors group"
+              className="flex items-center gap-4 hover:text-white transition-colors group rounded-lg hover:bg-white/5 px-3 py-2 -mx-3"
             >
-              <div className="w-10 h-10 flex items-center justify-center border border-white/30 group-hover:border-white/60 transition-colors flex-shrink-0">
+              <div className="w-10 h-10 flex items-center justify-center border border-white/20 bg-white/10 group-hover:bg-white/20 group-hover:border-white/40 transition-all duration-200 flex-shrink-0 rounded-sm">
                 <Mail size={18} aria-hidden="true" />
               </div>
               <div>
@@ -67,7 +68,7 @@ export function FinalCTA() {
               </div>
             </a>
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 flex items-center justify-center border border-white/30 flex-shrink-0">
+              <div className="w-10 h-10 flex items-center justify-center border border-white/20 bg-white/10 flex-shrink-0 rounded-sm">
                 <MapPin size={18} aria-hidden="true" />
               </div>
               <div>

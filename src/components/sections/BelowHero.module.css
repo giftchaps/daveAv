@@ -4,15 +4,16 @@
 .trustPanel {
   max-width: 1400px; margin: 0 auto;
   display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
-  background: #fff; border-radius: 8px;
-  box-shadow: 0 4px 24px rgba(7,30,85,0.13);
+  background: #fff; border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(7,30,85,0.14), 0 1px 3px rgba(7,30,85,0.08);
   color: #071e55; font-family: 'Barlow', Arial, sans-serif;
-  overflow: hidden; border: 1px solid #e2e8f0;
+  overflow: hidden; border: 1px solid #dde3ee;
 }
-.stat { display: flex; align-items: center; gap: 10px; padding: 14px 14px; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+.stat { display: flex; align-items: center; gap: 10px; padding: 14px 14px; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; transition: background 0.2s; }
+.stat:hover { background: #f8fafc; }
 .stat:nth-child(even) { border-right: none; }
 .stat:nth-child(3), .stat:nth-child(4) { border-bottom: none; }
-.stat svg { flex-shrink: 0; color: #071e55; width: 28px; height: 28px; }
+.stat svg { flex-shrink: 0; color: #B2081B; width: 28px; height: 28px; }
 .statValue { font-size: 13px; font-weight: 800; line-height: 1.1; text-transform: uppercase; margin: 0 0 2px; }
 .statLabel { font-size: 10px; font-weight: 500; line-height: 1.3; text-transform: uppercase; color: #64748b; margin: 0; }
 
@@ -68,7 +69,7 @@
 @media(min-width: 1024px) {
   .trustPanel { grid-template-columns: repeat(4, minmax(0,1fr)); }
   .stat { padding: 22px 32px; border-bottom: none; gap: 16px; }
-  .stat svg { width: 40px; height: 40px; }
+  .stat svg { width: 40px; height: 40px; color: #B2081B; }
   .stat:nth-child(even) { border-right: 1px solid #e2e8f0; }
   .stat:last-child { border-right: none; }
   .statValue { font-size: 17px; }

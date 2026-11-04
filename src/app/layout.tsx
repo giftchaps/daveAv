@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { PromoBanner } from "@/components/layout/PromoBanner";
+import { getActivePromotions } from "@/lib/promotions";
 
 export const metadata: Metadata = {
   title: {
@@ -31,6 +33,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const activePromotions = getActivePromotions();
+
   return (
     <html lang="en" className="h-full">
       <head>
@@ -42,6 +46,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col antialiased">
+        <PromoBanner promotions={activePromotions} />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

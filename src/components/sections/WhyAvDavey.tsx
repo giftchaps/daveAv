@@ -73,7 +73,7 @@ export function WhyAvDavey() {
             {principles.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.title} className="p-5 rounded-lg bg-[#F4F6FA] border border-[#DDE3EE] hover:border-[#1265B7]/30 transition-colors">
+                <div key={item.title} className="p-5 rounded-lg bg-[#F4F6FA] border border-[#DDE3EE] hover:border-[#1265B7]/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
                   <div className="w-10 h-10 flex items-center justify-center bg-[#071E55] mb-4">
                     <Icon size={20} className="text-white" aria-hidden="true" />
                   </div>
