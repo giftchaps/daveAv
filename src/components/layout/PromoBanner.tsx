@@ -63,7 +63,7 @@ export function PromoBanner({ promotions }: PromoBannerProps) {
       <div className="absolute inset-x-0 bottom-0 h-px bg-white/15" aria-hidden="true" />
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-3 py-2.5 min-h-[42px]">
+        <div className="flex items-center justify-between gap-2 sm:gap-3 py-2 sm:py-2.5 min-h-[42px]">
 
           {/* Left: multi-promo prev arrow */}
           {promotions.length > 1 && (
@@ -77,23 +77,30 @@ export function PromoBanner({ promotions }: PromoBannerProps) {
           )}
 
           {/* Center content */}
-          <div className="flex flex-1 items-center justify-center gap-2.5 flex-wrap min-w-0">
+          <div className="flex flex-1 items-center justify-between sm:justify-center gap-2.5 sm:flex-wrap min-w-0">
             {/* Badge */}
-            <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-[10px] font-['Barlow'] font-bold uppercase tracking-widest flex-shrink-0 ${colors.badge}`}>
+            <span className={`hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-[10px] font-['Barlow'] font-bold uppercase tracking-widest flex-shrink-0 ${colors.badge}`}>
               <Tag size={9} aria-hidden="true" />
               {promo.label}
             </span>
 
             {/* Headline */}
-            <p className={`font-['Barlow'] text-sm font-medium ${colors.text} text-center leading-tight`}>
-              {promo.headline}
+            <p className={`font-['Barlow'] text-[13px] sm:text-sm font-medium ${colors.text} text-left sm:text-center leading-tight`}>
+              {promo.shortHeadline ? (
+                <>
+                  <span className="sm:hidden">{promo.shortHeadline}</span>
+                  <span className="hidden sm:inline">{promo.headline}</span>
+                </>
+              ) : (
+                promo.headline
+              )}
             </p>
 
             {/* CTA */}
             {promo.cta && (
               <Link
                 href={promo.cta.href}
-                className={`inline-flex items-center gap-1 px-3 py-1 text-xs font-['Barlow'] font-bold uppercase tracking-wide rounded-sm transition-colors flex-shrink-0 ${colors.cta}`}
+                className={`inline-flex items-center gap-1 px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs whitespace-nowrap font-['Barlow'] font-bold uppercase tracking-wide rounded-sm transition-colors flex-shrink-0 ${colors.cta}`}
               >
                 {promo.cta.text}
                 <ArrowRight size={11} aria-hidden="true" />

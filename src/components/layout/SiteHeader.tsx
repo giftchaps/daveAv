@@ -3,9 +3,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight, Phone } from 'lucide-react';
 import { TopBar } from './TopBar';
-import { NAV_ITEMS } from '@/lib/constants';
+import { NAV_ITEMS, PHONE, PHONE_HREF } from '@/lib/constants';
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -133,7 +133,15 @@ export function SiteHeader() {
             </nav>
 
             {/* CTA + Mobile Toggle */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5 sm:gap-3">
+              {/* Tap-to-call on phones (the top bar with the number is hidden there) */}
+              <a
+                href={PHONE_HREF}
+                className="sm:hidden inline-flex items-center justify-center min-h-11 min-w-11 rounded-full bg-[#B2081B] text-white hover:bg-[#8e0615] transition-colors"
+                aria-label={`Call A/V DAVEY at ${PHONE}`}
+              >
+                <Phone size={18} aria-hidden="true" />
+              </a>
               <Link
                 href="/request-quote"
                 className="hidden sm:inline-flex items-center gap-2 bg-[#B2081B] text-white px-5 py-2.5 font-['Barlow'] font-bold text-sm uppercase tracking-wide hover:bg-[#8e0615] active:scale-[0.98] transition-all duration-150 group shadow-sm hover:shadow-md"
@@ -240,6 +248,12 @@ export function SiteHeader() {
                 >
                   Request a Quote <ArrowRight size={16} />
                 </Link>
+                <a
+                  href={PHONE_HREF}
+                  className="flex items-center justify-center gap-2 w-full border-2 border-[#071E55] text-[#071E55] py-2.5 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#071E55] hover:text-white transition-colors"
+                >
+                  <Phone size={16} aria-hidden="true" /> Call {PHONE}
+                </a>
               </div>
             </div>
           </div>

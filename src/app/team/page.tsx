@@ -46,7 +46,7 @@ export default function TeamPage() {
             {team.map((member) => (
               <div key={member.name} className="flex flex-col">
                 {/* Photo */}
-                <div className="relative overflow-hidden bg-[#F4F6FA] mb-0" style={{ aspectRatio: "4/3" }}>
+                <div className="relative overflow-hidden bg-[#F4F6FA] mb-0 aspect-[16/9] sm:aspect-[4/3]">
                   <Image
                     src={member.image}
                     alt=""

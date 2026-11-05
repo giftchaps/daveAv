@@ -3,6 +3,7 @@ export interface Promotion {
   active: boolean;
   label: string;           // short badge text e.g. "NGO Discount"
   headline: string;        // main message
+  shortHeadline?: string;  // optional shorter message for phones
   cta?: { text: string; href: string };
   expiresAt?: string;      // ISO date string — banner auto-hides after this date
   color?: 'red' | 'gold' | 'blue'; // accent color
@@ -18,6 +19,7 @@ export const PROMOTIONS: Promotion[] = [
     active: true,
     label: 'NGO Special',
     headline: 'Non-profit & community organizations receive 15% off all AV services.',
+    shortHeadline: 'Non-profits save 15% on all AV services.',
     cta: { text: 'Claim Discount', href: '/request-quote?promo=ngo' },
     color: 'gold',
   },
@@ -26,6 +28,7 @@ export const PROMOTIONS: Promotion[] = [
     active: true,
     label: 'Holiday Offer',
     headline: 'Book your holiday event production before Dec 31 and save 10%.',
+    shortHeadline: 'Book holiday events by Dec 31, save 10%.',
     cta: { text: 'Book Now', href: '/request-quote?promo=holiday' },
     expiresAt: '2024-12-31',
     color: 'red',

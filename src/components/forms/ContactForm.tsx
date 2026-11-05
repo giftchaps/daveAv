@@ -90,7 +90,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={sending}
-        className="inline-flex items-center gap-2 bg-[#B2081B] text-white px-8 py-3.5 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors group disabled:opacity-70 disabled:cursor-wait"
+        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#B2081B] text-white px-8 py-3.5 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors group disabled:opacity-70 disabled:cursor-wait"
       >
         {sending ? (
           <SendingLabel label="Sending..." />

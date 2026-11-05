@@ -26,7 +26,7 @@ export default function ContactPage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
             {/* Contact info */}
-            <div className="lg:col-span-1 space-y-6">
+            <div className="lg:col-span-1 space-y-6 order-2 lg:order-1">
               <a
                 href={PHONE_HREF}
                 className="flex items-start gap-4 p-5 border border-[#DDE3EE] hover:border-[#1265B7]/40 hover:bg-[#F4F6FA] transition-all group"
@@ -79,7 +79,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact form */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 order-1 lg:order-2">
               <div className="flex items-center gap-3 mb-6">
                 <span className="block w-8 h-[3px] bg-[#B2081B] flex-shrink-0" />
                 <span className="font-['Barlow_Condensed'] font-bold text-sm tracking-[0.12em] uppercase text-[#B2081B]">

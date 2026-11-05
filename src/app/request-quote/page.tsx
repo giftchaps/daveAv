@@ -26,7 +26,7 @@ export default function RequestQuotePage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
             {/* Sidebar */}
-            <div className="lg:col-span-1 space-y-6">
+            <div className="lg:col-span-1 space-y-6 order-2 lg:order-1">
               <div className="bg-[#F4F6FA] border border-[#DDE3EE] p-6">
                 <div className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-lg mb-4">
                   Prefer to Talk?
@@ -75,7 +75,7 @@ export default function RequestQuotePage() {
             </div>
 
             {/* Form */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 order-1 lg:order-2">
               <Suspense fallback={<QuoteForm />}>
                 <QuoteFormWithParams />
               </Suspense>

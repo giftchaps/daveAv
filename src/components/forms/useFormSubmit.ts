@@ -78,7 +78,7 @@ export function formValues(form: HTMLFormElement): Record<string, string> {
 }
 
 export const inputClass = (hasError: boolean) =>
-  `w-full px-4 py-3 border font-['Barlow'] text-[#071E55] text-sm focus:outline-none focus:ring-1 bg-white ${
+  `w-full px-4 py-3 border font-['Barlow'] text-[#071E55] text-base sm:text-sm focus:outline-none focus:ring-1 bg-white ${
     hasError
       ? 'border-[#B2081B] focus:border-[#B2081B] focus:ring-[#B2081B]'
       : 'border-[#DDE3EE] focus:border-[#1265B7] focus:ring-[#1265B7]'
