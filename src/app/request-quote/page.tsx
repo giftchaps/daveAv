@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import { QuoteForm, QuoteFormWithParams } from "@/components/forms/QuoteForm";
 import { PageHero } from "@/components/ui/PageHero";
-import { ArrowRight, Phone, Mail } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -9,14 +11,6 @@ export const metadata: Metadata = {
     "Request a quote from A/V DAVEY for AV installation, event production, service, video production or equipment. Connecticut's trusted AV partner since 1989.",
 };
 
-const projectTypes = [
-  "Installation & Integration",
-  "Event Production & Staging",
-  "Service & Support",
-  "Video Production & Streaming",
-  "Equipment Sales",
-  "Other",
-];
 
 export default function RequestQuotePage() {
   return (
@@ -32,7 +26,7 @@ export default function RequestQuotePage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
             {/* Sidebar */}
-            <div className="lg:col-span-1 space-y-6">
+            <div className="lg:col-span-1 space-y-6 order-2 lg:order-1">
               <div className="bg-[#F4F6FA] border border-[#DDE3EE] p-6">
                 <div className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-lg mb-4">
                   Prefer to Talk?
@@ -81,148 +75,10 @@ export default function RequestQuotePage() {
             </div>
 
             {/* Form */}
-            <div className="lg:col-span-2">
-              <form className="space-y-6" noValidate>
-                {/* Contact info */}
-                <fieldset>
-                  <legend className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-lg mb-4 pb-2 border-b border-[#DDE3EE] w-full">
-                    Your Information
-                  </legend>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="quote-name" className="block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-1.5">
-                        Full Name <span className="text-[#B2081B]" aria-hidden="true">*</span>
-                      </label>
-                      <input
-                        id="quote-name"
-                        name="name"
-                        type="text"
-                        required
-                        autoComplete="name"
-                        className="w-full px-4 py-3 border border-[#DDE3EE] font-['Barlow'] text-[#071E55] text-sm focus:outline-none focus:border-[#1265B7] focus:ring-1 focus:ring-[#1265B7] bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="quote-company" className="block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-1.5">
-                        Company
-                      </label>
-                      <input
-                        id="quote-company"
-                        name="company"
-                        type="text"
-                        autoComplete="organization"
-                        className="w-full px-4 py-3 border border-[#DDE3EE] font-['Barlow'] text-[#071E55] text-sm focus:outline-none focus:border-[#1265B7] focus:ring-1 focus:ring-[#1265B7] bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="quote-email" className="block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-1.5">
-                        Email <span className="text-[#B2081B]" aria-hidden="true">*</span>
-                      </label>
-                      <input
-                        id="quote-email"
-                        name="email"
-                        type="email"
-                        required
-                        autoComplete="email"
-                        className="w-full px-4 py-3 border border-[#DDE3EE] font-['Barlow'] text-[#071E55] text-sm focus:outline-none focus:border-[#1265B7] focus:ring-1 focus:ring-[#1265B7] bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="quote-phone" className="block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-1.5">
-                        Phone
-                      </label>
-                      <input
-                        id="quote-phone"
-                        name="phone"
-                        type="tel"
-                        autoComplete="tel"
-                        className="w-full px-4 py-3 border border-[#DDE3EE] font-['Barlow'] text-[#071E55] text-sm focus:outline-none focus:border-[#1265B7] focus:ring-1 focus:ring-[#1265B7] bg-white"
-                      />
-                    </div>
-                  </div>
-                </fieldset>
-
-                {/* Project details */}
-                <fieldset>
-                  <legend className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-lg mb-4 pb-2 border-b border-[#DDE3EE] w-full">
-                    Project Details
-                  </legend>
-
-                  <div className="space-y-5">
-                    <div>
-                      <fieldset>
-                        <legend className="block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-2">
-                          Project Type <span className="text-[#B2081B]" aria-hidden="true">*</span>
-                        </legend>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                          {projectTypes.map((type) => (
-                            <label key={type} className="flex items-center gap-2.5 cursor-pointer group">
-                              <input
-                                type="radio"
-                                name="projectType"
-                                value={type}
-                                className="w-4 h-4 accent-[#B2081B]"
-                              />
-                              <span className="font-['Barlow'] text-sm text-slate-700 group-hover:text-[#071E55]">
-                                {type}
-                              </span>
-                            </label>
-                          ))}
-                        </div>
-                      </fieldset>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <div>
-                        <label htmlFor="quote-location" className="block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-1.5">
-                          Project Location
-                        </label>
-                        <input
-                          id="quote-location"
-                          name="location"
-                          type="text"
-                          className="w-full px-4 py-3 border border-[#DDE3EE] font-['Barlow'] text-[#071E55] text-sm focus:outline-none focus:border-[#1265B7] focus:ring-1 focus:ring-[#1265B7] bg-white"
-                          placeholder="City, State"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="quote-date" className="block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-1.5">
-                          Desired Date / Timeline
-                        </label>
-                        <input
-                          id="quote-date"
-                          name="date"
-                          type="text"
-                          className="w-full px-4 py-3 border border-[#DDE3EE] font-['Barlow'] text-[#071E55] text-sm focus:outline-none focus:border-[#1265B7] focus:ring-1 focus:ring-[#1265B7] bg-white"
-                          placeholder="e.g. March 2026 or ASAP"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="quote-description" className="block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-1.5">
-                        Project Description <span className="text-[#B2081B]" aria-hidden="true">*</span>
-                      </label>
-                      <textarea
-                        id="quote-description"
-                        name="description"
-                        required
-                        rows={6}
-                        className="w-full px-4 py-3 border border-[#DDE3EE] font-['Barlow'] text-[#071E55] text-sm focus:outline-none focus:border-[#1265B7] focus:ring-1 focus:ring-[#1265B7] bg-white resize-y"
-                        placeholder="Describe your project: space details, current systems, what you'd like to achieve, approximate budget if known..."
-                      />
-                    </div>
-                  </div>
-                </fieldset>
-
-                <button
-                  type="submit"
-                  className="inline-flex items-center gap-2 bg-[#B2081B] text-white px-8 py-4 font-['Barlow'] font-bold uppercase tracking-wide text-base hover:bg-[#8e0615] transition-colors group"
-                >
-                  Submit Quote Request
-                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
-                </button>
-              </form>
+            <div className="lg:col-span-2 order-1 lg:order-2">
+              <Suspense fallback={<QuoteForm />}>
+                <QuoteFormWithParams />
+              </Suspense>
             </div>
           </div>
         </div>

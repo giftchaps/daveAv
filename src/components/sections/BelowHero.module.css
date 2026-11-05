@@ -47,6 +47,22 @@
 .serviceCard:hover .serviceArrow, .serviceCard:focus-visible .serviceArrow { opacity: 1; }
 .servicesWithTestimonial { display: grid; gap: 18px; }
 
+/* ── Phones only ── */
+@media(max-width: 639px) {
+  /* Give every client logo the same box so they read as an even row */
+  .clientLogos { grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px 14px; }
+  .clientLogo > div { width: 100% !important; height: 44px !important; }
+  /* Bigger, easier-to-read service tiles */
+  .serviceCard { min-height: 168px; }
+  .serviceContent { padding: 12px 14px; }
+  .serviceTitle { font-size: 15px; }
+  .serviceArrow { opacity: 1; }
+}
+/* An odd last service card spans the full row instead of sitting alone */
+@media(max-width: 1023px) {
+  .serviceCard:last-child:nth-child(odd) { grid-column: 1 / -1; min-height: 150px; }
+}
+
 /* ── Tablet ── */
 @media(min-width: 640px) {
   .trustSection { padding: 0 24px; }
@@ -76,7 +92,9 @@
   .statLabel { font-size: 12px; }
   .clientsSection { padding: 32px 0 28px; }
   .clientsInner { gap: 48px; }
-  .clientLogos { display: flex; flex-wrap: nowrap; gap: 36px; justify-content: flex-start; }
+  /* Let the logo row shrink to fit instead of running off the right edge on laptops */
+  .clientLogos { display: flex; flex-wrap: nowrap; gap: clamp(16px, 2.4vw, 36px); justify-content: space-between; flex: 1; min-width: 0; }
+  .clientLogo { flex: 0 1 auto; min-width: 0; }
   .serviceGrid { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .serviceCard { min-height: 250px; }
   .serviceTitle { font-size: 17px; }

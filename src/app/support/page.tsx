@@ -14,8 +14,8 @@ const actions = [
   {
     icon: Wrench,
     title: "Request Service",
-    description: "Submit a service request for an existing AV system. We&apos;ll respond promptly.",
-    href: "/request-quote",
+    description: "Submit a service request for an existing AV system. We'll respond promptly.",
+    href: "/request-quote?type=service-support",
     cta: "Request Service",
     color: "bg-[#071E55] text-white border-[#B2081B]",
     iconColor: "text-white",
@@ -23,7 +23,7 @@ const actions = [
   {
     icon: HelpCircle,
     title: "Ask a Question",
-    description: "Have a question about AV? Not sure what you need? We&apos;re happy to help.",
+    description: "Have a question about AV? Not sure what you need? We're happy to help.",
     href: "/contact",
     cta: "Ask a Question",
     color: "bg-white text-[#071E55] border-[#071E55]",
@@ -32,8 +32,8 @@ const actions = [
   {
     icon: Calendar,
     title: "Event / Rental Inquiry",
-    description: "Planning an event? Tell us about your AV needs and we&apos;ll put together a proposal.",
-    href: "/request-quote",
+    description: "Planning an event? Tell us about your AV needs and we'll put together a proposal.",
+    href: "/request-quote?type=event-production",
     cta: "Inquire Now",
     color: "bg-[#1265B7] text-white border-[#071E55]",
     iconColor: "text-white",
@@ -51,7 +51,7 @@ const actions = [
   {
     icon: Mail,
     title: "Email Us",
-    description: "Send us a message and we&apos;ll get back to you promptly.",
+    description: "Send us a message and we'll get back to you promptly.",
     href: EMAIL_HREF,
     cta: EMAIL,
     color: "bg-[#F4F6FA] text-[#071E55] border-[#DDE3EE]",
@@ -87,7 +87,7 @@ export default function SupportPage() {
                   </div>
                   <p
                     className="font-['Barlow'] text-sm leading-relaxed mb-6 opacity-75 flex-1"
-                    dangerouslySetInnerHTML={{ __html: action.description.replace(/&apos;/g, "'") }}
+                    dangerouslySetInnerHTML={{ __html: action.description.replace(/'/g, "'") }}
                   />
                   <div className="font-['Barlow'] font-bold text-sm uppercase tracking-wide underline underline-offset-2">
                     {action.cta}

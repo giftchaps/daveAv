@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { X, Tag, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Promotion } from '@/lib/promotions';
@@ -11,6 +11,8 @@ const COLOR_MAP = {
   blue: { bg: 'bg-[#1265B7]',    badge: 'bg-white/20 text-white',      text: 'text-white',      cta: 'bg-white text-[#1265B7] hover:bg-white/90' },
 } as const;
 
+const noopSubscribe = () => () => {};
+
 interface PromoBannerProps {
   promotions: Promotion[];
 }
@@ -18,21 +20,31 @@ interface PromoBannerProps {
 export function PromoBanner({ promotions }: PromoBannerProps) {
   const [current, setCurrent] = useState(0);
   const [dismissed, setDismissed] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const key = `promo-dismissed-${promotions.map((p) => p.id).join(',')}`;
 
-  useEffect(() => {
-    setMounted(true);
-    // Respect per-session dismissal stored in sessionStorage
-    const key = `promo-dismissed-${promotions.map((p) => p.id).join(',')}`;
-    if (sessionStorage.getItem(key) === '1') setDismissed(true);
-  }, [promotions]);
+  // Read the per-session dismissal from sessionStorage. On the server (and during
+  // hydration) this returns 'server', so the banner only appears in the browser.
+  const stored = useSyncExternalStore(
+    noopSubscribe,
+    () => {
+      try {
+        return sessionStorage.getItem(key) === '1' ? 'dismissed' : 'show';
+      } catch {
+        return 'show';
+      }
+    },
+    () => 'server',
+  );
 
-  if (!mounted || dismissed || promotions.length === 0) return null;
+  if (stored !== 'show' || dismissed || promotions.length === 0) return null;
 
   const dismiss = () => {
     setDismissed(true);
-    const key = `promo-dismissed-${promotions.map((p) => p.id).join(',')}`;
-    sessionStorage.setItem(key, '1');
+    try {
+      sessionStorage.setItem(key, '1');
+    } catch {
+      // storage unavailable (private mode); dismissal lasts for this page view
+    }
   };
 
   const prev = () => setCurrent((c) => (c - 1 + promotions.length) % promotions.length);
@@ -51,7 +63,7 @@ export function PromoBanner({ promotions }: PromoBannerProps) {
       <div className="absolute inset-x-0 bottom-0 h-px bg-white/15" aria-hidden="true" />
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-3 py-2.5 min-h-[42px]">
+        <div className="flex items-center justify-between gap-2 sm:gap-3 py-2 sm:py-2.5 min-h-[42px]">
 
           {/* Left: multi-promo prev arrow */}
           {promotions.length > 1 && (
@@ -65,23 +77,30 @@ export function PromoBanner({ promotions }: PromoBannerProps) {
           )}
 
           {/* Center content */}
-          <div className="flex flex-1 items-center justify-center gap-2.5 flex-wrap min-w-0">
+          <div className="flex flex-1 items-center justify-between sm:justify-center gap-2.5 sm:flex-wrap min-w-0">
             {/* Badge */}
-            <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-[10px] font-['Barlow'] font-bold uppercase tracking-widest flex-shrink-0 ${colors.badge}`}>
+            <span className={`hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-[10px] font-['Barlow'] font-bold uppercase tracking-widest flex-shrink-0 ${colors.badge}`}>
               <Tag size={9} aria-hidden="true" />
               {promo.label}
             </span>
 
             {/* Headline */}
-            <p className={`font-['Barlow'] text-sm font-medium ${colors.text} text-center leading-tight`}>
-              {promo.headline}
+            <p className={`font-['Barlow'] text-[13px] sm:text-sm font-medium ${colors.text} text-left sm:text-center leading-tight`}>
+              {promo.shortHeadline ? (
+                <>
+                  <span className="sm:hidden">{promo.shortHeadline}</span>
+                  <span className="hidden sm:inline">{promo.headline}</span>
+                </>
+              ) : (
+                promo.headline
+              )}
             </p>
 
             {/* CTA */}
             {promo.cta && (
               <Link
                 href={promo.cta.href}
-                className={`inline-flex items-center gap-1 px-3 py-1 text-xs font-['Barlow'] font-bold uppercase tracking-wide rounded-sm transition-colors flex-shrink-0 ${colors.cta}`}
+                className={`inline-flex items-center gap-1 px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs whitespace-nowrap font-['Barlow'] font-bold uppercase tracking-wide rounded-sm transition-colors flex-shrink-0 ${colors.cta}`}
               >
                 {promo.cta.text}
                 <ArrowRight size={11} aria-hidden="true" />

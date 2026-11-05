@@ -77,10 +77,27 @@ function PostCard({ post }: { post: FacebookPost }) {
 
 function EmptyState() {
   return (
-    <div className="col-span-full flex flex-col items-center justify-center py-16 text-slate-400">
-      <FbIcon size={40} className="mb-4 opacity-40" />
-      <p className="font-['Barlow'] text-base text-center">Follow us on Facebook to see Davey&apos;s latest jobs — posts will appear here once connected.</p>
-    </div>
+    <a
+      href="https://www.facebook.com/avdavey"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="col-span-full group flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 bg-white border border-[#DDE3EE] border-l-4 border-l-[#1877F2] p-5 sm:p-6 hover:border-[#1877F2]/50 transition-colors"
+    >
+      <span className="flex items-center justify-center w-12 h-12 rounded-full bg-[#1877F2] text-white flex-shrink-0">
+        <FbIcon size={22} />
+      </span>
+      <span className="flex-1">
+        <span className="block font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-xl leading-tight">
+          See Davey&apos;s latest jobs on Facebook
+        </span>
+        <span className="block font-['Barlow'] text-slate-600 text-sm mt-1">
+          Photos and stories from recent galas, conferences, installs and stage builds across Connecticut.
+        </span>
+      </span>
+      <span className="inline-flex items-center gap-2 self-start sm:self-center bg-[#1877F2] text-white px-5 py-2.5 font-['Barlow'] font-bold uppercase tracking-wide text-sm group-hover:bg-[#0f5fd0] transition-colors">
+        Visit our page <ExternalLink size={13} aria-hidden="true" />
+      </span>
+    </a>
   );
 }
 
