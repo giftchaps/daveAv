@@ -11,7 +11,7 @@ const projects = [
     location: 'Ethan Allen Hotel, Danbury, CT',
     summary:
       '2.5 days of meetings streamed internationally, with dual projection, sound and every room audio recorded across two ballroom events and four breakouts.',
-    image: '/images/projects/nuvance-global-health.jpg',
+    image: '/images/projects/nuvance-global-health-hd.jpg',
     alt: 'A/V DAVEY control table with switching console overlooking the Nuvance Health conference ballroom',
     href: '/projects',
   },
@@ -22,7 +22,7 @@ const projects = [
     location: 'New London, CT',
     summary:
       'Architectural uplighting and follow spots to capture the feel of the theater\'s 1926 opening night.',
-    image: '/images/projects/garde-arts-theater.jpg',
+    image: '/images/projects/garde-arts-theater-hd.jpg',
     alt: 'Garde Arts Theater facade lit with architectural uplighting at night',
     href: '/projects',
   },
@@ -33,7 +33,7 @@ const projects = [
     location: 'Bridgeport, CT',
     summary:
       'Sound, video cues and a press feed for the ribbon cutting that launched this new Bridgeport complex.',
-    image: '/images/projects/the-august-ribbon-cutting.jpg',
+    image: '/images/projects/the-august-ribbon-cutting-hd.jpg',
     alt: 'Digital mixer and video laptop running The August ribbon cutting in Bridgeport',
     href: '/projects',
   },

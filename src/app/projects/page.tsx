@@ -19,7 +19,7 @@ const projects = [
     location: "Ethan Allen Hotel, Danbury, CT",
     summary:
       "2.5 days of meetings streamed internationally, with every room audio recorded. Dual projection, sound and a console to switch any source to either screen across two ballroom events and four breakout sessions.",
-    image: "/images/projects/nuvance-global-health.jpg",
+    image: "/images/projects/nuvance-global-health-hd.jpg",
     alt: "A/V DAVEY control table with switching console overlooking the Nuvance Health conference ballroom",
   },
   {
@@ -29,7 +29,7 @@ const projects = [
     location: "New London, CT",
     summary:
       "Architectural uplighting and follow spots to capture the feel of opening night when the theater first opened its doors in 1926.",
-    image: "/images/projects/garde-arts-theater.jpg",
+    image: "/images/projects/garde-arts-theater-hd.jpg",
     alt: "Garde Arts Theater facade lit with architectural uplighting at night",
   },
   {
@@ -39,7 +39,7 @@ const projects = [
     location: "Bridgeport, CT",
     summary:
       "Sound, video cues and a press feed in the lobby for the ribbon cutting that launched this new Bridgeport residential complex, with a series of speeches from local officials.",
-    image: "/images/projects/the-august-ribbon-cutting.jpg",
+    image: "/images/projects/the-august-ribbon-cutting-hd.jpg",
     alt: "Digital mixer and video laptop running The August ribbon cutting in Bridgeport",
   },
   {
@@ -49,7 +49,7 @@ const projects = [
     location: "Ethan Allen Hotel, Danbury, CT",
     summary:
       "Our fourth year with Belimo: a full-range sound system, a draped wall with two 7' x 12' screens and 8,500-lumen projectors, two digital consoles, three breakout rooms and power for 21 trade show tables.",
-    image: "/images/projects/belimo-ethan-allen.jpg",
+    image: "/images/projects/belimo-ethan-allen-hd.jpg",
     alt: "Belimo meeting in the Ethan Allen Hotel ballroom with twin projection screens",
   },
   {
@@ -59,7 +59,7 @@ const projects = [
     location: "Hotel Zero, Danbury, CT",
     summary:
       "When a snowstorm cancelled attendees' flights, we set up ahead of the storm, moved the meeting a day and added an interactive Zoom stream so key people could join the conversation remotely.",
-    image: "/images/projects/global-jet-all-hands.jpg",
+    image: "/images/projects/global-jet-all-hands-hd.jpg",
     alt: "Presenter on stage between two projection screens at the Global Jet all-hands meeting",
   },
   {
@@ -69,7 +69,7 @@ const projects = [
     location: "Wyndham Southbury, Southbury, CT",
     summary:
       "Another year of sound and visuals for the bank's employee meeting, upgraded to 10' wide screens and 8,500-lumen projectors, plus a choir mic setup for a performance by five audience members.",
-    image: "/images/projects/newtown-savings-bank.jpg",
+    image: "/images/projects/newtown-savings-bank-hd.jpg",
     alt: "Carolers performing at the Newtown Savings Bank annual meeting with large screens on either side",
   },
 ];
