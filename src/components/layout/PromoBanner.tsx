@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { X, Tag, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Promotion } from '@/lib/promotions';
@@ -11,6 +11,8 @@ const COLOR_MAP = {
   blue: { bg: 'bg-[#1265B7]',    badge: 'bg-white/20 text-white',      text: 'text-white',      cta: 'bg-white text-[#1265B7] hover:bg-white/90' },
 } as const;
 
+const noopSubscribe = () => () => {};
+
 interface PromoBannerProps {
   promotions: Promotion[];
 }
@@ -18,21 +20,31 @@ interface PromoBannerProps {
 export function PromoBanner({ promotions }: PromoBannerProps) {
   const [current, setCurrent] = useState(0);
   const [dismissed, setDismissed] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const key = `promo-dismissed-${promotions.map((p) => p.id).join(',')}`;
 
-  useEffect(() => {
-    setMounted(true);
-    // Respect per-session dismissal stored in sessionStorage
-    const key = `promo-dismissed-${promotions.map((p) => p.id).join(',')}`;
-    if (sessionStorage.getItem(key) === '1') setDismissed(true);
-  }, [promotions]);
+  // Read the per-session dismissal from sessionStorage. On the server (and during
+  // hydration) this returns 'server', so the banner only appears in the browser.
+  const stored = useSyncExternalStore(
+    noopSubscribe,
+    () => {
+      try {
+        return sessionStorage.getItem(key) === '1' ? 'dismissed' : 'show';
+      } catch {
+        return 'show';
+      }
+    },
+    () => 'server',
+  );
 
-  if (!mounted || dismissed || promotions.length === 0) return null;
+  if (stored !== 'show' || dismissed || promotions.length === 0) return null;
 
   const dismiss = () => {
     setDismissed(true);
-    const key = `promo-dismissed-${promotions.map((p) => p.id).join(',')}`;
-    sessionStorage.setItem(key, '1');
+    try {
+      sessionStorage.setItem(key, '1');
+    } catch {
+      // storage unavailable (private mode); dismissal lasts for this page view
+    }
   };
 
   const prev = () => setCurrent((c) => (c - 1 + promotions.length) % promotions.length);

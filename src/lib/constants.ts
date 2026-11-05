@@ -6,6 +6,24 @@ export const EMAIL = 'davey@avdavey.com';
 export const EMAIL_HREF = 'mailto:davey@avdavey.com';
 export const LOCATION = 'Bridgeport, CT';
 export const FOUNDED = '1989';
+export const FACEBOOK_URL = 'https://www.facebook.com/avdavey';
+
+// Public URL of the production site. Set NEXT_PUBLIC_SITE_URL in Vercel once the
+// domain is connected; it is used for SEO tags, the sitemap and email images.
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://avdavey.com').replace(/\/+$/, '');
+
+// Brand palette (matches the site's Tailwind colors)
+export const BRAND = {
+  navy: '#071E55',
+  navyLight: '#0D2A6E',
+  red: '#B2081B',
+  redDark: '#8E0615',
+  blue: '#1265B7',
+  sky: '#B9DDFF',
+  mist: '#F4F6FA',
+  line: '#DDE3EE',
+  slate: '#475569',
+} as const;
 
 export const NAV_ITEMS = [
   { label: 'Home', href: '/' },

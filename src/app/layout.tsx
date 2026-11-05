@@ -4,8 +4,11 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { PromoBanner } from "@/components/layout/PromoBanner";
 import { getActivePromotions } from "@/lib/promotions";
+import { EMAIL, FACEBOOK_URL, PHONE, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  applicationName: "A/V DAVEY",
   title: {
     default: "A/V DAVEY | Professional Audio Visual Solutions | Connecticut",
     template: "%s | A/V DAVEY",
@@ -26,6 +29,39 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "A/V DAVEY",
   },
+  twitter: {
+    card: "summary_large_image",
+  },
+  formatDetection: {
+    telephone: false,
+  },
+};
+
+// Structured data so search engines understand who A/V DAVEY is and where it works.
+const businessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${SITE_URL}/#business`,
+  name: "A/V DAVEY",
+  description:
+    "Connecticut audio visual company since 1989: AV installation and integration, live event production and staging, service and support, video production and streaming, and equipment sales.",
+  url: SITE_URL,
+  logo: `${SITE_URL}/images/logo-avdavey.png`,
+  image: `${SITE_URL}/opengraph-image.jpg`,
+  telephone: PHONE,
+  email: EMAIL,
+  foundingDate: "1989",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bridgeport",
+    addressRegion: "CT",
+    addressCountry: "US",
+  },
+  areaServed: [
+    { "@type": "State", name: "Connecticut" },
+    { "@type": "Place", name: "New York Tri-State Area" },
+  ],
+  sameAs: [FACEBOOK_URL],
 };
 
 export default function RootLayout({
@@ -46,6 +82,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd).replace(/</g, "\\u003c") }}
+        />
         <PromoBanner promotions={activePromotions} />
         <SiteHeader />
         <main className="flex-1">{children}</main>

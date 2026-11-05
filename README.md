@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# A/V DAVEY website
 
-## Getting Started
+The website for A/V DAVEY, Connecticut's audio visual partner since 1989. Built with Next.js (App Router), React and Tailwind CSS, and deployed on Vercel.
 
-First, run the development server:
+## Run it locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # then fill in the values
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Development server with hot reload |
+| `npm run build` | Production build (run before pushing big changes) |
+| `npm run start` | Serve the production build locally |
+| `npm run lint` | Lint the code |
+| `npm run email:preview` | Render every form email with sample data into `email-previews/` |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All settings live in environment variables. See [`.env.example`](.env.example) for the full list with notes. In Vercel, add them under **Project → Settings → Environment Variables**, then redeploy.
 
-## Learn More
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Yes | Live URL, e.g. `https://avdavey.com`. Used for SEO tags, the sitemap and email images. |
+| `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE` | Yes | SMTP server for the contact and quote forms |
+| `SMTP_USER`, `SMTP_PASS` | Yes | SMTP login (use an app password where the provider supports it) |
+| `MAIL_FROM` | Recommended | Sender shown on emails, e.g. `A/V DAVEY Website <website@avdavey.com>` |
+| `MAIL_TO` | Recommended | Inbox that receives submissions (defaults to `davey@avdavey.com`) |
+| `MAIL_BCC` | No | Hidden copy of every submission |
+| `MAIL_SEND_CONFIRMATION` | No | `false` turns off the customer confirmation email |
+| `FACEBOOK_PAGE_ID`, `FACEBOOK_PAGE_ACCESS_TOKEN` | No | Homepage Facebook feed |
 
-To learn more about Next.js, take a look at the following resources:
+Without the SMTP variables the forms show a friendly "temporarily unavailable, please call" message instead of failing silently.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How the forms work
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/components/forms/` holds the Contact and Request a Quote forms (client components).
+- They post to `src/app/api/contact/route.ts`, which validates the input again on the server, filters spam (hidden honeypot field, minimum fill time, same-origin check, per-IP rate limit), and sends two emails with Nodemailer:
+  1. a notification to `MAIL_TO`, with **Reply-To set to the customer** so Davey can simply hit reply;
+  2. a branded confirmation to the customer.
+- Email templates are in `src/lib/email/templates.ts` (inline-styled HTML plus plain text, in the brand colors). Run `npm run email:preview` after editing them.
+- Links can pre-fill the quote form: `/request-quote?type=service-support` selects a project type (slugs are in `src/lib/forms.ts`), and `?promo=ngo` attaches an active promotion.
 
-## Deploy on Vercel
+## Common edits
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| To change | Edit |
+| --- | --- |
+| Phone, email, location, brand colors | `src/lib/constants.ts` |
+| Promotion banner offers | `src/lib/promotions.ts` (set `active: false` or an `expiresAt` date) |
+| Projects | `src/app/projects/page.tsx` and `src/components/sections/FeaturedProjects.tsx`; photos go in `public/images/projects/` |
+| Team | `src/app/team/page.tsx` |
+| Privacy policy / terms | `src/app/privacy-policy/page.tsx`, `src/app/terms-of-service/page.tsx` |
+| Share image, favicon | `src/app/opengraph-image.jpg`, `src/app/twitter-image.jpg`, `src/app/icon.png`, `src/app/favicon.ico` |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+When you replace an image, give the new file a new name so browsers and Vercel's image cache don't keep showing the old one.
+
+## SEO
+
+- `src/app/sitemap.ts` → `/sitemap.xml`; `src/app/robots.ts` → `/robots.txt` (preview deployments are kept out of search engines).
+- Business details for Google are in the JSON-LD block in `src/app/layout.tsx`.
+- After launch, submit `https://<domain>/sitemap.xml` in Google Search Console and claim the Google Business Profile.

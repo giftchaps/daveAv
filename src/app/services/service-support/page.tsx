@@ -52,7 +52,7 @@ export default function ServiceSupportPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <Link
-              href="/request-quote"
+              href="/request-quote?type=service-support"
               className="group flex flex-col items-center text-center p-8 bg-[#071E55] text-white hover:bg-[#0d2a6e] transition-colors border-b-4 border-[#B2081B]"
             >
               <Wrench size={36} className="mb-4 group-hover:scale-110 transition-transform" aria-hidden="true" />

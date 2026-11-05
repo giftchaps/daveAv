@@ -40,3 +40,9 @@ export function getActivePromotions(): Promotion[] {
     return true;
   });
 }
+
+/** Finds the promotion whose call-to-action link carries ?promo=<code>. */
+export function getPromotionByCode(code: string): Promotion | undefined {
+  if (!code) return undefined;
+  return PROMOTIONS.find((p) => new URLSearchParams(p.cta?.href.split('?')[1] ?? '').get('promo') === code);
+}

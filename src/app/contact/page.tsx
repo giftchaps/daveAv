@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
+import { ContactForm } from "@/components/forms/ContactForm";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, LOCATION } from "@/lib/constants";
 
@@ -85,90 +86,7 @@ export default function ContactPage() {
                   Send a Message
                 </span>
               </div>
-
-              <form className="space-y-5" noValidate>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="contact-name" className="block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-1.5">
-                      Full Name <span className="text-[#B2081B]" aria-hidden="true">*</span>
-                    </label>
-                    <input
-                      id="contact-name"
-                      name="name"
-                      type="text"
-                      required
-                      autoComplete="name"
-                      className="w-full px-4 py-3 border border-[#DDE3EE] font-['Barlow'] text-[#071E55] text-sm focus:outline-none focus:border-[#1265B7] focus:ring-1 focus:ring-[#1265B7] bg-white"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="contact-company" className="block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-1.5">
-                      Company
-                    </label>
-                    <input
-                      id="contact-company"
-                      name="company"
-                      type="text"
-                      autoComplete="organization"
-                      className="w-full px-4 py-3 border border-[#DDE3EE] font-['Barlow'] text-[#071E55] text-sm focus:outline-none focus:border-[#1265B7] focus:ring-1 focus:ring-[#1265B7] bg-white"
-                      placeholder="Company name"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="contact-email" className="block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-1.5">
-                      Email <span className="text-[#B2081B]" aria-hidden="true">*</span>
-                    </label>
-                    <input
-                      id="contact-email"
-                      name="email"
-                      type="email"
-                      required
-                      autoComplete="email"
-                      className="w-full px-4 py-3 border border-[#DDE3EE] font-['Barlow'] text-[#071E55] text-sm focus:outline-none focus:border-[#1265B7] focus:ring-1 focus:ring-[#1265B7] bg-white"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="contact-phone" className="block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-1.5">
-                      Phone
-                    </label>
-                    <input
-                      id="contact-phone"
-                      name="phone"
-                      type="tel"
-                      autoComplete="tel"
-                      className="w-full px-4 py-3 border border-[#DDE3EE] font-['Barlow'] text-[#071E55] text-sm focus:outline-none focus:border-[#1265B7] focus:ring-1 focus:ring-[#1265B7] bg-white"
-                      placeholder="(203) 000-0000"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="contact-message" className="block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-1.5">
-                    Message <span className="text-[#B2081B]" aria-hidden="true">*</span>
-                  </label>
-                  <textarea
-                    id="contact-message"
-                    name="message"
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 border border-[#DDE3EE] font-['Barlow'] text-[#071E55] text-sm focus:outline-none focus:border-[#1265B7] focus:ring-1 focus:ring-[#1265B7] bg-white resize-y"
-                    placeholder="Tell us about your project or question..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="inline-flex items-center gap-2 bg-[#B2081B] text-white px-8 py-3.5 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors group"
-                >
-                  Send Message
-                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </div>
