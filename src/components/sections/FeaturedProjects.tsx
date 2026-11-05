@@ -33,8 +33,8 @@ const projects = [
     location: 'Bridgeport, CT',
     summary:
       'Sound, video cues and a press feed for the ribbon cutting that launched this new Bridgeport complex.',
-    image: '/images/projects/the-august-ribbon-cutting-hd.jpg',
-    alt: 'Digital mixer and video laptop running The August ribbon cutting in Bridgeport',
+    image: '/images/projects/the-august-console.jpg',
+    alt: 'Video switcher, mixer and laptop running The August ribbon cutting in Bridgeport',
     href: '/projects',
   },
 ];
