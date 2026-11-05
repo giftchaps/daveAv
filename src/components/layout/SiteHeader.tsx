@@ -1,6 +1,7 @@
 ﻿'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, ArrowRight, Phone } from 'lucide-react';
@@ -162,9 +163,11 @@ export function SiteHeader() {
           </div>
         </div>
 
-        {/* Mobile Nav Drawer */}
-        {mobileOpen && (
-          <div className="lg:hidden fixed inset-0 top-0 z-40">
+        {/* Mobile Nav Drawer — rendered into <body> through a portal. Inside the header it
+            broke once the page was scrolled: the scrolled header's backdrop blur makes it
+            the containing block for fixed children, so the drawer shrank to the header's height. */}
+        {mobileOpen && createPortal(
+          <div className="lg:hidden fixed inset-0 z-[60]" role="dialog" aria-modal="true" aria-label="Site menu">
             {/* Backdrop */}
             <div
               className="absolute inset-0 bg-black/50"
@@ -256,7 +259,8 @@ export function SiteHeader() {
                 </a>
               </div>
             </div>
-          </div>
+          </div>,
+          document.body,
         )}
       </header>
     </>
