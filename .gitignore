@@ -53,3 +53,6 @@ next-env.d.ts
 
 # local email template previews
 /email-previews/
+
+# test screenshots
+/undefined-*.png
