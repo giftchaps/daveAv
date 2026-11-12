@@ -18,7 +18,7 @@ const actions = [
     description: "Submit a service request for an existing AV system. We'll respond promptly.",
     href: "/request-quote?type=service-support",
     cta: "Request Service",
-    color: "bg-[#071E55] text-white border-[#B2081B]",
+    color: "bg-[#071E55] text-white border-[#071E55]",
     iconColor: "text-white",
   },
   {
@@ -27,7 +27,7 @@ const actions = [
     description: "Have a question about AV? Not sure what you need? We're happy to help.",
     href: "/contact",
     cta: "Ask a Question",
-    color: "bg-white text-[#071E55] border-[#071E55]",
+    color: "bg-white text-[#071E55] border-slate-200/80",
     iconColor: "text-[#1265B7]",
   },
   {
@@ -36,7 +36,7 @@ const actions = [
     description: "Planning an event? Tell us about your AV needs and we'll put together a proposal.",
     href: "/request-quote?type=event-production",
     cta: "Inquire Now",
-    color: "bg-[#1265B7] text-white border-[#071E55]",
+    color: "bg-[#1265B7] text-white border-[#1265B7]",
     iconColor: "text-white",
   },
   {
@@ -45,7 +45,7 @@ const actions = [
     description: "Prefer to talk? Call us directly and speak with someone who knows AV.",
     href: PHONE_HREF,
     cta: PHONE,
-    color: "bg-[#B2081B] text-white border-[#8e0615]",
+    color: "bg-[#B2081B] text-white border-[#B2081B]",
     iconColor: "text-white",
     external: true,
   },
@@ -55,7 +55,7 @@ const actions = [
     description: "Send us a message and we'll get back to you promptly.",
     href: EMAIL_HREF,
     cta: EMAIL,
-    color: "bg-[#F4F6FA] text-[#071E55] border-[#DDE3EE]",
+    color: "bg-[#F4F6FA] text-[#071E55] border-slate-200/80",
     iconColor: "text-[#1265B7]",
     external: true,
   },
@@ -97,7 +97,7 @@ export default function SupportPage() {
                 </>
               );
 
-              const classes = `flex flex-col p-7 border-b-4 ${action.color} hover:opacity-90 transition-opacity min-h-[220px]`;
+              const classes = `group flex flex-col p-7 rounded-2xl border ${action.color} shadow-[0_1px_2px_rgba(7,30,85,0.04),0_10px_30px_-18px_rgba(7,30,85,0.25)] hover:-translate-y-1 hover:shadow-[0_22px_44px_-20px_rgba(7,30,85,0.35)] transition-all duration-300 min-h-[220px]`;
 
               if (action.external) {
                 return (

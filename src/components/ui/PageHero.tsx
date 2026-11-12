@@ -17,6 +17,8 @@ interface PageHeroProps {
   variant?: 'default' | 'navy' | 'blue';
   /** Optional background photo. It fills the header and fades into navy behind the text. */
   image?: { src: StaticImageData | string; position?: string };
+  /** Extra room at the bottom for a card that overlaps the header. */
+  overlap?: boolean;
 }
 
 export function PageHero({
@@ -27,6 +29,7 @@ export function PageHero({
   breadcrumbs,
   variant = 'default',
   image,
+  overlap = false,
 }: PageHeroProps) {
   const bg = {
     default: 'bg-[#F4F6FA] border-b border-[#DDE3EE]',
@@ -44,7 +47,7 @@ export function PageHero({
 
   return (
     <section
-      className={`${image ? 'bg-[#071E55]' : bg} relative overflow-hidden ${image ? 'py-16 lg:py-28' : 'py-14 lg:py-20'}`}
+      className={`${image ? 'bg-[#071E55]' : bg} relative overflow-hidden ${image ? (overlap ? 'pt-16 pb-24 lg:pt-28 lg:pb-40' : 'py-16 lg:py-28') : 'py-14 lg:py-20'}`}
       aria-label="Page header"
     >
       {image && (

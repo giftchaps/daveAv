@@ -72,14 +72,22 @@ export function formValues(form: HTMLFormElement): Record<string, string> {
   const data = new FormData(form);
   const out: Record<string, string> = {};
   data.forEach((v, k) => {
-    if (typeof v === 'string') out[k] = v;
+    if (typeof v !== 'string') return;
+    // Several checkboxes can share a name (e.g. project types): join them.
+    out[k] = k in out ? `${out[k]}, ${v}` : v;
   });
   return out;
 }
 
 export const inputClass = (hasError: boolean) =>
-  `w-full px-4 py-3 border font-['Barlow'] text-[#071E55] text-base sm:text-sm focus:outline-none focus:ring-1 bg-white ${
+  `w-full h-12 px-4 rounded-lg border font-['Barlow'] text-[#071E55] text-base placeholder:text-slate-400 bg-slate-50/70 hover:bg-white focus:bg-white transition-[border-color,box-shadow,background-color] duration-150 focus:outline-none focus:ring-4 ${
     hasError
-      ? 'border-[#B2081B] focus:border-[#B2081B] focus:ring-[#B2081B]'
-      : 'border-[#DDE3EE] focus:border-[#1265B7] focus:ring-[#1265B7]'
+      ? 'border-[#B2081B] focus:border-[#B2081B] focus:ring-[#B2081B]/15'
+      : 'border-slate-200 hover:border-slate-300 focus:border-[#1265B7] focus:ring-[#1265B7]/15'
   }`;
+
+/** Same as inputClass, for multi-line fields (no fixed height). */
+export const textareaClass = (hasError: boolean) =>
+  inputClass(hasError).replace('h-12 ', '') + ' py-3 min-h-[150px] resize-y leading-relaxed';
+
+export const labelClass = "block font-['Barlow'] font-semibold text-[14px] text-[#071E55] mb-2";

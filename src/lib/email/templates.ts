@@ -202,7 +202,7 @@ function submissionRows(s: Submission, forTeam: boolean): [string, string][] {
   ];
   if (s.formType === 'quote') {
     rows.push(
-      ['Project type', esc(s.projectType)],
+      [s.projectType.includes(',') ? 'Project types' : 'Project type', esc(s.projectType)],
       ['Location', esc(s.location)],
       ['Timeline', esc(s.date)],
       ['Promotion', promoLabel(s.promo)],
@@ -211,13 +211,24 @@ function submissionRows(s: Submission, forTeam: boolean): [string, string][] {
   return rows;
 }
 
+/** "Installation & Integration, Video Production" -> "installation & integration and video production". */
+function projectList(types: string): string {
+  const items = types
+    .split(',')
+    .map((t) => t.trim().toLowerCase())
+    .filter(Boolean)
+    .map((t) => (t === 'other' ? 'other AV work' : t));
+  if (items.length <= 1) return items[0] ?? 'AV services';
+  return `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`;
+}
+
 function textBlock(s: Submission): string {
   const lines: string[] = [`Name: ${s.name}`];
   if (s.company) lines.push(`Company: ${s.company}`);
   lines.push(`Email: ${s.email}`);
   if (s.phone) lines.push(`Phone: ${s.phone}`);
   if (s.formType === 'quote') {
-    lines.push(`Project type: ${s.projectType}`);
+    lines.push(`${s.projectType.includes(',') ? 'Project types' : 'Project type'}: ${s.projectType}`);
     if (s.location) lines.push(`Location: ${s.location}`);
     if (s.date) lines.push(`Timeline: ${s.date}`);
     if (s.promo) lines.push(`Promotion: ${s.promo}`);
@@ -239,7 +250,7 @@ export function teamNotification(s: Submission, submittedAt: Date): RenderedEmai
     : `New website message from ${who}`;
 
   const replySubject = encodeURIComponent(
-    isQuote ? `Re: Your ${s.projectType} quote request — A/V DAVEY` : 'Re: Your message to A/V DAVEY',
+    isQuote ? 'Re: Your quote request — A/V DAVEY' : 'Re: Your message to A/V DAVEY',
   );
   const buttons = [button(`mailto:${encodeURIComponent(s.email)}?subject=${replySubject}`, `Reply to ${esc(firstName(s.name))}`, 'red')];
   if (s.phone) buttons.push(button(telHref(s.phone), `Call ${esc(s.phone)}`, 'outline'));
@@ -318,7 +329,7 @@ export function customerConfirmation(s: Submission): RenderedEmail {
       isQuote ? 'Quote request received' : 'Message received',
       `Thanks, ${name}.<br>We've got it from here.`,
       isQuote
-        ? `Your ${esc(s.projectType.toLowerCase())} request is with Davey and the team. We typically respond within one business day, usually sooner.`
+        ? `Your request for ${esc(projectList(s.projectType))} is with Davey and the team. We typically respond within one business day, usually sooner.`
         : `Your message is with Davey and the team. We typically respond within one business day, usually sooner.`,
     ) +
     (isQuote ? stepsHtml : '') +
@@ -341,7 +352,7 @@ export function customerConfirmation(s: Submission): RenderedEmail {
     `Thanks, ${firstName(s.name)}. We've got it from here.`,
     '',
     isQuote
-      ? `Your ${s.projectType.toLowerCase()} request is with Davey and the team. We typically respond within one business day, usually sooner.`
+      ? `Your request for ${projectList(s.projectType)} is with Davey and the team. We typically respond within one business day, usually sooner.`
       : 'Your message is with Davey and the team. We typically respond within one business day, usually sooner.',
     '',
     ...(isQuote ? ['What happens next:', ...steps.map((st, i) => `  0${i + 1}  ${st}`), ''] : []),

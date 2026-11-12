@@ -32,7 +32,7 @@ export default function NotFound() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group flex items-center justify-between gap-3 border border-[#DDE3EE] border-b-4 border-b-[#071E55] hover:border-b-[#B2081B] p-5 transition-colors"
+                className="group flex items-center justify-between gap-3 rounded-xl bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(7,30,85,0.04),0_10px_30px_-18px_rgba(7,30,85,0.18)] hover:border-[#1265B7]/40 p-5 transition-colors"
               >
                 <span className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-lg">{link.label}</span>
                 <ArrowRight size={16} className="text-[#B2081B] transition-transform group-hover:translate-x-0.5" aria-hidden="true" />

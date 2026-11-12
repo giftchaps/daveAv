@@ -34,7 +34,7 @@ export default function EventProductionPage() {
       <section className="py-14 lg:py-20 bg-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <Image
                 src="https://images.unsplash.com/photo-1700514077430-3659e38eb5e7?auto=format&fit=crop&w=1600&q=80"
                 alt="Professional event production with lighting and staging"
@@ -86,7 +86,7 @@ export default function EventProductionPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {capabilities.map((cat) => (
-              <div key={cat.category} className="bg-white border border-[#DDE3EE] border-t-4 border-t-[#071E55] p-6 lg:p-7">
+              <div key={cat.category} className="rounded-2xl bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(7,30,85,0.04),0_10px_30px_-18px_rgba(7,30,85,0.18)] p-6 lg:p-7">
                 <h3 className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-2xl mb-4 pb-3 border-b border-[#DDE3EE]">
                   {cat.category}
                 </h3>

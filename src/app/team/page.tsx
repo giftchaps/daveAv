@@ -53,7 +53,7 @@ export default function TeamPage() {
             {team.map((member) => (
               <div key={member.name} className="flex flex-col">
                 {/* Photo */}
-                <div className="relative overflow-hidden bg-[#F4F6FA] aspect-[16/9] sm:aspect-[4/3]">
+                <div className="relative overflow-hidden rounded-t-2xl bg-[#F4F6FA] aspect-[16/9] sm:aspect-[4/3]">
                   <Image
                     src={member.image}
                     alt={member.alt}
@@ -64,7 +64,7 @@ export default function TeamPage() {
                 </div>
 
                 {/* Info */}
-                <div className="flex-1 bg-white border border-[#DDE3EE] border-t-4 border-t-[#071E55] p-6 lg:p-7">
+                <div className="flex-1 rounded-b-2xl bg-white border border-t-0 border-slate-200/80 shadow-[0_1px_2px_rgba(7,30,85,0.04),0_10px_30px_-18px_rgba(7,30,85,0.18)] p-6 lg:p-7">
                   <h3 className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-2xl lg:text-3xl leading-tight">
                     {member.name}
                   </h3>
@@ -78,7 +78,7 @@ export default function TeamPage() {
                     {member.specialties.map((spec) => (
                       <span
                         key={spec}
-                        className="font-['Barlow'] text-xs font-semibold uppercase tracking-wide bg-[#F4F6FA] text-[#071E55] px-3 py-1 border border-[#DDE3EE]"
+                        className="font-['Barlow'] text-xs font-semibold uppercase tracking-wide bg-[#F4F6FA] text-[#071E55] px-3 py-1 rounded-full border border-slate-200"
                       >
                         {spec}
                       </span>
@@ -89,14 +89,14 @@ export default function TeamPage() {
             ))}
 
             {/* Network */}
-            <div className="md:col-span-2 xl:col-span-1 relative overflow-hidden bg-[#071E55] text-white p-8 lg:p-10 flex flex-col">
+            <div className="md:col-span-2 xl:col-span-1 relative overflow-hidden rounded-2xl bg-[#071E55] text-white p-8 lg:p-10 flex flex-col">
               <div
                 className="absolute inset-0 opacity-[0.07] pointer-events-none"
                 style={{ backgroundImage: "repeating-linear-gradient(135deg, #fff 0 2px, transparent 2px 16px)" }}
                 aria-hidden="true"
               />
               <div className="relative flex flex-col flex-1">
-                <div className="w-14 h-14 bg-[#B2081B] flex items-center justify-center mb-6">
+                <div className="w-14 h-14 rounded-xl bg-[#B2081B] flex items-center justify-center mb-6">
                   <Users size={26} aria-hidden="true" />
                 </div>
                 <div className="flex items-center gap-3 mb-3">
@@ -117,13 +117,13 @@ export default function TeamPage() {
                 <div className="mt-auto flex flex-col sm:flex-row xl:flex-col gap-3">
                   <Link
                     href="/request-quote"
-                    className="inline-flex items-center justify-center gap-2 bg-[#B2081B] hover:bg-[#8f0616] transition-colors font-['Barlow_Condensed'] font-bold uppercase tracking-wider text-base px-6 py-3"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#B2081B] hover:bg-[#8f0616] transition-colors font-['Barlow_Condensed'] font-bold uppercase tracking-wider text-base px-6 py-3"
                   >
                     Plan a Project <ArrowRight size={16} aria-hidden="true" />
                   </Link>
                   <a
                     href={PHONE_HREF}
-                    className="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white hover:bg-white/10 transition-colors font-['Barlow_Condensed'] font-bold uppercase tracking-wider text-base px-6 py-3"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/30 hover:border-white hover:bg-white/10 transition-colors font-['Barlow_Condensed'] font-bold uppercase tracking-wider text-base px-6 py-3"
                   >
                     <Phone size={16} aria-hidden="true" /> {PHONE}
                   </a>

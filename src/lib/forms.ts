@@ -50,7 +50,7 @@ const LIMITS: Record<string, number> = {
   description: 5000,
   location: 120,
   date: 120,
-  projectType: 60,
+  projectType: 300,
   promo: 40,
 };
 
@@ -88,13 +88,23 @@ export function validateSubmission(
     return { ok: true, data: { formType, name, company, email, phone, message } };
   }
 
-  const projectType = oneLine(clean(input.projectType, LIMITS.projectType));
+  // One or more project types, sent as a comma-separated list of labels.
+  const chosen = Array.from(
+    new Set(
+      oneLine(clean(input.projectType, LIMITS.projectType))
+        .split(',')
+        .map((t) => t.trim())
+        .filter(Boolean),
+    ),
+  );
+  const projectType = PROJECT_TYPE_LABELS.filter((l) => chosen.includes(l)).join(', ');
   const location = oneLine(clean(input.location, LIMITS.location));
   const date = oneLine(clean(input.date, LIMITS.date));
   const description = clean(input.description, LIMITS.description);
   const promo = oneLine(clean(input.promo, LIMITS.promo)).replace(/[^a-z0-9-]/gi, '');
 
-  if (!PROJECT_TYPE_LABELS.includes(projectType)) errors.projectType = 'Please choose a project type.';
+  if (!chosen.length || chosen.some((t) => !PROJECT_TYPE_LABELS.includes(t)))
+    errors.projectType = 'Please choose at least one type of project.';
   if (description.length < 10) errors.description = 'Please describe your project (at least 10 characters).';
 
   if (Object.keys(errors).length) return { ok: false, errors };

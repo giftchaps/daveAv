@@ -91,7 +91,7 @@ export default function AboutPage() {
             {/* Davey image + card */}
 
             <div className="flex flex-col gap-0">
-              <div className="relative overflow-hidden bg-[#F4F6FA]" style={{ aspectRatio: "4/3" }}>
+              <div className="relative overflow-hidden rounded-t-2xl bg-[#F4F6FA]" style={{ aspectRatio: "4/3" }}>
                 <Image
                   src="/images/team/davey-katz.jpg"
                   alt="Davey Katz, founder of A/V DAVEY"
@@ -100,7 +100,7 @@ export default function AboutPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <div className="bg-[#071E55] text-white p-6 border-t-4 border-[#B2081B]">
+              <div className="rounded-b-2xl bg-[#071E55] text-white p-6">
                 <div className="font-['Barlow_Condensed'] font-bold text-xl uppercase">Davey Katz</div>
                 <div className="font-['Barlow'] text-[#b9ddff] text-sm font-semibold uppercase tracking-wider mb-3">
                   CEO / Head Cheerleader
@@ -206,7 +206,7 @@ export default function AboutPage() {
           </div>
           <Link
             href="/team"
-            className="inline-flex items-center gap-2 bg-[#071E55] text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#1265B7] transition-colors group flex-shrink-0"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#071E55] text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#1265B7] transition-colors group flex-shrink-0"
           >
             View Our Team <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
           </Link>

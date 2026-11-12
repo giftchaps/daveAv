@@ -145,7 +145,7 @@ export default function ServicesPage() {
               >
                 {/* Image */}
                 <div className={`relative overflow-hidden ${service.reverse ? "lg:col-start-2" : ""}`}>
-                  <div className="relative aspect-[4/3]">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                     <Image
                       src={service.image}
                       alt={service.imageAlt}
@@ -192,7 +192,7 @@ export default function ServicesPage() {
 
                   <Link
                     href={service.href}
-                    className="inline-flex items-center gap-2 bg-[#071E55] text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#1265B7] transition-colors group"
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#071E55] text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#1265B7] transition-colors group"
                   >
                     Learn More
                     <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
