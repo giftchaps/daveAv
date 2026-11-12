@@ -91,10 +91,10 @@ export default function AboutPage() {
             <div className="flex flex-col gap-0">
               <div className="relative overflow-hidden bg-[#F4F6FA]" style={{ aspectRatio: "4/3" }}>
                 <Image
-                  src="https://images.unsplash.com/photo-1564064927589-19a68c199e42?auto=format&fit=crop&w=1600&q=80"
-                  alt="Digital audio mixing console"
+                  src="/images/team/davey-katz.jpg"
+                  alt="Davey Katz, founder of A/V DAVEY"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>

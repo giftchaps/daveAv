@@ -22,7 +22,7 @@ export async function fetchFacebookPosts(limit = 6): Promise<FacebookPost[]> {
   }
 
   const fields = 'id,message,story,full_picture,permalink_url,created_time';
-  const url = `https://graph.facebook.com/v21.0/${pageId}/posts?fields=${fields}&limit=${limit}&access_token=${token}`;
+  const url = `https://graph.facebook.com/v25.0/${pageId}/posts?fields=${fields}&limit=${limit}&access_token=${token}`;
 
   const res = await fetch(url, {
     next: { revalidate: 3600 }, // cache for 1 hour
