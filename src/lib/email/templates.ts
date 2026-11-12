@@ -189,7 +189,7 @@ function linkedPhone(phone: string): string {
 
 function promoLabel(promo: string): string {
   if (!promo) return '';
-  const known: Record<string, string> = { ngo: 'NGO Special (non-profit discount)', holiday: 'Holiday Offer' };
+  const known: Record<string, string> = { ngo: 'Non-profit pricing (20% off)', holiday: 'Holiday Offer' };
   return esc(known[promo.toLowerCase()] || promo);
 }
 

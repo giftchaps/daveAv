@@ -1,7 +1,8 @@
 export interface Promotion {
   id: string;
   active: boolean;
-  label: string;           // short badge text e.g. "NGO Discount"
+  label: string;           // short badge text e.g. "Non-Profit Pricing"
+  highlight?: string;      // the offer in a few characters, shown as a badge e.g. "20% OFF"
   headline: string;        // main message
   shortHeadline?: string;  // optional shorter message for phones
   cta?: { text: string; href: string };
@@ -15,13 +16,14 @@ export interface Promotion {
 // ───────────────────────────────────────────────────────────────────────────
 export const PROMOTIONS: Promotion[] = [
   {
-    id: 'ngo-discount-2024',
+    id: 'nonprofit-20',
     active: true,
-    label: 'NGO Special',
-    headline: 'Non-profit & community organizations receive 15% off all AV services.',
-    shortHeadline: 'Non-profits save 15% on all AV services.',
-    cta: { text: 'Claim Discount', href: '/request-quote?promo=ngo' },
-    color: 'gold',
+    label: 'Non-Profit Pricing',
+    highlight: '20% OFF',
+    headline: 'Registered non-profits save 20% on all AV services.',
+    shortHeadline: 'For non-profits on all AV services.',
+    cta: { text: 'Claim your discount', href: '/request-quote?promo=ngo' },
+    color: 'red',
   },
   {
     id: 'winter-event-2024',

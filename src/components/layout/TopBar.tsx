@@ -4,36 +4,42 @@ import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, LOCATION, SITE_TAGLINE } from '@/
 
 export function TopBar() {
   return (
-    <div className="bg-[#040f2e] text-white hidden sm:block border-b border-white/5">
+    <div className="bg-[#040f2e] text-white hidden sm:block border-b border-white/[0.06]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-9 text-xs font-['Barlow'] font-medium">
-          {/* Left: Location */}
-          <div className="flex items-center gap-1.5 shrink-0">
-            <MapPin size={11} className="text-[#B2081B]" aria-hidden="true" />
-            <span className="text-white/70">{LOCATION}</span>
+        <div className="flex items-center justify-between h-10 font-['Barlow'] text-[13px]">
+          {/* Left: location */}
+          <div className="flex items-center gap-2 shrink-0 text-white/80">
+            <MapPin size={13} className="text-[#E8394B]" aria-hidden="true" />
+            <span className="font-semibold text-white">{LOCATION}</span>
+            <span className="hidden xl:inline text-white/55">· Serving Connecticut &amp; the Tri-State</span>
           </div>
 
-          {/* Center: Tagline */}
-          <div className="flex-1 text-center tracking-[0.08em] hidden md:block text-white/50 text-[11px] uppercase">
-            {SITE_TAGLINE}
+          {/* Center: tagline */}
+          <div className="hidden md:flex flex-1 items-center justify-center gap-3 px-4 min-w-0">
+            <span className="block w-6 h-px bg-[#E8394B]" aria-hidden="true" />
+            <span className="font-['Barlow_Condensed'] font-semibold uppercase tracking-[0.18em] text-[12px] text-white/70 truncate">
+              {SITE_TAGLINE}
+            </span>
+            <span className="block w-6 h-px bg-[#E8394B]" aria-hidden="true" />
           </div>
 
-          {/* Right: Phone + Email */}
-          <div className="flex items-center gap-4 shrink-0">
+          {/* Right: phone + email */}
+          <div className="flex items-center shrink-0">
             <a
               href={PHONE_HREF}
-              className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors"
+              className="group flex items-center gap-2 font-semibold text-white hover:text-[#B9DDFF] transition-colors"
               aria-label={`Call us at ${PHONE}`}
             >
-              <Phone size={11} aria-hidden="true" />
+              <Phone size={13} className="text-[#B9DDFF]" aria-hidden="true" />
               <span>{PHONE}</span>
             </a>
+            <span className="hidden lg:block w-px h-4 bg-white/15 mx-4" aria-hidden="true" />
             <a
               href={EMAIL_HREF}
-              className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors hidden lg:flex"
+              className="hidden lg:flex items-center gap-2 text-white/75 hover:text-white transition-colors"
               aria-label={`Email us at ${EMAIL}`}
             >
-              <Mail size={11} aria-hidden="true" />
+              <Mail size={13} className="text-[#B9DDFF]" aria-hidden="true" />
               <span>{EMAIL}</span>
             </a>
           </div>

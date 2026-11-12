@@ -2,14 +2,33 @@
 
 import React, { useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
-import { X, Tag, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ArrowRight, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import type { Promotion } from '@/lib/promotions';
 
-const COLOR_MAP = {
-  red:  { bg: 'bg-[#B2081B]',    badge: 'bg-white/20 text-white',      text: 'text-white',      cta: 'bg-white text-[#B2081B] hover:bg-white/90' },
-  gold: { bg: 'bg-[#c8960c]',    badge: 'bg-white/20 text-white',      text: 'text-white',      cta: 'bg-white text-[#c8960c] hover:bg-white/90' },
-  blue: { bg: 'bg-[#1265B7]',    badge: 'bg-white/20 text-white',      text: 'text-white',      cta: 'bg-white text-[#1265B7] hover:bg-white/90' },
+// Each theme: bar background, the highlight badge, and the CTA link.
+const THEMES = {
+  red: {
+    bar: 'bg-[#B2081B]',
+    badge: 'bg-white text-[#B2081B]',
+    cta: 'text-white decoration-white/40 hover:decoration-white',
+  },
+  blue: {
+    bar: 'bg-[#1265B7]',
+    badge: 'bg-white text-[#1265B7]',
+    cta: 'text-white decoration-white/40 hover:decoration-white',
+  },
+  gold: {
+    bar: 'bg-[#c8960c]',
+    badge: 'bg-[#071E55] text-white',
+    cta: 'text-white decoration-white/40 hover:decoration-white',
+  },
 } as const;
+
+// A faint diagonal texture so the bar reads as a deliberate band, not a flat block.
+const TEXTURE: React.CSSProperties = {
+  backgroundImage:
+    'repeating-linear-gradient(135deg, rgba(255,255,255,0.045) 0 2px, transparent 2px 14px), linear-gradient(90deg, rgba(0,0,0,0.10), transparent 30%, transparent 70%, rgba(0,0,0,0.10))',
+};
 
 const noopSubscribe = () => () => {};
 
@@ -51,85 +70,86 @@ export function PromoBanner({ promotions }: PromoBannerProps) {
   const next = () => setCurrent((c) => (c + 1) % promotions.length);
 
   const promo = promotions[current];
-  const colors = COLOR_MAP[promo.color ?? 'blue'];
+  const theme = THEMES[promo.color ?? 'red'];
 
   return (
-    <div
-      className={`${colors.bg} relative overflow-hidden`}
-      role="region"
-      aria-label="Promotion banner"
-    >
-      {/* Subtle shimmer line */}
-      <div className="absolute inset-x-0 bottom-0 h-px bg-white/15" aria-hidden="true" />
-
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-2 sm:gap-3 py-2 sm:py-2.5 min-h-[42px]">
-
-          {/* Left: multi-promo prev arrow */}
+    <div className={`${theme.bar} relative text-white`} style={TEXTURE} role="region" aria-label="Current offer">
+      <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-2 sm:gap-4 min-h-[44px] py-1.5">
           {promotions.length > 1 && (
             <button
               onClick={prev}
-              className="hidden sm:flex items-center justify-center w-6 h-6 rounded-full bg-white/15 hover:bg-white/30 transition-colors flex-shrink-0"
-              aria-label="Previous promotion"
+              className="hidden sm:flex items-center justify-center w-7 h-7 rounded-full hover:bg-white/15 transition-colors flex-shrink-0"
+              aria-label="Previous offer"
             >
-              <ChevronLeft size={13} className="text-white" />
+              <ChevronLeft size={15} />
             </button>
           )}
 
-          {/* Center content */}
-          <div className="flex flex-1 items-center justify-between sm:justify-center gap-2.5 sm:flex-wrap min-w-0">
-            {/* Badge */}
-            <span className={`hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-[10px] font-['Barlow'] font-bold uppercase tracking-widest flex-shrink-0 ${colors.badge}`}>
-              <Tag size={9} aria-hidden="true" />
+          {/* Offer */}
+          <div className="flex flex-1 items-center justify-start sm:justify-center gap-2.5 sm:gap-4 min-w-0">
+            {/* Label (wider screens) */}
+            <span className="hidden lg:inline-flex items-center gap-1.5 font-['Barlow_Condensed'] font-bold uppercase tracking-[0.16em] text-[12px] text-white/85 flex-shrink-0">
+              <Star size={11} className="fill-[#FFC93C] text-[#FFC93C]" aria-hidden="true" />
               {promo.label}
             </span>
+            <span className="hidden lg:block w-px h-5 bg-white/25 flex-shrink-0" aria-hidden="true" />
 
-            {/* Headline */}
-            <p className={`font-['Barlow'] text-[13px] sm:text-sm font-medium ${colors.text} text-left sm:text-center leading-tight`}>
-              {promo.shortHeadline ? (
-                <>
-                  <span className="sm:hidden">{promo.shortHeadline}</span>
-                  <span className="hidden sm:inline">{promo.headline}</span>
-                </>
+            {/* Highlight badge */}
+            {promo.highlight && (
+              <span
+                className={`inline-flex items-center font-['Barlow_Condensed'] font-extrabold uppercase leading-none tracking-wide text-[15px] sm:text-[17px] px-2 sm:px-2.5 py-1 rounded-[3px] shadow-sm flex-shrink-0 ${theme.badge}`}
+              >
+                {promo.highlight}
+              </span>
+            )}
+
+            {/* Message (on phones the whole message is the link) */}
+            <p className="font-['Barlow'] font-semibold text-[13px] sm:text-[15px] leading-snug min-w-0">
+              {promo.cta ? (
+                <Link href={promo.cta.href} className="sm:hidden underline underline-offset-[3px] decoration-white/40">
+                  {promo.shortHeadline ?? promo.headline}
+                </Link>
               ) : (
-                promo.headline
+                <span className="sm:hidden">{promo.shortHeadline ?? promo.headline}</span>
               )}
+              <span className="hidden sm:inline">{promo.headline}</span>
             </p>
 
             {/* CTA */}
             {promo.cta && (
               <Link
                 href={promo.cta.href}
-                className={`inline-flex items-center gap-1 px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs whitespace-nowrap font-['Barlow'] font-bold uppercase tracking-wide rounded-sm transition-colors flex-shrink-0 ${colors.cta}`}
+                className={`group hidden sm:inline-flex items-center gap-1.5 font-['Barlow_Condensed'] font-bold uppercase tracking-[0.08em] text-[14px] underline underline-offset-4 decoration-2 transition-colors flex-shrink-0 ${theme.cta}`}
               >
                 {promo.cta.text}
-                <ArrowRight size={11} aria-hidden="true" />
+                <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               </Link>
             )}
           </div>
 
-          {/* Right: next arrow + dismiss */}
-          <div className="flex items-center gap-2 flex-shrink-0">
+          {/* Controls */}
+          <div className="flex items-center gap-1 flex-shrink-0">
             {promotions.length > 1 && (
               <>
                 <button
                   onClick={next}
-                  className="hidden sm:flex items-center justify-center w-6 h-6 rounded-full bg-white/15 hover:bg-white/30 transition-colors"
-                  aria-label="Next promotion"
+                  className="hidden sm:flex items-center justify-center w-7 h-7 rounded-full hover:bg-white/15 transition-colors"
+                  aria-label="Next offer"
                 >
-                  <ChevronRight size={13} className="text-white" />
+                  <ChevronRight size={15} />
                 </button>
-                <span className="hidden sm:block font-['Barlow'] text-[10px] text-white/60 w-7 text-center">
+                <span className="hidden sm:block font-['Barlow'] text-[11px] text-white/60 w-7 text-center">
                   {current + 1}/{promotions.length}
                 </span>
               </>
             )}
             <button
               onClick={dismiss}
-              className="flex items-center justify-center w-7 h-7 rounded-full hover:bg-white/20 transition-colors"
-              aria-label="Dismiss promotion"
+              className="flex items-center justify-center w-8 h-8 rounded-full text-white/75 hover:text-white hover:bg-white/15 transition-colors"
+              aria-label="Dismiss offer"
             >
-              <X size={14} className="text-white/80" />
+              <X size={15} />
             </button>
           </div>
         </div>
