@@ -64,7 +64,7 @@ export function PageHero({
             className="absolute inset-0 hidden md:block"
             style={{
               background:
-                'linear-gradient(90deg, #071E55 0%, rgba(7,30,85,0.96) 32%, rgba(7,30,85,0.72) 55%, rgba(7,30,85,0.25) 100%)',
+                'linear-gradient(90deg, #071E55 0%, rgba(7,30,85,0.96) 32%, rgba(7,30,85,0.7) 55%, rgba(7,30,85,0.15) 100%)',
             }}
             aria-hidden="true"
           />
