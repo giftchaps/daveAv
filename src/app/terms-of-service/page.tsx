@@ -4,7 +4,7 @@ import { EMAIL, EMAIL_HREF, PHONE, PHONE_HREF } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Terms for using the A/V DAVEY website.",
+  description: "The terms for using the A/V DAVEY website, including quotes, project information, links to other sites and how to contact us.",
 };
 
 export default function TermsOfServicePage() {
