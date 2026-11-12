@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
+import { HEADER_IMAGES } from "@/lib/headerImages";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Wrench, Phone, Mail, HelpCircle, CheckCircle2 } from "lucide-react";
 import { PHONE, PHONE_HREF, EMAIL } from "@/lib/constants";
@@ -26,7 +27,7 @@ export default function ServiceSupportPage() {
   return (
     <>
       <PageHero
-        image={{ src: "https://images.unsplash.com/photo-1783461241044-8e8bb7e66808?auto=format&fit=crop&w=2000&q=80" }}
+        image={{ src: HEADER_IMAGES["service-support"] }}
         eyebrow="Service & Support"
         title="When Your AV Needs Help,"
         titleRed="Call People Who Know AV."

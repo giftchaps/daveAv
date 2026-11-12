@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { PageHero } from "@/components/ui/PageHero";
+import { HEADER_IMAGES } from "@/lib/headerImages";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { CheckCircle2 } from "lucide-react";
 
@@ -82,7 +83,7 @@ export default function InstallationPage() {
   return (
     <>
       <PageHero
-        image={{ src: "https://images.unsplash.com/photo-1637665662134-db459c1bbb46?auto=format&fit=crop&w=2000&q=80" }}
+        image={{ src: HEADER_IMAGES["installation"] }}
         eyebrow="Installation & Integration"
         title="AV Systems That Work"
         titleRed="From Day One."

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
+import { HEADER_IMAGES } from "@/lib/headerImages";
 import { Wrench, HelpCircle, Calendar, Phone, Mail } from "lucide-react";
 import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/constants";
 
@@ -64,7 +65,7 @@ export default function SupportPage() {
   return (
     <>
       <PageHero
-        image={{ src: "https://images.unsplash.com/photo-1683322499436-f4383dd59f5a?auto=format&fit=crop&w=2000&q=80" }}
+        image={{ src: HEADER_IMAGES["support"] }}
         eyebrow="Support"
         title="How Can We"
         titleRed="Help You?"

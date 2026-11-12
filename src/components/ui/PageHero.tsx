@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 import { ChevronRight } from 'lucide-react';
 
 interface BreadcrumbItem {
@@ -16,7 +16,7 @@ interface PageHeroProps {
   breadcrumbs?: BreadcrumbItem[];
   variant?: 'default' | 'navy' | 'blue';
   /** Optional background photo. It fills the header and fades into navy behind the text. */
-  image?: { src: string; position?: string };
+  image?: { src: StaticImageData | string; position?: string };
 }
 
 export function PageHero({
@@ -58,6 +58,7 @@ export function PageHero({
             style={{ objectPosition: image.position ?? 'center' }}
             sizes="100vw"
             quality={75}
+            placeholder={typeof image.src === 'string' ? 'empty' : 'blur'}
           />
           {/* Navy fade: solid behind the text, opening up to the photo on the right */}
           <div

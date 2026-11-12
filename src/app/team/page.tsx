@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/ui/PageHero";
+import { HEADER_IMAGES } from "@/lib/headerImages";
 import Link from "next/link";
 import { Users, Phone, ArrowRight } from "lucide-react";
 import { FinalCTA } from "@/components/sections/FinalCTA";
@@ -40,7 +41,7 @@ export default function TeamPage() {
         titleRed="Every Project."
         subtitle="A/V DAVEY is built on experience and personal commitment. We're a tight-knit team that stays personally involved in every project, from the first call to the final check."
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Our Team" }]}
-        image={{ src: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=2000&q=80" }}
+        image={{ src: HEADER_IMAGES["team"] }}
       />
 
       {/* Team */}
