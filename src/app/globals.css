@@ -97,6 +97,29 @@ img {
 ::-webkit-scrollbar-thumb { background: #c0c8d8; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #071E55; }
 
+/* ── Motion ─────────────────────────────────────────────────────────────── */
+
+/* Each page fades in when you navigate (opacity only; see app/template.tsx) */
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.page-transition {
+  animation: page-fade-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Scroll reveal (see components/motion/ScrollReveal.tsx). The hidden state only
+   applies once JavaScript has marked the page as ready. */
+.motion-ready [data-reveal] {
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+}
+.motion-ready [data-reveal]:not(.is-revealed) {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+}
+
 /* Prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -105,5 +128,10 @@ img {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .motion-ready [data-reveal]:not(.is-revealed) {
+    opacity: 1;
+    transform: none;
   }
 }
