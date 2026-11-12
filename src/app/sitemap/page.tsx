@@ -4,7 +4,7 @@ import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Site Map",
-  description: "A/V DAVEY Site Map, navigate all pages of the website.",
+  description: "Every page on the A/V DAVEY website in one place: services, projects, our team, support, contact and quote requests.",
 };
 
 const siteLinks = [
