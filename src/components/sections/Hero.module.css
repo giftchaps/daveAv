@@ -6,7 +6,7 @@
 .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #071e55; }
 .eyebrow::before { content: ''; width: 20px; height: 2px; background: #b2081b; flex-shrink: 0; }
 .heading { text-wrap: balance; letter-spacing: -0.005em; margin: 0 0 14px; font-family: 'Barlow Condensed', 'Barlow', Arial, sans-serif; font-size: clamp(2.2rem, 9vw, 5rem); font-weight: 800; text-transform: uppercase; line-height: 1.0; }
-.heading span, .heading strong { display: block; }
+.heading > span, .heading > strong { display: block; }
 .heading strong { color: #b2081b; font-weight: 800; }
 .description { text-wrap: pretty; font-size: 15px; font-weight: 500; line-height: 1.55; max-width: 550px; margin: 0 0 20px; color: #1a2e5a; }
 .actions { display: flex; flex-direction: column; gap: 10px; }
@@ -50,11 +50,22 @@
   .description { font-size: 18px; }
 }
 
+/* ── Typed headline: each letter appears on its own beat with a caret just after it ── */
+.typedLine { display: block; }
+.word { white-space: nowrap; }
+.ch { position: relative; opacity: 0; animation: heroType 1ms linear var(--d) forwards; }
+.ch::after { content: ''; position: absolute; left: 100%; margin-left: 0.03em; top: 0.08em; bottom: 0.1em; width: 0.07em; border-radius: 1px; background: #b2081b; opacity: 0; animation: heroCaret 46ms linear var(--d); }
+.chLineEnd::after { animation-duration: 300ms; }
+.chLast::after { animation: heroCaretEnd 2.2s steps(1) var(--d); }
+@keyframes heroType { to { opacity: 1; } }
+/* No fill: the caret is only visible while its animation runs, then falls back to hidden. */
+@keyframes heroCaret { from, to { opacity: 1; } }
+@keyframes heroCaretEnd { 0%, 25%, 50% { opacity: 1; } 12.5%, 37.5%, 62.5%, 100% { opacity: 0; } }
+
 /* ── Entrance: the copy and emblem rise in one after another ── */
 @keyframes heroRise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @keyframes heroFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-.eyebrow, .heading, .description, .actions, .location { animation: heroRise .7s cubic-bezier(.2,.7,.2,1) both; }
-.heading { animation-delay: .08s; }
+.eyebrow, .description, .actions, .location { animation: heroRise .7s cubic-bezier(.2,.7,.2,1) both; }
 .description { animation-delay: .16s; }
 .actions { animation-delay: .24s; }
 .location { animation-delay: .32s; }
@@ -64,5 +75,7 @@
 @media(prefers-reduced-motion: reduce) {
   .primary, .secondary, .primary svg { transition: none; }
   .primary:hover, .secondary:hover { transform: none; }
-  .eyebrow, .heading, .description, .actions, .location, .emblemWrap, .emblem { animation: none; }
+  .eyebrow, .description, .actions, .location, .emblemWrap, .emblem { animation: none; }
+  .ch { opacity: 1; animation: none; }
+  .ch::after { display: none; }
 }
