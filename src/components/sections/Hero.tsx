@@ -20,7 +20,7 @@ export function Hero() {
             <Link href="/request-quote" className={styles.primary}>Request a Quote <ArrowRight size={18} aria-hidden="true" /></Link>
             <Link href="/projects" className={styles.secondary}><Play size={17} aria-hidden="true" />Explore Our Work</Link>
           </div>
-          <p className={styles.location}><MapPin size={17} aria-hidden="true" />Based in Bridgeport. Serving Connecticut &amp; the Tri-State Region.</p>
+          <p className={styles.location}><MapPin size={17} aria-hidden="true" /><span>Based in Bridgeport. Serving Connecticut &amp; <span className={styles.nowrap}>the Tri-State Region.</span></span></p>
         </div>
         <div className={styles.emblemWrap}>
           <Image src="/images/avators-emblem.png" alt="A/V-ATORS. First to Show, Last to Go. Honor Those Who Serve." width={270} height={297} className={styles.emblem} sizes="(max-width: 639px) 140px, (max-width: 1023px) 200px, 280px" />
