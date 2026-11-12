@@ -23,7 +23,7 @@ export default function VideoProductionPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/heroes/video-production.jpg", alt: "Felix running a Canon camera and streaming rig at a corporate meeting", caption: "Live camera & streaming" }}
+        image={{ src: "https://images.unsplash.com/photo-1625690303837-654c9666d2d0?auto=format&fit=crop&w=2000&q=80" }}
         eyebrow="Video Production & Streaming"
         title="Your Message, Delivered"
         titleRed="Professionally."

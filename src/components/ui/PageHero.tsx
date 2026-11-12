@@ -15,8 +15,8 @@ interface PageHeroProps {
   subtitle?: string;
   breadcrumbs?: BreadcrumbItem[];
   variant?: 'default' | 'navy' | 'blue';
-  /** Optional photo shown on the right on large screens. */
-  image?: { src: string; alt: string; caption?: string; position?: string };
+  /** Optional background photo. It fills the header and fades into navy behind the text. */
+  image?: { src: string; position?: string };
 }
 
 export function PageHero({
@@ -34,19 +34,46 @@ export function PageHero({
     blue: 'bg-[#1265B7]',
   }[variant];
 
-  const textColor = variant === 'default' ? 'text-[#071E55]' : 'text-white';
-  const subtitleColor = variant === 'default' ? 'text-slate-600' : 'text-white/85';
-  const breadcrumbColor = variant === 'default' ? 'text-slate-500' : 'text-white/85';
-  const breadcrumbHoverColor = variant === 'default' ? 'hover:text-[#1265B7]' : 'hover:text-white';
+  // A photo header is always dark, whatever the variant.
+  const light = variant === 'default' && !image;
+  const textColor = light ? 'text-[#071E55]' : 'text-white';
+  const subtitleColor = light ? 'text-slate-600' : 'text-white/85';
+  const breadcrumbColor = light ? 'text-slate-500' : 'text-white/75';
+  const breadcrumbHoverColor = light ? 'hover:text-[#1265B7]' : 'hover:text-white';
+  const redColor = light ? 'text-[#B2081B]' : 'text-[#FF4D5E]';
 
   return (
-    <section className={`${bg} py-14 lg:py-20 overflow-hidden`} aria-label="Page header">
-      <div
-        className={`max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 ${
-          image ? 'lg:grid lg:grid-cols-12 lg:gap-12 xl:gap-16 lg:items-center' : ''
-        }`}
-      >
-        <div className={image ? 'lg:col-span-7' : ''}>
+    <section
+      className={`${image ? 'bg-[#071E55]' : bg} relative overflow-hidden ${image ? 'py-16 lg:py-28' : 'py-14 lg:py-20'}`}
+      aria-label="Page header"
+    >
+      {image && (
+        <>
+          <Image
+            src={image.src}
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            style={{ objectPosition: image.position ?? 'center' }}
+            sizes="100vw"
+            quality={75}
+          />
+          {/* Navy fade: solid behind the text, opening up to the photo on the right */}
+          <div
+            className="absolute inset-0 hidden md:block"
+            style={{
+              background:
+                'linear-gradient(90deg, #071E55 0%, rgba(7,30,85,0.96) 32%, rgba(7,30,85,0.72) 55%, rgba(7,30,85,0.25) 100%)',
+            }}
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 md:hidden bg-[#071E55]/85" aria-hidden="true" />
+          <div className="absolute inset-x-0 bottom-0 h-1 bg-[#B2081B]" aria-hidden="true" />
+        </>
+      )}
+      <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={image ? 'max-w-3xl' : ''}>
         {/* Breadcrumbs */}
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav
@@ -64,7 +91,7 @@ export function PageHero({
                     {crumb.label}
                   </Link>
                 ) : (
-                  <span className={variant === 'default' ? 'text-[#071E55] font-semibold' : 'text-white font-semibold'}>
+                  <span className={light ? 'text-[#071E55] font-semibold' : 'text-white font-semibold'}>
                     {crumb.label}
                   </span>
                 )}
@@ -77,7 +104,7 @@ export function PageHero({
         {eyebrow && (
           <div className="flex items-center gap-3 mb-3">
             <span className="block w-8 h-[3px] bg-[#B2081B] flex-shrink-0" />
-            <span className="font-['Barlow_Condensed'] font-bold text-sm tracking-[0.12em] uppercase text-[#B2081B]">
+            <span className={`font-['Barlow_Condensed'] font-bold text-sm tracking-[0.12em] uppercase ${redColor}`}>
               {eyebrow}
             </span>
           </div>
@@ -92,7 +119,7 @@ export function PageHero({
           {titleRed && (
             <>
               <br />
-              <span className="text-[#B2081B]">{titleRed}</span>
+              <span className={redColor}>{titleRed}</span>
             </>
           )}
         </h1>
@@ -108,28 +135,6 @@ export function PageHero({
         )}
         </div>
 
-        {image && (
-          <div className="hidden lg:block lg:col-span-5 relative">
-            {/* offset accent frame */}
-            <div className="absolute -right-4 -bottom-4 w-full h-full border-2 border-[#B2081B]/25" aria-hidden="true" />
-            <div className="relative aspect-[4/3] overflow-hidden bg-[#DDE3EE] shadow-[0_18px_40px_rgba(7,30,85,0.18)] border-b-4 border-[#B2081B]">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                priority
-                className="object-cover"
-                style={{ objectPosition: image.position ?? 'center' }}
-                sizes="(max-width: 1024px) 0px, 40vw"
-              />
-              {image.caption && (
-                <div className="absolute left-0 bottom-0 bg-[#071E55]/90 backdrop-blur-[2px] text-white px-4 py-2.5 font-['Barlow_Condensed'] font-semibold uppercase tracking-[0.1em] text-[13px]">
-                  {image.caption}
-                </div>
-              )}
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

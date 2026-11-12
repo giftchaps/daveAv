@@ -27,7 +27,7 @@ export default function EquipmentSalesPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/heroes/equipment-sales.jpg", alt: "NEC 10,000-lumen projector set up in a meeting room", caption: "10,000-lumen NEC projector" }}
+        image={{ src: "https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&w=2000&q=80" }}
         eyebrow="Equipment Sales"
         title="The Right Equipment"
         titleRed="For Your Application."

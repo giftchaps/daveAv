@@ -40,7 +40,7 @@ export default function TeamPage() {
         titleRed="Every Project."
         subtitle="A/V DAVEY is built on experience and personal commitment. We're a tight-knit team that stays personally involved in every project, from the first call to the final check."
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Our Team" }]}
-        image={{ src: "/images/heroes/team.jpg", alt: "A/V DAVEY crew setting up for a corporate all-hands", caption: "Global Jet · All-Hands" }}
+        image={{ src: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=2000&q=80" }}
       />
 
       {/* Team */}
