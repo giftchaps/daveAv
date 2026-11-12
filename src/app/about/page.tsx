@@ -48,6 +48,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
+        image={{ src: "/images/heroes/about.jpg", alt: "A/V DAVEY control table draped with the company banner at a hotel meeting", caption: "On the job since 1989" }}
         eyebrow="Our Story"
         title="Built on Experience."
         titleRed="Driven by Service."

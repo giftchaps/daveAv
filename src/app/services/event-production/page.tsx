@@ -21,6 +21,7 @@ export default function EventProductionPage() {
   return (
     <>
       <PageHero
+        image={{ src: "/images/heroes/event-production.jpg", alt: "Ballroom with twin projection screens at the Belimo annual meeting", caption: "Belimo \u00b7 Ethan Allen Hotel" }}
         eyebrow="Event Production & Staging"
         title="Your Event Deserves"
         titleRed="Professional AV."
@@ -84,14 +85,14 @@ export default function EventProductionPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {capabilities.map((cat) => (
-              <div key={cat.category} className="bg-white border border-[#DDE3EE] p-6">
-                <h3 className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-xl mb-4 pb-3 border-b border-[#DDE3EE]">
+              <div key={cat.category} className="bg-white border border-[#DDE3EE] border-t-4 border-t-[#071E55] p-6 lg:p-7">
+                <h3 className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-2xl mb-4 pb-3 border-b border-[#DDE3EE]">
                   {cat.category}
                 </h3>
-                <ul className="space-y-2.5">
+                <ul className="space-y-3">
                   {cat.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2.5 font-['Barlow'] text-sm text-slate-600">
-                      <CheckCircle2 size={14} className="text-[#1265B7] flex-shrink-0" aria-hidden="true" />
+                    <li key={item} className="flex items-start gap-3 font-['Barlow'] text-base lg:text-[17px] leading-snug text-slate-700">
+                      <CheckCircle2 size={18} className="text-[#1265B7] flex-shrink-0 mt-0.5" aria-hidden="true" />
                       {item}
                     </li>
                   ))}

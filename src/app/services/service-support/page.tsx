@@ -26,6 +26,7 @@ export default function ServiceSupportPage() {
   return (
     <>
       <PageHero
+        image={{ src: "/images/heroes/service-support.jpg", alt: "Video switcher, mixer and laptop running The August ribbon cutting", caption: "The August \u00b7 Bridgeport" }}
         eyebrow="Service & Support"
         title="When Your AV Needs Help,"
         titleRed="Call People Who Know AV."
@@ -105,10 +106,10 @@ export default function ServiceSupportPage() {
               <p className="font-['Barlow'] text-slate-600 leading-relaxed mb-6 text-base lg:text-lg">
                 A/V DAVEY technicians have the experience to troubleshoot and repair virtually any AV system. We support the equipment we sell and install, and we also service systems originally installed by others.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5">
                 {capabilities.map((cap) => (
-                  <div key={cap} className="flex items-center gap-2.5 font-['Barlow'] text-sm text-slate-700">
-                    <CheckCircle2 size={15} className="text-[#1265B7] flex-shrink-0" aria-hidden="true" />
+                  <div key={cap} className="flex items-start gap-3 font-['Barlow'] text-base lg:text-[17px] leading-snug text-slate-700">
+                    <CheckCircle2 size={18} className="text-[#1265B7] flex-shrink-0 mt-0.5" aria-hidden="true" />
                     {cap}
                   </div>
                 ))}

@@ -27,6 +27,7 @@ export default function EquipmentSalesPage() {
   return (
     <>
       <PageHero
+        image={{ src: "/images/heroes/equipment-sales.jpg", alt: "NEC 10,000-lumen projector set up in a meeting room", caption: "10,000-lumen NEC projector" }}
         eyebrow="Equipment Sales"
         title="The Right Equipment"
         titleRed="For Your Application."
@@ -48,27 +49,27 @@ export default function EquipmentSalesPage() {
           >
             We Supply What You Need
           </h2>
-          <p className="font-['Barlow'] text-slate-600 mb-10 max-w-2xl">
+          <p className="font-['Barlow'] text-slate-600 mb-10 max-w-3xl text-base lg:text-lg leading-relaxed">
             We work with the industry&apos;s top manufacturers, not to push specific brands, but to match the best equipment to your application and budget.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-12">
             {categories.map((cat) => (
-              <div key={cat.name} className="p-5 border border-[#DDE3EE] hover:border-[#1265B7]/40 hover:bg-[#F4F6FA] transition-all">
-                <h3 className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-lg mb-2">
+              <div key={cat.name} className="p-6 border border-[#DDE3EE] border-l-4 border-l-[#1265B7] hover:border-[#1265B7]/40 hover:border-l-[#B2081B] hover:bg-[#F4F6FA] transition-all">
+                <h3 className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-xl lg:text-2xl mb-2">
                   {cat.name}
                 </h3>
-                <p className="font-['Barlow'] text-slate-500 text-sm">{cat.description}</p>
+                <p className="font-['Barlow'] text-slate-600 text-base leading-relaxed">{cat.description}</p>
               </div>
             ))}
           </div>
 
           <div className="bg-[#071E55] text-white p-8 lg:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div>
-              <div className="font-['Barlow_Condensed'] font-bold uppercase text-xl text-white mb-2">
+              <div className="font-['Barlow_Condensed'] font-bold uppercase text-2xl lg:text-3xl text-white mb-2">
                 Not sure what you need?
               </div>
-              <p className="font-['Barlow'] text-white/85 text-sm max-w-lg">
+              <p className="font-['Barlow'] text-white/85 text-base lg:text-lg leading-relaxed max-w-2xl">
                 Tell us about your project and we&apos;ll recommend the right equipment for your specific application and budget. No pressure. Just expertise.
               </p>
             </div>
