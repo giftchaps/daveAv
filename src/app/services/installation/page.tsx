@@ -82,7 +82,7 @@ export default function InstallationPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/heroes/installation.jpg", alt: "Meeting room set up with two large projection screens on the long wall", caption: "Twin screens on the long wall" }}
+        image={{ src: "https://images.unsplash.com/photo-1637665662134-db459c1bbb46?auto=format&fit=crop&w=2000&q=80" }}
         eyebrow="Installation & Integration"
         title="AV Systems That Work"
         titleRed="From Day One."

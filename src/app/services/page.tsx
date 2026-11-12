@@ -123,7 +123,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/heroes/services.jpg", alt: "A/V DAVEY control desk overlooking the Nuvance Health conference ballroom", caption: "Nuvance Health \u00b7 Global Health Conference" }}
+        image={{ src: "https://images.unsplash.com/photo-1769798643655-e0f10f62c3fd?auto=format&fit=crop&w=2000&q=80" }}
         eyebrow="What We Do"
         title="Complete Audio Visual"
         titleRed="Services"

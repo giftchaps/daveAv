@@ -64,7 +64,7 @@ export default function SupportPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/heroes/support.jpg", alt: "Presenter on stage between two projection screens at a hybrid meeting", caption: "Global Jet \u00b7 Hotel Zero" }}
+        image={{ src: "https://images.unsplash.com/photo-1683322499436-f4383dd59f5a?auto=format&fit=crop&w=2000&q=80" }}
         eyebrow="Support"
         title="How Can We"
         titleRed="Help You?"

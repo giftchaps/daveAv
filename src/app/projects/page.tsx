@@ -78,7 +78,7 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/heroes/projects.jpg", alt: "Garde Arts Theater facade lit with architectural uplighting", caption: "Garde Arts Theater \u00b7 New London" }}
+        image={{ src: "https://images.unsplash.com/photo-1576514129883-2f1d47a65da6?auto=format&fit=crop&w=2000&q=80" }}
         eyebrow="Our Work"
         title="Real Projects."
         titleRed="Real AV Solutions."

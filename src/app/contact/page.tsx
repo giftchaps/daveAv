@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/heroes/contact.jpg", alt: "Davey Katz in his A/V DAVEY uniform", caption: "Davey Katz \u00b7 Founder", position: "top" }}
+        image={{ src: "https://images.unsplash.com/photo-1764810815228-b7f9432eec5c?auto=format&fit=crop&w=2000&q=80" }}
         eyebrow="Get in Touch"
         title="Let's Talk About"
         titleRed="Your Project."

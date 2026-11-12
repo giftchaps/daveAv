@@ -26,7 +26,7 @@ export default function ServiceSupportPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/heroes/service-support.jpg", alt: "Video switcher, mixer and laptop running The August ribbon cutting", caption: "The August \u00b7 Bridgeport" }}
+        image={{ src: "https://images.unsplash.com/photo-1783461241044-8e8bb7e66808?auto=format&fit=crop&w=2000&q=80" }}
         eyebrow="Service & Support"
         title="When Your AV Needs Help,"
         titleRed="Call People Who Know AV."

@@ -21,7 +21,7 @@ export default function EventProductionPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/heroes/event-production.jpg", alt: "Ballroom with twin projection screens at the Belimo annual meeting", caption: "Belimo \u00b7 Ethan Allen Hotel" }}
+        image={{ src: "https://images.unsplash.com/photo-1582192730841-2a682d7375f9?auto=format&fit=crop&w=2000&q=80" }}
         eyebrow="Event Production & Staging"
         title="Your Event Deserves"
         titleRed="Professional AV."
