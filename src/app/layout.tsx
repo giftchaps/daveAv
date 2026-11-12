@@ -5,6 +5,8 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { PromoBanner } from "@/components/layout/PromoBanner";
 import { getActivePromotions } from "@/lib/promotions";
 import { EMAIL, FACEBOOK_URL, PHONE, SITE_URL } from "@/lib/constants";
+import { ScrollReveal } from "@/components/motion/ScrollReveal";
+import { BackToTop } from "@/components/motion/BackToTop";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -90,6 +92,8 @@ export default function RootLayout({
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <BackToTop />
+        <ScrollReveal />
       </body>
     </html>
   );
