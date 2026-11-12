@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
+import { HEADER_IMAGES } from "@/lib/headerImages";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { ArrowRight } from "lucide-react";
 
@@ -27,7 +28,7 @@ export default function EquipmentSalesPage() {
   return (
     <>
       <PageHero
-        image={{ src: "https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&w=2000&q=80" }}
+        image={{ src: HEADER_IMAGES["equipment-sales"] }}
         eyebrow="Equipment Sales"
         title="The Right Equipment"
         titleRed="For Your Application."

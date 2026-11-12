@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/ui/PageHero";
+import { HEADER_IMAGES } from "@/lib/headerImages";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { CheckCircle2 } from "lucide-react";
 
@@ -23,7 +24,7 @@ export default function VideoProductionPage() {
   return (
     <>
       <PageHero
-        image={{ src: "https://images.unsplash.com/photo-1768222935380-0a3a76fbb42e?auto=format&fit=crop&w=2000&q=80" }}
+        image={{ src: HEADER_IMAGES["video-production"] }}
         eyebrow="Video Production & Streaming"
         title="Your Message, Delivered"
         titleRed="Professionally."

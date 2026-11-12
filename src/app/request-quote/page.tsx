@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { QuoteForm, QuoteFormWithParams } from "@/components/forms/QuoteForm";
 import { PageHero } from "@/components/ui/PageHero";
+import { HEADER_IMAGES } from "@/lib/headerImages";
 import { Phone, Mail } from "lucide-react";
 import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/constants";
 
@@ -16,7 +17,7 @@ export default function RequestQuotePage() {
   return (
     <>
       <PageHero
-        image={{ src: "https://images.unsplash.com/photo-1759851358346-23ae8c50d31c?auto=format&fit=crop&w=2000&q=80" }}
+        image={{ src: HEADER_IMAGES["request-quote"] }}
         eyebrow="Get Started"
         title="Request a Quote"
         subtitle="Tell us about your project and we'll put together a proposal. Just straightforward expertise. We typically respond within one business day."

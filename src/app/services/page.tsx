@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { PageHero } from "@/components/ui/PageHero";
+import { HEADER_IMAGES } from "@/lib/headerImages";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { ArrowRight, MonitorCog, Presentation, Wrench, Video, Package } from "lucide-react";
 
@@ -123,7 +124,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        image={{ src: "https://images.unsplash.com/photo-1769798643655-e0f10f62c3fd?auto=format&fit=crop&w=2000&q=80" }}
+        image={{ src: HEADER_IMAGES["services"] }}
         eyebrow="What We Do"
         title="Complete Audio Visual"
         titleRed="Services"

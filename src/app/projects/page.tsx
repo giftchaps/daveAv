@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
+import { HEADER_IMAGES } from "@/lib/headerImages";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { ArrowRight } from "lucide-react";
 
@@ -78,7 +79,7 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHero
-        image={{ src: "https://images.unsplash.com/photo-1576514129883-2f1d47a65da6?auto=format&fit=crop&w=2000&q=80" }}
+        image={{ src: HEADER_IMAGES["projects"] }}
         eyebrow="Our Work"
         title="Real Projects."
         titleRed="Real AV Solutions."

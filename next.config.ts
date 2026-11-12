@@ -15,7 +15,9 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "**.fbcdn.net" }, // Facebook feed photos
     ],
-    formats: ["image/avif", "image/webp"],
+    // WebP only: AVIF is slow to encode, which delays the first view of each photo.
+    formats: ["image/webp"],
+    minimumCacheTTL: 2678400, // 31 days
     qualities: [75, 90],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",

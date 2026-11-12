@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
+import { HEADER_IMAGES } from "@/lib/headerImages";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, LOCATION } from "@/lib/constants";
@@ -15,7 +16,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        image={{ src: "https://images.unsplash.com/photo-1764810815228-b7f9432eec5c?auto=format&fit=crop&w=2000&q=80" }}
+        image={{ src: HEADER_IMAGES["contact"] }}
         eyebrow="Get in Touch"
         title="Let's Talk About"
         titleRed="Your Project."
