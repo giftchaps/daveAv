@@ -18,7 +18,7 @@ export function Honeypot() {
 export function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
   return (
-    <p id={id} className="mt-1.5 font-['Barlow'] text-sm text-[#B2081B]">
+    <p id={id} className="mt-1.5 flex items-center gap-1.5 font-['Barlow'] text-sm text-[#B2081B]">
       {message}
     </p>
   );
@@ -27,7 +27,7 @@ export function FieldError({ id, message }: { id: string; message?: string }) {
 export function ErrorBanner({ message }: { message: string }) {
   if (!message) return null;
   return (
-    <div role="alert" className="flex items-start gap-3 border border-[#B2081B]/30 border-l-4 border-l-[#B2081B] bg-[#FDF2F3] px-4 py-3">
+    <div role="alert" className="flex items-start gap-3 rounded-lg border border-[#B2081B]/20 bg-[#FDF2F3] px-4 py-3">
       <AlertCircle size={18} className="text-[#B2081B] flex-shrink-0 mt-0.5" aria-hidden="true" />
       <p className="font-['Barlow'] text-sm text-[#5C0A13]">{message}</p>
     </div>
@@ -69,9 +69,9 @@ export function SuccessPanel({
       tabIndex={-1}
       role="status"
       aria-live="polite"
-      className="bg-[#071E55] text-white border-t-4 border-[#B2081B] p-8 lg:p-10 scroll-mt-32 outline-none"
+      className="relative overflow-hidden rounded-2xl bg-[#071E55] text-white p-8 lg:p-12 scroll-mt-32 outline-none shadow-[0_24px_60px_-20px_rgba(7,30,85,0.45)]"
     >
-      <CheckCircle2 size={40} className="text-[#B9DDFF] mb-4" aria-hidden="true" />
+      <div className="w-14 h-14 rounded-full bg-white/10 ring-1 ring-white/20 flex items-center justify-center mb-6"><CheckCircle2 size={28} className="text-[#7CE0A8]" aria-hidden="true" /></div>
       <h2 className="font-['Barlow_Condensed'] font-extrabold uppercase leading-[1.05] mb-3" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)' }}>
         {title}
       </h2>
@@ -84,14 +84,14 @@ export function SuccessPanel({
       <div className="flex flex-col sm:flex-row gap-3 mt-6">
         <a
           href={PHONE_HREF}
-          className="inline-flex items-center justify-center gap-2 bg-[#B2081B] text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide text-sm hover:bg-[#8e0615] transition-colors"
+          className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#B2081B] text-white px-6 py-3 font-['Barlow'] font-semibold text-[15px] hover:bg-[#8e0615] transition-colors"
         >
           <Phone size={15} aria-hidden="true" /> Need us sooner? {PHONE}
         </a>
         <button
           type="button"
           onClick={onReset}
-          className="inline-flex items-center justify-center border border-white/40 text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide text-sm hover:bg-white/10 transition-colors"
+          className="inline-flex items-center justify-center rounded-lg border border-white/25 text-white px-6 py-3 font-['Barlow'] font-semibold text-[15px] hover:bg-white/10 transition-colors"
         >
           {resetLabel}
         </button>
@@ -102,7 +102,7 @@ export function SuccessPanel({
 
 export function PrivacyNote() {
   return (
-    <p className="font-['Barlow'] text-xs text-slate-500">
+    <p className="font-['Barlow'] text-[13px] text-slate-500">
       <Lock size={12} className="inline-block align-[-1px] mr-1.5" aria-hidden="true" />
       We only use your details to respond to you. See our{' '}
       <Link href="/privacy-policy" className="underline hover:text-[#1265B7]">
@@ -112,3 +112,7 @@ export function PrivacyNote() {
     </p>
   );
 }
+
+/** Primary submit button used by both forms. */
+export const submitClass =
+  "group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#B2081B] text-white h-14 px-9 font-['Barlow'] font-semibold text-[16px] tracking-wide shadow-[0_10px_24px_-10px_rgba(178,8,27,0.7)] hover:bg-[#9a0717] hover:shadow-[0_14px_30px_-10px_rgba(178,8,27,0.8)] active:translate-y-px transition-all disabled:opacity-70 disabled:cursor-wait";

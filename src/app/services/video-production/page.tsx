@@ -64,7 +64,7 @@ export default function VideoProductionPage() {
               </div>
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <Image
                 src="https://images.unsplash.com/photo-1637159147941-cffa2aafc059?auto=format&fit=crop&w=1600&q=80"
                 alt="Professional video production setup"

@@ -117,7 +117,7 @@ export default function ServiceSupportPage() {
               </div>
             </div>
 
-            <div className="bg-[#071E55] text-white p-8 lg:p-10">
+            <div className="rounded-2xl bg-[#071E55] text-white p-8 lg:p-10">
               <div className="font-['Barlow_Condensed'] font-bold uppercase text-xl text-[#B2081B] mb-4 tracking-wide">
                 Contact Our Service Team
               </div>

@@ -30,7 +30,7 @@ function PostCard({ post }: { post: FacebookPost }) {
       href={post.permalink_url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col rounded-lg overflow-hidden bg-white border border-[#DDE3EE] hover:border-[#1265B7]/50 hover:shadow-[0_8px_28px_rgba(18,101,183,0.12)] hover:-translate-y-0.5 transition-all duration-300"
+      className="group flex flex-col rounded-2xl overflow-hidden bg-white border border-[#DDE3EE] hover:border-[#1265B7]/50 hover:shadow-[0_8px_28px_rgba(18,101,183,0.12)] hover:-translate-y-0.5 transition-all duration-300"
       aria-label={`View Facebook post from ${formatDate(post.created_time)}`}
     >
       {/* Photo */}
@@ -81,7 +81,7 @@ function EmptyState() {
       href="https://www.facebook.com/avdavey"
       target="_blank"
       rel="noopener noreferrer"
-      className="col-span-full group flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 bg-white border border-[#DDE3EE] border-l-4 border-l-[#1877F2] p-5 sm:p-6 hover:border-[#1877F2]/50 transition-colors"
+      className="col-span-full group flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 rounded-2xl bg-white border border-slate-200/80 p-5 sm:p-6 hover:border-[#1877F2]/50 transition-colors"
     >
       <span className="flex items-center justify-center w-12 h-12 rounded-full bg-[#1877F2] text-white flex-shrink-0">
         <FbIcon size={22} />
@@ -94,7 +94,7 @@ function EmptyState() {
           Photos and stories from recent galas, conferences, installs and stage builds across Connecticut.
         </span>
       </span>
-      <span className="inline-flex items-center gap-2 self-start sm:self-center bg-[#1877F2] text-white px-5 py-2.5 font-['Barlow'] font-bold uppercase tracking-wide text-sm group-hover:bg-[#0f5fd0] transition-colors">
+      <span className="inline-flex items-center gap-2 self-start sm:self-center rounded-lg bg-[#1877F2] text-white px-5 py-2.5 font-['Barlow'] font-bold uppercase tracking-wide text-sm group-hover:bg-[#0f5fd0] transition-colors">
         Visit our page <ExternalLink size={13} aria-hidden="true" />
       </span>
     </a>

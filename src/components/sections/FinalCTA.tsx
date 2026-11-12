@@ -34,7 +34,7 @@ export function FinalCTA() {
             </p>
             <Link
               href="/request-quote"
-              className="inline-flex items-center gap-2 bg-[#B2081B] text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] active:scale-[0.98] transition-all duration-150 group text-base shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#B2081B] text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] active:scale-[0.98] transition-all duration-150 group text-base shadow-lg hover:shadow-xl"
             >
               Request a Quote
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />

@@ -2,10 +2,10 @@
 
 import type { FormEvent } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { useFormSubmit, formValues, inputClass } from './useFormSubmit';
-import { ErrorBanner, FieldError, Honeypot, PrivacyNote, SendingLabel, SuccessPanel } from './FormParts';
+import { useFormSubmit, formValues, inputClass, textareaClass, labelClass } from './useFormSubmit';
+import { ErrorBanner, FieldError, Honeypot, PrivacyNote, SendingLabel, SuccessPanel, submitClass } from './FormParts';
 
-const label = "block font-['Barlow'] font-semibold text-sm text-[#071E55] mb-1.5";
+const label = labelClass;
 
 export function ContactForm() {
   const { status, error, fields, sentTo, submit, reset, markStarted } = useFormSubmit('contact');
@@ -35,12 +35,12 @@ export function ContactForm() {
   const describedBy = (name: string) => (fields[name] ? `contact-${name}-error` : undefined);
 
   return (
-    <form className="space-y-5" noValidate onSubmit={onSubmit} onFocus={markStarted} aria-busy={sending}>
+    <form className="space-y-6" noValidate onSubmit={onSubmit} onFocus={markStarted} aria-busy={sending}>
       <Honeypot />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="contact-name" className={label}>
-            Full Name <span className="text-[#B2081B]" aria-hidden="true">*</span>
+            Full name <span className="text-[#B2081B]" aria-hidden="true">*</span>
           </label>
           <input id="contact-name" name="name" type="text" required autoComplete="name" maxLength={100}
             aria-invalid={invalid('name')} aria-describedby={describedBy('name')}
@@ -48,7 +48,9 @@ export function ContactForm() {
           <FieldError id="contact-name-error" message={fields.name} />
         </div>
         <div>
-          <label htmlFor="contact-company" className={label}>Company</label>
+          <label htmlFor="contact-company" className={label}>
+            Company <span className="font-normal text-slate-400">(optional)</span>
+          </label>
           <input id="contact-company" name="company" type="text" autoComplete="organization" maxLength={120}
             className={inputClass(false)} placeholder="Company name" />
         </div>
@@ -65,7 +67,9 @@ export function ContactForm() {
           <FieldError id="contact-email-error" message={fields.email} />
         </div>
         <div>
-          <label htmlFor="contact-phone" className={label}>Phone</label>
+          <label htmlFor="contact-phone" className={label}>
+            Phone <span className="font-normal text-slate-400">(optional)</span>
+          </label>
           <input id="contact-phone" name="phone" type="tel" autoComplete="tel" maxLength={40}
             aria-invalid={invalid('phone')} aria-describedby={describedBy('phone')}
             className={inputClass(invalid('phone'))} placeholder="(203) 000-0000" />
@@ -79,28 +83,25 @@ export function ContactForm() {
         </label>
         <textarea id="contact-message" name="message" required rows={6} maxLength={5000}
           aria-invalid={invalid('message')} aria-describedby={describedBy('message')}
-          className={`${inputClass(invalid('message'))} resize-y`}
+          className={textareaClass(invalid('message'))}
           placeholder="Tell us about your project or question..." />
         <FieldError id="contact-message-error" message={fields.message} />
       </div>
 
       <ErrorBanner message={error} />
-      <PrivacyNote />
-
-      <button
-        type="submit"
-        disabled={sending}
-        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#B2081B] text-white px-8 py-3.5 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors group disabled:opacity-70 disabled:cursor-wait"
-      >
-        {sending ? (
-          <SendingLabel label="Sending..." />
-        ) : (
-          <>
-            Send Message
-            <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-          </>
-        )}
-      </button>
+      <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
+        <PrivacyNote />
+        <button type="submit" disabled={sending} className={submitClass}>
+          {sending ? (
+            <SendingLabel label="Sending..." />
+          ) : (
+            <>
+              Send message
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </>
+          )}
+        </button>
+      </div>
     </form>
   );
 }

@@ -50,7 +50,7 @@ export function LegalPage({
 
             <aside className="hidden lg:block lg:col-span-4">
               <div className="sticky top-28 space-y-6">
-                <nav aria-label="On this page" className="bg-[#F4F6FA] border border-[#DDE3EE] border-t-4 border-t-[#071E55] p-6">
+                <nav aria-label="On this page" className="rounded-2xl bg-[#F4F6FA] border border-slate-200/80 p-6">
                   <div className="font-['Barlow_Condensed'] font-bold uppercase tracking-[0.12em] text-sm text-[#B2081B] mb-4">
                     On this page
                   </div>
@@ -67,7 +67,7 @@ export function LegalPage({
                     ))}
                   </ol>
                 </nav>
-                <div className="bg-[#071E55] text-white p-6">
+                <div className="rounded-2xl bg-[#071E55] text-white p-6">
                   <div className="font-['Barlow_Condensed'] font-bold uppercase text-xl mb-2">Questions?</div>
                   <p className="font-['Barlow'] text-white/75 text-[15px] leading-relaxed mb-4">
                     Reach Davey directly and we&apos;ll be glad to help.

@@ -95,7 +95,7 @@ export default function ProjectsPage() {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="group border border-[#DDE3EE] hover:border-[#1265B7]/40 transition-all overflow-hidden"
+                className="group rounded-2xl bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(7,30,85,0.04),0_10px_30px_-18px_rgba(7,30,85,0.18)] hover:shadow-[0_20px_40px_-20px_rgba(7,30,85,0.3)] hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
               >
                 {/* Image */}
                 <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
@@ -145,7 +145,7 @@ export default function ProjectsPage() {
           </p>
           <Link
             href="/request-quote"
-            className="inline-flex items-center gap-2 bg-[#B2081B] text-white px-7 py-3.5 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors group"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#B2081B] text-white px-7 py-3.5 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors group"
           >
             Request a Quote
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />

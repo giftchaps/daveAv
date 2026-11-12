@@ -124,7 +124,7 @@ export default function InstallationPage() {
               </div>
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <Image
                 src="https://images.unsplash.com/photo-1661169399398-dd271af8f651?auto=format&fit=crop&w=1600&q=80"
                 alt="Professional AV installation in a conference room"
@@ -200,7 +200,7 @@ export default function InstallationPage() {
 
             <div className="lg:col-span-8 space-y-5">
               {faqs.map((faq) => (
-                <div key={faq.q} className="bg-white border border-[#DDE3EE] p-6">
+                <div key={faq.q} className="rounded-2xl bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(7,30,85,0.04),0_10px_30px_-18px_rgba(7,30,85,0.18)] p-6">
                   <h3 className="font-['Barlow'] font-bold text-[#071E55] text-lg mb-2">{faq.q}</h3>
                   <p className="font-['Barlow'] text-slate-600 text-base leading-relaxed">{faq.a}</p>
                 </div>

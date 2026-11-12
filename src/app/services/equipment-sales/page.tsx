@@ -56,7 +56,7 @@ export default function EquipmentSalesPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-12">
             {categories.map((cat) => (
-              <div key={cat.name} className="p-6 border border-[#DDE3EE] border-l-4 border-l-[#1265B7] hover:border-[#1265B7]/40 hover:border-l-[#B2081B] hover:bg-[#F4F6FA] transition-all">
+              <div key={cat.name} className="group p-6 rounded-2xl bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(7,30,85,0.04),0_10px_30px_-18px_rgba(7,30,85,0.18)] hover:border-[#1265B7]/40 hover:-translate-y-0.5 transition-all duration-300">
                 <h3 className="font-['Barlow_Condensed'] font-bold uppercase text-[#071E55] text-xl lg:text-2xl mb-2">
                   {cat.name}
                 </h3>
@@ -65,7 +65,7 @@ export default function EquipmentSalesPage() {
             ))}
           </div>
 
-          <div className="bg-[#071E55] text-white p-8 lg:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="rounded-2xl bg-[#071E55] text-white p-8 lg:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div>
               <div className="font-['Barlow_Condensed'] font-bold uppercase text-2xl lg:text-3xl text-white mb-2">
                 Not sure what you need?
@@ -76,7 +76,7 @@ export default function EquipmentSalesPage() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-[#B2081B] text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors group flex-shrink-0"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#B2081B] text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors group flex-shrink-0"
             >
               Discuss Your Needs
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />

@@ -145,7 +145,7 @@ export function SiteHeader() {
               </a>
               <Link
                 href="/request-quote"
-                className="hidden sm:inline-flex items-center gap-2 bg-[#B2081B] text-white px-5 py-2.5 font-['Barlow'] font-bold text-sm uppercase tracking-wide hover:bg-[#8e0615] active:scale-[0.98] transition-all duration-150 group shadow-sm hover:shadow-md"
+                className="hidden sm:inline-flex items-center gap-2 rounded-md bg-[#B2081B] text-white px-5 py-2.5 font-['Barlow'] font-bold text-sm uppercase tracking-wide hover:bg-[#8e0615] active:scale-[0.98] transition-all duration-150 group shadow-sm hover:shadow-md"
               >
                 Request a Quote
                 <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
@@ -246,7 +246,7 @@ export function SiteHeader() {
               <div className="p-5 border-t border-gray-100 space-y-3">
                 <Link
                   href="/request-quote"
-                  className="flex items-center justify-center gap-2 w-full bg-[#B2081B] text-white py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors"
+                  className="flex items-center justify-center gap-2 w-full rounded-lg bg-[#B2081B] text-white py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors"
                   onClick={closeMobile}
                 >
                   Request a Quote <ArrowRight size={16} />
