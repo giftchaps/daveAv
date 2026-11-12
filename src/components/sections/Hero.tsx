@@ -1,7 +1,46 @@
+import type React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Play, MapPin } from 'lucide-react';
 import styles from './Hero.module.css';
+
+// Typing speed and timing for the headline (it types once, then stays).
+const LINE_ONE = 'Audio Visual Solutions';
+const PAUSE_CHARS = 6; // short pause between the two lines, measured in keystrokes
+const START_MS = 250;
+const CHAR_MS = 42;
+
+/** One headline line, typed letter by letter. Each word stays together so lines never break mid-word. */
+function TypedLine({ text, start, strong = false, last = false }: { text: string; start: number; strong?: boolean; last?: boolean }) {
+  const Tag = strong ? 'strong' : 'span';
+  let i = start;
+  const words = text.split(' ');
+  return (
+    <Tag className={styles.typedLine}>
+      {words.map((word, w) => (
+        <span key={w}>
+          <span className={styles.word}>
+            {Array.from(word).map((ch, c) => {
+              const delay = START_MS + i++ * CHAR_MS;
+              const isEnd = w === words.length - 1 && c === word.length - 1;
+              const cls = isEnd ? (last ? styles.chLast : styles.chLineEnd) : '';
+              return (
+                <span
+                  key={c}
+                  className={`${styles.ch} ${cls}`.trim()}
+                  style={{ '--d': `${delay}ms` } as React.CSSProperties}
+                >
+                  {ch}
+                </span>
+              );
+            })}
+          </span>
+          {w < words.length - 1 && (i++, ' ')}
+        </span>
+      ))}
+    </Tag>
+  );
+}
 
 export function Hero() {
   return (
@@ -12,8 +51,9 @@ export function Hero() {
         <div className={styles.copy}>
           <p className={styles.eyebrow}>Connecticut&apos;s Trusted AV Partner</p>
           <h1 id="hero-heading" className={styles.heading}>
-            <span>Audio Visual Solutions</span>
-            <strong>That Just Work.</strong>
+            {/* The letters are real text, so search engines and screen readers get the full headline. */}
+            <TypedLine text={LINE_ONE} start={0} />{' '}
+            <TypedLine text="That Just Work." start={LINE_ONE.length + PAUSE_CHARS} strong last />
           </h1>
           <p className={styles.description}>Professional AV installation, live event production and technical support. Quality equipment. Personal service. Guaranteed results.</p>
           <div className={styles.actions}>
