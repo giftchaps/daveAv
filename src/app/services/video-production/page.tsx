@@ -23,6 +23,7 @@ export default function VideoProductionPage() {
   return (
     <>
       <PageHero
+        image={{ src: "/images/heroes/video-production.jpg", alt: "Felix running a Canon camera and streaming rig at a corporate meeting", caption: "Live camera & streaming" }}
         eyebrow="Video Production & Streaming"
         title="Your Message, Delivered"
         titleRed="Professionally."
@@ -49,13 +50,13 @@ export default function VideoProductionPage() {
               <p className="font-['Barlow'] text-slate-600 leading-relaxed mb-6 text-base lg:text-lg">
                 Whether you need a polished corporate video, a live-streamed event, or a multi-camera production, A/V DAVEY has the equipment and expertise to deliver broadcast-quality results on time and on budget.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
                 {services.map((s) => (
                   <div key={s.title} className="flex gap-3">
-                    <CheckCircle2 size={16} className="text-[#1265B7] flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <CheckCircle2 size={19} className="text-[#1265B7] flex-shrink-0 mt-0.5" aria-hidden="true" />
                     <div>
-                      <div className="font-['Barlow'] font-semibold text-[#071E55] text-sm">{s.title}</div>
-                      <div className="font-['Barlow'] text-slate-500 text-xs mt-0.5">{s.description}</div>
+                      <div className="font-['Barlow'] font-semibold text-[#071E55] text-base lg:text-[17px] leading-snug">{s.title}</div>
+                      <div className="font-['Barlow'] text-slate-600 text-sm lg:text-[15px] leading-relaxed mt-1">{s.description}</div>
                     </div>
                   </div>
                 ))}

@@ -16,6 +16,7 @@ export default function RequestQuotePage() {
   return (
     <>
       <PageHero
+        image={{ src: "/images/heroes/request-quote.jpg", alt: "Ballroom with two large screens at the Newtown Savings Bank annual meeting", caption: "Newtown Savings Bank \u00b7 Annual Meeting" }}
         eyebrow="Get Started"
         title="Request a Quote"
         subtitle="Tell us about your project and we'll put together a proposal. Just straightforward expertise. We typically respond within one business day."

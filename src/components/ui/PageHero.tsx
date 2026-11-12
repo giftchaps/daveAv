@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 
 interface BreadcrumbItem {
@@ -14,6 +15,8 @@ interface PageHeroProps {
   subtitle?: string;
   breadcrumbs?: BreadcrumbItem[];
   variant?: 'default' | 'navy' | 'blue';
+  /** Optional photo shown on the right on large screens. */
+  image?: { src: string; alt: string; caption?: string; position?: string };
 }
 
 export function PageHero({
@@ -23,6 +26,7 @@ export function PageHero({
   subtitle,
   breadcrumbs,
   variant = 'default',
+  image,
 }: PageHeroProps) {
   const bg = {
     default: 'bg-[#F4F6FA] border-b border-[#DDE3EE]',
@@ -36,8 +40,13 @@ export function PageHero({
   const breadcrumbHoverColor = variant === 'default' ? 'hover:text-[#1265B7]' : 'hover:text-white';
 
   return (
-    <section className={`${bg} py-14 lg:py-20`} aria-label="Page header">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className={`${bg} py-14 lg:py-20 overflow-hidden`} aria-label="Page header">
+      <div
+        className={`max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 ${
+          image ? 'lg:grid lg:grid-cols-12 lg:gap-12 xl:gap-16 lg:items-center' : ''
+        }`}
+      >
+        <div className={image ? 'lg:col-span-7' : ''}>
         {/* Breadcrumbs */}
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav
@@ -96,6 +105,30 @@ export function PageHero({
           >
             {subtitle}
           </p>
+        )}
+        </div>
+
+        {image && (
+          <div className="hidden lg:block lg:col-span-5 relative">
+            {/* offset accent frame */}
+            <div className="absolute -right-4 -bottom-4 w-full h-full border-2 border-[#B2081B]/25" aria-hidden="true" />
+            <div className="relative aspect-[4/3] overflow-hidden bg-[#DDE3EE] shadow-[0_18px_40px_rgba(7,30,85,0.18)] border-b-4 border-[#B2081B]">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                priority
+                className="object-cover"
+                style={{ objectPosition: image.position ?? 'center' }}
+                sizes="(max-width: 1024px) 0px, 40vw"
+              />
+              {image.caption && (
+                <div className="absolute left-0 bottom-0 bg-[#071E55]/90 backdrop-blur-[2px] text-white px-4 py-2.5 font-['Barlow_Condensed'] font-semibold uppercase tracking-[0.1em] text-[13px]">
+                  {image.caption}
+                </div>
+              )}
+            </div>
+          </div>
         )}
       </div>
     </section>

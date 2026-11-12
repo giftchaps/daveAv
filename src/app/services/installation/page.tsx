@@ -82,6 +82,7 @@ export default function InstallationPage() {
   return (
     <>
       <PageHero
+        image={{ src: "/images/heroes/installation.jpg", alt: "Meeting room set up with two large projection screens on the long wall", caption: "Twin screens on the long wall" }}
         eyebrow="Installation & Integration"
         title="AV Systems That Work"
         titleRed="From Day One."
@@ -176,7 +177,8 @@ export default function InstallationPage() {
       {/* FAQ */}
       <section className="py-14 lg:py-20 bg-[#F4F6FA]" aria-labelledby="faq-heading">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
+           <div className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
             <div className="flex items-center gap-3 mb-3">
               <span className="block w-8 h-[3px] bg-[#B2081B] flex-shrink-0" />
               <span className="font-['Barlow_Condensed'] font-bold text-sm tracking-[0.12em] uppercase text-[#B2081B]">
@@ -190,12 +192,16 @@ export default function InstallationPage() {
             >
               Installation FAQ
             </h2>
+            <p className="font-['Barlow'] text-slate-600 text-base lg:text-lg leading-relaxed lg:-mt-4">
+              Have a question that isn&apos;t covered here? Call us or send a note and we&apos;ll walk you through it.
+            </p>
+           </div>
 
-            <div className="space-y-6">
+            <div className="lg:col-span-8 space-y-5">
               {faqs.map((faq) => (
                 <div key={faq.q} className="bg-white border border-[#DDE3EE] p-6">
-                  <h3 className="font-['Barlow'] font-bold text-[#071E55] mb-2">{faq.q}</h3>
-                  <p className="font-['Barlow'] text-slate-600 text-sm leading-relaxed">{faq.a}</p>
+                  <h3 className="font-['Barlow'] font-bold text-[#071E55] text-lg mb-2">{faq.q}</h3>
+                  <p className="font-['Barlow'] text-slate-600 text-base leading-relaxed">{faq.a}</p>
                 </div>
               ))}
             </div>
