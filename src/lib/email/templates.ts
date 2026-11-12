@@ -211,15 +211,24 @@ function submissionRows(s: Submission, forTeam: boolean): [string, string][] {
   return rows;
 }
 
-/** "Installation & Integration, Video Production" -> "installation & integration and video production". */
-function projectList(types: string): string {
-  const items = types
-    .split(',')
-    .map((t) => t.trim().toLowerCase())
-    .filter(Boolean)
-    .map((t) => (t === 'other' ? 'other AV work' : t));
-  if (items.length <= 1) return items[0] ?? 'AV services';
-  return `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`;
+function typeList(types: string): string[] {
+  return types.split(',').map((t) => t.trim()).filter(Boolean);
+}
+
+/** Readable list for the customer: "Installation & Integration and Equipment Sales". */
+function projectSentence(types: string): string {
+  const named = typeList(types).filter((t) => t !== 'Other');
+  const hasOther = typeList(types).includes('Other');
+  const items = hasOther && named.length ? [...named, 'other AV work'] : named;
+  if (!items.length) return 'Your quote request';
+  const list = items.length === 1 ? items[0] : `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`;
+  return `Your quote request for ${list}`;
+}
+
+/** Short label for subjects and previews: "Installation & Integration +2 more". */
+function projectShort(types: string): string {
+  const list = typeList(types);
+  return list.length > 1 ? `${list[0]} +${list.length - 1} more` : list[0] ?? 'AV services';
 }
 
 function textBlock(s: Submission): string {
@@ -246,7 +255,7 @@ export function teamNotification(s: Submission, submittedAt: Date): RenderedEmai
   const when = formatSubmittedAt(submittedAt);
   const who = s.company ? `${s.name} (${s.company})` : s.name;
   const subject = isQuote
-    ? `New quote request: ${s.projectType} from ${who}`
+    ? `New quote request from ${who} · ${projectShort(s.projectType)}`
     : `New website message from ${who}`;
 
   const replySubject = encodeURIComponent(
@@ -257,7 +266,7 @@ export function teamNotification(s: Submission, submittedAt: Date): RenderedEmai
 
   const body =
     intro(
-      isQuote ? `Quote request · ${s.projectType}` : 'Website message',
+      isQuote ? `Quote request · ${projectShort(s.projectType)}` : 'Website message',
       isQuote ? `New quote request from ${esc(firstName(s.name))}` : `New message from ${esc(firstName(s.name))}`,
       `Submitted ${esc(when)} through the ${isQuote ? 'Request a Quote' : 'Contact'} form. Hit reply to answer ${esc(firstName(s.name))} directly.`,
     ) +
@@ -267,7 +276,7 @@ export function teamNotification(s: Submission, submittedAt: Date): RenderedEmai
     spacer(26);
 
   const html = layout({
-    preheader: isQuote ? `${s.projectType}: ${s.description.slice(0, 110)}` : s.message.slice(0, 130),
+    preheader: isQuote ? `${projectShort(s.projectType)}: ${s.description.slice(0, 110)}` : s.message.slice(0, 130),
     badge: isQuote ? 'New Quote Request' : 'New Message',
     body,
     footerNote: `Sent automatically from the ${isQuote ? 'quote request' : 'contact'} form on ${siteHost()}.`,
@@ -329,7 +338,7 @@ export function customerConfirmation(s: Submission): RenderedEmail {
       isQuote ? 'Quote request received' : 'Message received',
       `Thanks, ${name}.<br>We've got it from here.`,
       isQuote
-        ? `Your request for ${esc(projectList(s.projectType))} is with Davey and the team. We typically respond within one business day, usually sooner.`
+        ? `${esc(projectSentence(s.projectType))} is with Davey and the team. We typically respond within one business day, usually sooner.`
         : `Your message is with Davey and the team. We typically respond within one business day, usually sooner.`,
     ) +
     (isQuote ? stepsHtml : '') +
@@ -352,7 +361,7 @@ export function customerConfirmation(s: Submission): RenderedEmail {
     `Thanks, ${firstName(s.name)}. We've got it from here.`,
     '',
     isQuote
-      ? `Your request for ${projectList(s.projectType)} is with Davey and the team. We typically respond within one business day, usually sooner.`
+      ? `${projectSentence(s.projectType)} is with Davey and the team. We typically respond within one business day, usually sooner.`
       : 'Your message is with Davey and the team. We typically respond within one business day, usually sooner.',
     '',
     ...(isQuote ? ['What happens next:', ...steps.map((st, i) => `  0${i + 1}  ${st}`), ''] : []),
