@@ -3,8 +3,23 @@ import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
 import { HEADER_IMAGES } from "@/lib/headerImages";
 import { FinalCTA } from "@/components/sections/FinalCTA";
-import { Wrench, Phone, Mail, HelpCircle, CheckCircle2 } from "lucide-react";
-import { PHONE, PHONE_HREF, EMAIL } from "@/lib/constants";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  ClipboardCheck,
+  Cpu,
+  Gauge,
+  HelpCircle,
+  Mail,
+  Phone,
+  Plug,
+  RefreshCw,
+  Search,
+  ShieldCheck,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
+import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "AV Service & Support",
@@ -12,15 +27,69 @@ export const metadata: Metadata = {
     "Responsive AV service and support in Connecticut. Troubleshooting, repair, preventive maintenance and on-site assistance from A/V DAVEY.",
 };
 
-const capabilities = [
-  "System troubleshooting & diagnosis",
-  "Equipment repair & replacement",
-  "Preventive maintenance programs",
-  "System optimization & calibration",
-  "Firmware & software updates",
-  "On-site technical assistance",
-  "Third-party system support",
-  "Documentation & system review",
+const CAPABILITIES: { label: string; icon: LucideIcon }[] = [
+  { label: "System troubleshooting & diagnosis", icon: Search },
+  { label: "Equipment repair & replacement", icon: Wrench },
+  { label: "Preventive maintenance programs", icon: ShieldCheck },
+  { label: "System optimization & calibration", icon: Gauge },
+  { label: "Firmware & software updates", icon: RefreshCw },
+  { label: "On-site technical assistance", icon: Plug },
+  { label: "Third-party system support", icon: Cpu },
+  { label: "Documentation & system review", icon: ClipboardCheck },
+];
+
+const ACTIONS: {
+  label: string;
+  text: string;
+  detail?: string;
+  ctaText: string;
+  href: string;
+  icon: LucideIcon;
+  external?: boolean;
+  card: string;
+  iconTile: string;
+  title: string;
+  body: string;
+  cta: string;
+}[] = [
+  {
+    label: "Request service",
+    text: "Tell us what's going on and our team will respond promptly to schedule a fix.",
+    ctaText: "Start a request",
+    href: "/request-quote?type=service-support",
+    icon: Wrench,
+    card: "bg-[#071E55] text-white shadow-[0_24px_50px_-28px_rgba(7,30,85,0.7)] hover:shadow-[0_30px_60px_-26px_rgba(7,30,85,0.8)]",
+    iconTile: "bg-[#B2081B] text-white",
+    title: "text-white",
+    body: "text-white/70",
+    cta: "text-white",
+  },
+  {
+    label: "Call A/V DAVEY",
+    text: "Speak to someone who knows AV, directly.",
+    detail: PHONE,
+    ctaText: "Call now",
+    href: PHONE_HREF,
+    icon: Phone,
+    external: true,
+    card: "bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(7,30,85,0.04),0_12px_30px_-20px_rgba(7,30,85,0.25)] hover:border-[#1265B7]/40 hover:shadow-[0_22px_44px_-22px_rgba(7,30,85,0.35)]",
+    iconTile: "bg-[#1265B7]/10 text-[#1265B7] group-hover:bg-[#1265B7] group-hover:text-white transition-colors",
+    title: "text-[#071E55]",
+    body: "text-slate-500",
+    cta: "text-[#1265B7]",
+  },
+  {
+    label: "Ask a question",
+    text: "Not sure what you need? We're happy to talk it through, no obligation.",
+    ctaText: "Send a question",
+    href: "/contact",
+    icon: HelpCircle,
+    card: "bg-white border border-slate-200/80 shadow-[0_1px_2px_rgba(7,30,85,0.04),0_12px_30px_-20px_rgba(7,30,85,0.25)] hover:border-[#1265B7]/40 hover:shadow-[0_22px_44px_-22px_rgba(7,30,85,0.35)]",
+    iconTile: "bg-[#B2081B]/10 text-[#B2081B] group-hover:bg-[#B2081B] group-hover:text-white transition-colors",
+    title: "text-[#071E55]",
+    body: "text-slate-500",
+    cta: "text-[#B2081B]",
+  },
 ];
 
 export default function ServiceSupportPage() {
@@ -36,62 +105,75 @@ export default function ServiceSupportPage() {
       />
 
       {/* Action cards */}
-      <section className="py-14 lg:py-20 bg-white" aria-labelledby="service-actions-heading">
+      <section className="py-16 lg:py-24 bg-white" aria-labelledby="service-actions-heading">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="block w-8 h-[3px] bg-[#B2081B] flex-shrink-0" />
-            <span className="font-['Barlow_Condensed'] font-bold text-sm tracking-[0.12em] uppercase text-[#B2081B]">
-              Get Help Now
-            </span>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-10 lg:mb-12">
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="block w-8 h-[3px] bg-[#B2081B] flex-shrink-0" />
+                <span className="font-['Barlow_Condensed'] font-bold text-sm tracking-[0.12em] uppercase text-[#B2081B]">
+                  Get Help Now
+                </span>
+              </div>
+              <h2
+                id="service-actions-heading"
+                className="font-['Barlow_Condensed'] font-extrabold uppercase text-[#071E55] leading-[1.05]"
+                style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)" }}
+              >
+                How Can We Help You?
+              </h2>
+            </div>
+            <p className="font-['Barlow'] text-slate-500 text-base lg:text-lg max-w-md lg:text-right">
+              Pick the option that suits you. A real person who knows AV will get back to you.
+            </p>
           </div>
-          <h2
-            id="service-actions-heading"
-            className="font-['Barlow_Condensed'] font-extrabold uppercase text-[#071E55] leading-[1.05] mb-10"
-            style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)" }}
-          >
-            How Can We Help You?
-          </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <Link
-              href="/request-quote?type=service-support"
-              className="group flex flex-col items-center text-center p-8 bg-[#071E55] text-white hover:bg-[#0d2a6e] transition-colors border-b-4 border-[#B2081B]"
-            >
-              <Wrench size={36} className="mb-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
-              <div className="font-['Barlow_Condensed'] font-bold uppercase text-xl mb-2">Request Service</div>
-              <p className="font-['Barlow'] text-white/85 text-sm">
-                Submit a service request and our team will respond promptly.
-              </p>
-            </Link>
-
-            <a
-              href={PHONE_HREF}
-              className="group flex flex-col items-center text-center p-8 bg-[#1265B7] text-white hover:bg-[#0f54a0] transition-colors border-b-4 border-[#071E55]"
-            >
-              <Phone size={36} className="mb-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
-              <div className="font-['Barlow_Condensed'] font-bold uppercase text-xl mb-2">Call A/V DAVEY</div>
-              <p className="font-['Barlow'] text-white/85 text-sm">{PHONE}</p>
-            </a>
-
-            <Link
-              href="/contact"
-              className="group flex flex-col items-center text-center p-8 bg-[#F4F6FA] text-[#071E55] hover:bg-[#DDE3EE] transition-colors border-b-4 border-[#B2081B]"
-            >
-              <HelpCircle size={36} className="mb-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
-              <div className="font-['Barlow_Condensed'] font-bold uppercase text-xl mb-2">Ask a Question</div>
-              <p className="font-['Barlow'] text-slate-600 text-sm">
-                Not sure what you need? We&apos;re happy to talk it through.
-              </p>
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+            {ACTIONS.map((action) => {
+              const card = (
+                <>
+                  <span
+                    className={`w-14 h-14 rounded-xl flex items-center justify-center mb-7 transition-transform duration-300 group-hover:-translate-y-0.5 ${action.iconTile}`}
+                    aria-hidden="true"
+                  >
+                    <action.icon size={26} strokeWidth={1.9} />
+                  </span>
+                  <h3 className={`font-['Barlow'] font-semibold text-xl lg:text-[22px] leading-tight mb-2 ${action.title}`}>
+                    {action.label}
+                  </h3>
+                  <p className={`font-['Barlow'] text-[15px] lg:text-base leading-relaxed ${action.body}`}>{action.text}</p>
+                  {action.detail && (
+                    <p className="font-['Barlow'] font-semibold text-[#071E55] text-lg whitespace-nowrap mt-1">{action.detail}</p>
+                  )}
+                  <span className="block h-8" aria-hidden="true" />
+                  <span
+                    className={`mt-auto inline-flex items-center gap-2 font-['Barlow'] font-semibold text-[15px] ${action.cta}`}
+                  >
+                    {action.ctaText}
+                    <ArrowRight size={17} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </>
+              );
+              const cls = `group relative flex flex-col overflow-hidden rounded-2xl p-7 lg:p-8 md:min-h-[280px] transition-all duration-300 hover:-translate-y-1 ${action.card}`;
+              return action.external ? (
+                <a key={action.label} href={action.href} className={cls}>
+                  {card}
+                </a>
+              ) : (
+                <Link key={action.label} href={action.href} className={cls}>
+                  {card}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Capabilities */}
-      <section className="py-14 lg:py-20 bg-[#F4F6FA]">
+      <section className="py-16 lg:py-24 bg-[#F4F6FA]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-16 items-start">
+            <div className="lg:col-span-7">
               <div className="flex items-center gap-3 mb-3">
                 <span className="block w-8 h-[3px] bg-[#B2081B] flex-shrink-0" />
                 <span className="font-['Barlow_Condensed'] font-bold text-sm tracking-[0.12em] uppercase text-[#B2081B]">
@@ -104,44 +186,81 @@ export default function ServiceSupportPage() {
               >
                 We Service What Others Can&apos;t
               </h2>
-              <p className="font-['Barlow'] text-slate-600 leading-relaxed mb-6 text-base lg:text-lg">
+              <p className="font-['Barlow'] text-slate-600 leading-relaxed mb-9 text-base lg:text-lg max-w-2xl">
                 A/V DAVEY technicians have the experience to troubleshoot and repair virtually any AV system. We support the equipment we sell and install, and we also service systems originally installed by others.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5">
-                {capabilities.map((cap) => (
-                  <div key={cap} className="flex items-start gap-3 font-['Barlow'] text-base lg:text-[17px] leading-snug text-slate-700">
-                    <CheckCircle2 size={18} className="text-[#1265B7] flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    {cap}
-                  </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {CAPABILITIES.map((cap) => (
+                  <li
+                    key={cap.label}
+                    className="group flex items-center gap-4 rounded-xl bg-white border border-slate-200/80 px-4 py-3.5 shadow-[0_1px_2px_rgba(7,30,85,0.04)] hover:border-[#1265B7]/35 hover:shadow-[0_10px_24px_-16px_rgba(7,30,85,0.35)] transition-all duration-300"
+                  >
+                    <span
+                      className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#1265B7]/[0.08] text-[#1265B7] flex items-center justify-center group-hover:bg-[#1265B7] group-hover:text-white transition-colors"
+                      aria-hidden="true"
+                    >
+                      <cap.icon size={19} strokeWidth={1.9} />
+                    </span>
+                    <span className="font-['Barlow'] font-medium text-[#071E55] text-[15px] lg:text-base leading-snug">{cap.label}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
-            <div className="rounded-2xl bg-[#071E55] text-white p-8 lg:p-10">
-              <div className="font-['Barlow_Condensed'] font-bold uppercase text-xl text-[#B2081B] mb-4 tracking-wide">
-                Contact Our Service Team
+            {/* Contact card */}
+            <aside className="lg:col-span-5 lg:sticky lg:top-28 relative overflow-hidden rounded-2xl bg-[#071E55] text-white p-8 lg:p-10 shadow-[0_30px_60px_-30px_rgba(7,30,85,0.6)]">
+              <div className="absolute -right-20 -top-20 w-64 h-64 rounded-full bg-[#1265B7]/35 blur-3xl" aria-hidden="true" />
+              <div className="absolute -left-16 -bottom-24 w-56 h-56 rounded-full bg-[#B2081B]/25 blur-3xl" aria-hidden="true" />
+              <div className="relative">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 ring-1 ring-white/15 px-3 py-1 font-['Barlow'] text-[13px] font-medium text-white/85">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#7CE0A8]" aria-hidden="true" />
+                  Service team
+                </span>
+                <h2 className="font-['Barlow'] font-semibold text-2xl lg:text-[28px] leading-tight mt-5">
+                  Something not working?
+                </h2>
+                <p className="font-['Barlow'] text-white/70 text-[15px] lg:text-base leading-relaxed mt-2 mb-8">
+                  Tell us what&apos;s happening and we&apos;ll help you get it running again. We typically respond within one business day.
+                </p>
+
+                <div className="space-y-3">
+                  <a
+                    href={PHONE_HREF}
+                    className="group flex items-center gap-4 rounded-xl bg-white/[0.06] ring-1 ring-white/10 p-4 hover:bg-white/[0.1] transition-colors"
+                  >
+                    <span className="w-11 h-11 rounded-lg bg-[#B2081B] flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                      <Phone size={19} />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block font-['Barlow'] text-[13px] text-white/60">Call us</span>
+                      <span className="block font-['Barlow'] font-semibold text-lg">{PHONE}</span>
+                    </span>
+                    <ArrowUpRight size={18} className="ml-auto text-white/50 group-hover:text-white transition-colors" aria-hidden="true" />
+                  </a>
+                  <a
+                    href={EMAIL_HREF}
+                    className="group flex items-center gap-4 rounded-xl bg-white/[0.06] ring-1 ring-white/10 p-4 hover:bg-white/[0.1] transition-colors"
+                  >
+                    <span className="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                      <Mail size={19} />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block font-['Barlow'] text-[13px] text-white/60">Email us</span>
+                      <span className="block font-['Barlow'] font-semibold text-lg break-all">{EMAIL}</span>
+                    </span>
+                    <ArrowUpRight size={18} className="ml-auto text-white/50 group-hover:text-white transition-colors flex-shrink-0" aria-hidden="true" />
+                  </a>
+                </div>
+
+                <Link
+                  href="/request-quote?type=service-support"
+                  className="group mt-6 flex items-center justify-center gap-2 rounded-lg bg-white text-[#071E55] h-12 font-['Barlow'] font-semibold hover:bg-white/90 transition-colors"
+                >
+                  Request service online
+                  <ArrowRight size={17} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                </Link>
               </div>
-              <div className="space-y-5">
-                <a href={PHONE_HREF} className="flex items-center gap-4 hover:text-white/80 transition-colors group">
-                  <div className="w-10 h-10 flex items-center justify-center border border-white/20 group-hover:border-white/40">
-                    <Phone size={18} aria-hidden="true" />
-                  </div>
-                  <div>
-                    <div className="font-['Barlow'] text-white/85 text-xs uppercase tracking-wide">Phone</div>
-                    <div className="font-['Barlow'] font-semibold">{PHONE}</div>
-                  </div>
-                </a>
-                <a href={`mailto:${EMAIL}`} className="flex items-center gap-4 hover:text-white/80 transition-colors group">
-                  <div className="w-10 h-10 flex items-center justify-center border border-white/20 group-hover:border-white/40">
-                    <Mail size={18} aria-hidden="true" />
-                  </div>
-                  <div>
-                    <div className="font-['Barlow'] text-white/85 text-xs uppercase tracking-wide">Email</div>
-                    <div className="font-['Barlow'] font-semibold">{EMAIL}</div>
-                  </div>
-                </a>
-              </div>
-            </div>
+            </aside>
           </div>
         </div>
       </section>
