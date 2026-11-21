@@ -11,7 +11,6 @@ const siteLinks = [
   { section: "Main", links: [
     { label: "Home", href: "/" },
     { label: "Projects", href: "/projects" },
-    { label: "Support", href: "/support" },
     { label: "Contact", href: "/contact" },
     { label: "Request a Quote", href: "/request-quote" },
   ]},
