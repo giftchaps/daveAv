@@ -33,7 +33,7 @@ const actions = [
   {
     icon: Calendar,
     title: "Event / Rental Inquiry",
-    description: "Planning an event? Tell us about your AV needs and we'll put together a proposal.",
+    description: "Planning an event? Tell us about your AV requirements and we'll put together a proposal.",
     href: "/request-quote?type=event-production",
     cta: "Inquire Now",
     color: "bg-[#1265B7] text-white border-[#1265B7]",

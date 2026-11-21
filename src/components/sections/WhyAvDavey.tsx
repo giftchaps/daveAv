@@ -24,7 +24,7 @@ const principles = [
     icon: ShieldCheck,
     title: 'Support After Installation',
     description:
-      "Ongoing service and preventive maintenance keep your system working, with help when something needs attention.",
+      "Ongoing service and preventive maintenance keep your system working, with help when something requires attention.",
   },
 ];
 

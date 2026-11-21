@@ -26,7 +26,7 @@ export default function ContactPage() {
         eyebrow="Get in Touch"
         title="Let's Talk About"
         titleRed="Your Project."
-        subtitle="Ready to discuss your AV needs? We'd love to hear from you. Call, email, or fill out the form below."
+        subtitle="Ready to discuss your AV requirements? We'd love to hear from you. Call, email, or fill out the form below."
         breadcrumbs={[{ label: "Contact" }]}
         overlap
       />
