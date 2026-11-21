@@ -3,7 +3,8 @@ import Image from "next/image";
 import { PageHero } from "@/components/ui/PageHero";
 import { HEADER_IMAGES } from "@/lib/headerImages";
 import { FinalCTA } from "@/components/sections/FinalCTA";
-import { CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Event Production & Staging",
@@ -16,6 +17,25 @@ const capabilities = [
   { category: "Lighting", items: ["Architectural lighting", "Stage wash & specials", "Intelligent lighting", "Lighting control"] },
   { category: "Video", items: ["Video switching & playback", "IMAG systems", "LED video walls", "Confidence monitors"] },
   { category: "Staging", items: ["Stage design & build", "Podiums & lecterns", "Drapery & backdrops", "Custom staging elements"] },
+];
+
+const SAVINGS = [
+  {
+    amount: "50%",
+    title: "Pick up your rental order",
+    text: "Collect your rental equipment yourself instead of having it delivered, and save 50%.",
+    cta: "Get a pickup quote",
+    href: "/request-quote?type=event-production&promo=pickup",
+    bg: "bg-[#1265B7] shadow-[0_24px_50px_-28px_rgba(18,101,183,0.8)]",
+  },
+  {
+    amount: "20%",
+    title: "Registered non-profits",
+    text: "Registered non-profit organizations save 20% on all AV services.",
+    cta: "Claim your discount",
+    href: "/request-quote?type=event-production&promo=ngo",
+    bg: "bg-[#B2081B] shadow-[0_24px_50px_-28px_rgba(178,8,27,0.8)]",
+  },
 ];
 
 export default function EventProductionPage() {
@@ -99,6 +119,48 @@ export default function EventProductionPage() {
                   ))}
                 </ul>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ways to save */}
+      <section className="py-16 lg:py-24 bg-white" aria-labelledby="ways-to-save-heading">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="block w-8 h-[3px] bg-[#B2081B] flex-shrink-0" />
+            <span className="font-['Barlow_Condensed'] font-bold text-sm tracking-[0.12em] uppercase text-[#B2081B]">
+              Ways to Save
+            </span>
+          </div>
+          <h2
+            id="ways-to-save-heading"
+            className="font-['Barlow_Condensed'] font-extrabold uppercase text-[#071E55] leading-[1.05] mb-10"
+            style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)" }}
+          >
+            Great AV That Fits Your Budget
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {SAVINGS.map((offer) => (
+              <Link
+                key={offer.title}
+                href={offer.href}
+                className={`group relative overflow-hidden flex flex-col sm:flex-row sm:items-center gap-6 rounded-2xl p-7 lg:p-9 text-white transition-all duration-300 hover:-translate-y-1 ${offer.bg}`}
+              >
+                <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-white/10 blur-2xl" aria-hidden="true" />
+                <div className="relative flex-shrink-0 font-['Barlow_Condensed'] font-extrabold leading-none">
+                  <span className="block text-6xl lg:text-7xl">{offer.amount}</span>
+                  <span className="block text-lg uppercase tracking-[0.12em] text-white/80 mt-1">off</span>
+                </div>
+                <div className="relative">
+                  <h3 className="font-['Barlow'] font-semibold text-xl lg:text-2xl leading-tight">{offer.title}</h3>
+                  <p className="font-['Barlow'] text-white/80 text-[15px] lg:text-base leading-relaxed mt-2">{offer.text}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 font-['Barlow'] font-semibold text-[15px]">
+                    {offer.cta}
+                    <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

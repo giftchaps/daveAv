@@ -26,6 +26,16 @@ export const PROMOTIONS: Promotion[] = [
     color: 'red',
   },
   {
+    id: 'pickup-50',
+    active: true,
+    label: 'Pickup Savings',
+    highlight: '50% OFF',
+    headline: 'Pick up your rental equipment yourself and save 50%.',
+    shortHeadline: 'Pick up your rental order and save.',
+    cta: { text: 'Get a pickup quote', href: '/request-quote?promo=pickup' },
+    color: 'blue',
+  },
+  {
     id: 'winter-event-2024',
     active: true,
     label: 'Holiday Offer',

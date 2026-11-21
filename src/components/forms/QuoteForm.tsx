@@ -9,8 +9,10 @@ import {
   Ellipsis,
   MonitorSpeaker,
   Package,
+  PackageOpen,
   Presentation,
   Tag,
+  Truck,
   Wrench,
   type LucideIcon,
 } from 'lucide-react';
@@ -35,6 +37,11 @@ const TYPE_DETAILS: Record<string, { icon: LucideIcon; hint: string }> = {
   'equipment-sales': { icon: Package, hint: 'Gear sourced to fit your space' },
   other: { icon: Ellipsis, hint: 'Something else? Tell us below' },
 };
+
+const DELIVERY_OPTIONS: { value: 'delivery' | 'pickup'; title: string; hint: string; badge?: string; icon: LucideIcon }[] = [
+  { value: 'delivery', title: 'Delivery & setup', hint: 'We bring the equipment and set it up for you.', icon: Truck },
+  { value: 'pickup', title: "I'll pick it up", hint: 'Collect your rental order yourself and save.', badge: 'Save 50%', icon: PackageOpen },
+];
 
 /** Reads ?type=<service-slug> and ?promo=<code> from the URL, then renders the form. */
 export function QuoteFormWithParams() {
@@ -89,6 +96,7 @@ export function QuoteForm({
 }) {
   const { status, error, fields, sentTo, submit, reset, markStarted } = useFormSubmit('quote');
   const [types, setTypes] = useState<string[]>(initialType ? [initialType] : []);
+  const [delivery, setDelivery] = useState<'delivery' | 'pickup'>(promoCode === 'pickup' ? 'pickup' : 'delivery');
   const sending = status === 'sending';
 
   const toggle = (label: string) =>
@@ -101,6 +109,7 @@ export function QuoteForm({
     if (ok) {
       form.reset();
       setTypes(initialType ? [initialType] : []);
+      setDelivery(promoCode === 'pickup' ? 'pickup' : 'delivery');
     } else {
       requestAnimationFrame(() => form.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus());
     }
@@ -224,6 +233,48 @@ export function QuoteForm({
             <input id="quote-date" name="date" type="text" maxLength={120}
               className={inputClass(false)} placeholder="e.g. March 2027, or ASAP" />
           </div>
+          <fieldset className="sm:col-span-2">
+            <legend className={labelClass}>Rental equipment</legend>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {DELIVERY_OPTIONS.map((opt) => {
+                const on = delivery === opt.value;
+                return (
+                  <label
+                    key={opt.value}
+                    className={`relative flex items-start gap-3.5 rounded-xl border p-4 cursor-pointer select-none transition-all duration-150 has-[:focus-visible]:ring-4 has-[:focus-visible]:ring-[#1265B7]/20 ${
+                      on ? 'border-[#1265B7] bg-[#1265B7]/[0.05] shadow-[0_0_0_1px_#1265B7]' : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="delivery"
+                      value={opt.value}
+                      checked={on}
+                      onChange={() => setDelivery(opt.value)}
+                      className="sr-only"
+                    />
+                    <span
+                      className={`flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${on ? 'bg-[#1265B7] text-white' : 'bg-slate-100 text-[#071E55]'}`}
+                      aria-hidden="true"
+                    >
+                      <opt.icon size={19} strokeWidth={1.9} />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="flex flex-wrap items-center gap-2 font-['Barlow'] font-semibold text-[15px] leading-snug text-[#071E55]">
+                        {opt.title}
+                        {opt.badge && (
+                          <span className="rounded-md bg-[#B2081B] text-white text-[11px] font-bold uppercase tracking-wide px-1.5 py-0.5">
+                            {opt.badge}
+                          </span>
+                        )}
+                      </span>
+                      <span className="block font-['Barlow'] text-[13px] leading-snug text-slate-500 mt-0.5">{opt.hint}</span>
+                    </span>
+                  </label>
+                );
+              })}
+            </div>
+          </fieldset>
           <div className="sm:col-span-2">
             <label htmlFor="quote-description" className={labelClass}>Project description{req}</label>
             <textarea id="quote-description" name="description" required rows={6} maxLength={5000}

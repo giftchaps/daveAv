@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useSyncExternalStore } from 'react';
+import React, { useEffect, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { X, ArrowRight, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import type { Promotion } from '@/lib/promotions';
@@ -31,6 +31,7 @@ const TEXTURE: React.CSSProperties = {
 };
 
 const noopSubscribe = () => () => {};
+const ROTATE_MS = 7000;
 
 interface PromoBannerProps {
   promotions: Promotion[];
@@ -39,6 +40,7 @@ interface PromoBannerProps {
 export function PromoBanner({ promotions }: PromoBannerProps) {
   const [current, setCurrent] = useState(0);
   const [dismissed, setDismissed] = useState(false);
+  const [paused, setPaused] = useState(false);
   const key = `promo-dismissed-${promotions.map((p) => p.id).join(',')}`;
 
   // Read the per-session dismissal from sessionStorage. On the server (and during
@@ -54,6 +56,13 @@ export function PromoBanner({ promotions }: PromoBannerProps) {
     },
     () => 'server',
   );
+
+  // Rotate through the offers on its own; pauses while hovered or focused.
+  useEffect(() => {
+    if (promotions.length < 2 || paused) return;
+    const t = window.setInterval(() => setCurrent((c) => (c + 1) % promotions.length), ROTATE_MS);
+    return () => window.clearInterval(t);
+  }, [promotions.length, paused]);
 
   if (stored !== 'show' || dismissed || promotions.length === 0) return null;
 
@@ -73,7 +82,16 @@ export function PromoBanner({ promotions }: PromoBannerProps) {
   const theme = THEMES[promo.color ?? 'red'];
 
   return (
-    <div className={`${theme.bar} relative text-white`} style={TEXTURE} role="region" aria-label="Current offer">
+    <div
+      className={`${theme.bar} relative text-white transition-colors duration-500`}
+      style={TEXTURE}
+      role="region"
+      aria-label="Current offer"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+    >
       <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2 sm:gap-4 min-h-[44px] py-1.5">
           {promotions.length > 1 && (
@@ -87,7 +105,7 @@ export function PromoBanner({ promotions }: PromoBannerProps) {
           )}
 
           {/* Offer */}
-          <div className="flex flex-1 items-center justify-start sm:justify-center gap-2.5 sm:gap-4 min-w-0">
+          <div key={promo.id} className="promo-swap flex flex-1 items-center justify-start sm:justify-center gap-2.5 sm:gap-4 min-w-0">
             {/* Label (wider screens) */}
             <span className="hidden lg:inline-flex items-center gap-1.5 font-['Barlow_Condensed'] font-bold uppercase tracking-[0.16em] text-[12px] text-white/85 flex-shrink-0">
               <Star size={11} className="fill-[#FFC93C] text-[#FFC93C]" aria-hidden="true" />
