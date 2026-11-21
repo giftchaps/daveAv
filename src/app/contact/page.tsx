@@ -9,7 +9,7 @@ import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF, LOCATION } from "@/lib/constants"
 export const metadata: Metadata = {
   title: "Contact A/V DAVEY",
   description:
-    "Contact A/V DAVEY in Bridgeport, CT. Call, email, or send a message. Connecticut's trusted AV partner since 1989.",
+    "Contact A/V DAVEY in Bridgeport, CT. Call, email, or send a message. Connecticut's trusted AV partner since 1993.",
 };
 
 const CHANNELS: { icon: LucideIcon; label: string; value: string; href?: string; note?: string }[] = [

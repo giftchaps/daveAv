@@ -9,15 +9,15 @@ import { ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "About A/V DAVEY",
   description:
-    "A/V DAVEY has been Connecticut's trusted AV partner since 1989. Learn about our history, our founder Davey Katz, and what drives our commitment to personal service.",
+    "A/V DAVEY has been Connecticut's trusted AV partner since 1993. Learn about our history, our founder Davey Katz, and what drives our commitment to personal service.",
 };
 
 const timeline = [
   {
-    year: "1989",
+    year: "1993",
     title: "A/V DAVEY is Founded",
     description:
-      "Davey Katz establishes A/V DAVEY in May 1989 in Bridgeport, CT, building on years of hands-on AV experience in New York and Connecticut.",
+      "Davey Katz establishes A/V DAVEY in 1993 in Bridgeport, CT, building on years of hands-on AV experience in New York and Connecticut.",
   },
   {
     year: "1990s",
@@ -41,7 +41,7 @@ const timeline = [
     year: "Today",
     title: "Still First to Show, Last to Go",
     description:
-      "More than 35 years later, A/V DAVEY continues to deliver professional AV solutions with the same personal service and commitment to quality that has defined the company since day one.",
+      "More than 30 years later, A/V DAVEY continues to deliver professional AV solutions with the same personal service and commitment to quality that has defined the company since day one.",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function AboutPage() {
         eyebrow="Our Story"
         title="Built on Experience."
         titleRed="Driven by Service."
-        subtitle="A/V DAVEY has been Connecticut's trusted AV partner since 1989. We combine decades of hands-on expertise with the kind of personal service that most companies have forgotten how to give."
+        subtitle="A/V DAVEY has been Connecticut's trusted AV partner since 1993. We combine decades of hands-on expertise with the kind of personal service that most companies have forgotten how to give."
         breadcrumbs={[{ label: "About" }]}
       />
 
@@ -80,7 +80,7 @@ export default function AboutPage() {
                   Before founding A/V DAVEY, Davey Katz was working freelance AV gigs in New York, learning the craft in hotel ballrooms and conference centers, and developing the kind of hands-on knowledge that only comes from doing the work.
                 </p>
                 <p>
-                  In May 1989, Davey established A/V DAVEY in Bridgeport, Connecticut. The goal was straightforward: provide professional AV services with the kind of personal commitment that transforms a vendor into a partner.
+                  In 1993, Davey established A/V DAVEY in Bridgeport, Connecticut. The goal was straightforward: provide professional AV services with the kind of personal commitment that transforms a vendor into a partner.
                 </p>
                 <p>
                   More than three decades later, that original vision still drives the company. Every project is approached with the same care and attention Davey brought to his first jobs. Every client is treated like family.
@@ -106,7 +106,7 @@ export default function AboutPage() {
                   CEO / Head Cheerleader
                 </div>
                 <p className="font-['Barlow'] text-white/75 text-sm leading-relaxed">
-                  Davey founded A/V DAVEY in May 1989, building on years of hands-on AV experience.
+                  Davey founded A/V DAVEY in 1993, building on years of hands-on AV experience.
                 </p>
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function AboutPage() {
             className="font-['Barlow_Condensed'] font-extrabold uppercase text-[#071E55] leading-[1.05] mb-12"
             style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)" }}
           >
-            1989 to Today
+            1993 to Today
           </h2>
 
           <div className="relative">
@@ -190,7 +190,7 @@ export default function AboutPage() {
                 The A/V-ATORS motto <em>First to Show, Last to Go. Honor Those Who Serve</em> captures something essential about how A/V DAVEY approaches every project. We show up first, prepared and ready. We stay until the job is done right.
               </p>
               <p className="font-['Barlow'] text-white/75 leading-relaxed">
-                It&apos;s not just a slogan. It&apos;s the standard A/V DAVEY has held itself to since 1989.
+                It&apos;s not just a slogan. It&apos;s the standard A/V DAVEY has held itself to since 1993.
               </p>
             </div>
           </div>

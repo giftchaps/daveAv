@@ -16,11 +16,11 @@ export function TopBar() {
 
           {/* Center: tagline */}
           <div className="hidden md:flex flex-1 items-center justify-center gap-3 px-4 min-w-0">
-            <span className="block w-6 h-px bg-[#E8394B]" aria-hidden="true" />
-            <span className="font-['Barlow_Condensed'] font-semibold uppercase tracking-[0.18em] text-[12px] text-white/70 truncate">
+            <span className="block w-8 h-px bg-[#E8394B]" aria-hidden="true" />
+            <span className="tagline-glow font-['Barlow_Condensed'] font-bold uppercase tracking-[0.14em] text-[14px] lg:text-[15px] text-white truncate">
               {SITE_TAGLINE}
             </span>
-            <span className="block w-6 h-px bg-[#E8394B]" aria-hidden="true" />
+            <span className="block w-8 h-px bg-[#E8394B]" aria-hidden="true" />
           </div>
 
           {/* Right: phone + email */}

@@ -68,9 +68,9 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="contact-phone" className={label}>
-            Phone <span className="font-normal text-slate-400">(optional)</span>
+            Phone <span className="text-[#B2081B]" aria-hidden="true">*</span>
           </label>
-          <input id="contact-phone" name="phone" type="tel" autoComplete="tel" maxLength={40}
+          <input id="contact-phone" name="phone" type="tel" required autoComplete="tel" maxLength={40}
             aria-invalid={invalid('phone')} aria-describedby={describedBy('phone')}
             className={inputClass(invalid('phone'))} placeholder="(203) 000-0000" />
           <FieldError id="contact-phone-error" message={fields.phone} />

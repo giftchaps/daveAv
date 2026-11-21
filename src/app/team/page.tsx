@@ -17,7 +17,7 @@ const team = [
   {
     name: "Davey Katz",
     title: "CEO / Head Cheerleader",
-    bio: "Davey founded A/V DAVEY in May 1989 after years of hands-on AV work in New York and Connecticut. He brings decades of real-world AV experience to every project and remains personally involved in client relationships and project oversight.",
+    bio: "Davey founded A/V DAVEY in 1993 after years of hands-on AV work in New York and Connecticut. He brings decades of real-world AV experience to every project and remains personally involved in client relationships and project oversight.",
     image: "/images/team/davey-katz.jpg",
     alt: "Davey Katz in his A/V DAVEY uniform",
     specialties: ["AV System Design", "Project Management", "Client Relations", "Event Production"],

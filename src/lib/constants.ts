@@ -1,11 +1,11 @@
 export const SITE_NAME = 'A/V DAVEY';
-export const SITE_TAGLINE = 'Connecticut\'s Trusted AV Partner Since 1989';
+export const SITE_TAGLINE = 'Connecticut\'s Trusted AV Partner Since 1993';
 export const PHONE = '(203) 395-7234';
 export const PHONE_HREF = 'tel:+12033957234';
 export const EMAIL = 'davey@avdavey.com';
 export const EMAIL_HREF = 'mailto:davey@avdavey.com';
 export const LOCATION = 'Bridgeport, CT';
-export const FOUNDED = '1989';
+export const FOUNDED = '1993';
 export const FACEBOOK_URL = 'https://www.facebook.com/avdavey';
 
 // Public URL of the production site. Set NEXT_PUBLIC_SITE_URL in Vercel once the
@@ -57,7 +57,7 @@ export const SERVICES = [
     title: 'Installation & Integration',
     shortTitle: 'Installation',
     slug: 'installation',
-    description: 'Custom audio, video, control and collaboration solutions for commercial and residential spaces.',
+    description: 'Custom audio, video, control and collaboration solutions for commercial spaces.',
     icon: 'MonitorCog',
   },
   {

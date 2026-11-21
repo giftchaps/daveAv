@@ -54,7 +54,7 @@ export function WhyAvDavey() {
               className="font-['Barlow'] text-slate-600 leading-relaxed mb-5"
               style={{ fontSize: 'clamp(1rem, 1.5vw, 1.125rem)' }}
             >
-              Since 1989, A/V DAVEY has built its reputation on one simple principle: treat every client like family and every project like it&apos;s our own. We combine decades of hands-on AV expertise with the kind of personal service that most companies have forgotten how to give.
+              Since 1993, A/V DAVEY has built its reputation on one simple principle: treat every client like family and every project like it&apos;s our own. We combine decades of hands-on AV expertise with the kind of personal service that most companies have forgotten how to give.
             </p>
 
             {/* Stat callout */}

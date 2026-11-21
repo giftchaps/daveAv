@@ -11,7 +11,7 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
 export const metadata: Metadata = {
   title: "A/V DAVEY | Professional Audio Visual Solutions | Connecticut",
   description:
-    "Connecticut's trusted AV partner since 1989. Professional AV installation, live event production, service & support, video production, and equipment sales. Bridgeport, CT.",
+    "Connecticut's trusted AV partner since 1993. Professional AV installation, live event production, service & support, video production, and equipment sales. Bridgeport, CT.",
 };
 
 export default function HomePage() {

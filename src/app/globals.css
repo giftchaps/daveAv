@@ -135,3 +135,14 @@ img {
     transform: none;
   }
 }
+
+/* Top bar tagline: fades slowly from white to brand red and back. */
+@keyframes tagline-glow {
+  0%, 30% { color: #ffffff; }
+  55%, 80% { color: #ff4d5e; }
+  100% { color: #ffffff; }
+}
+.tagline-glow { animation: tagline-glow 6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .tagline-glow { animation: none; }
+}

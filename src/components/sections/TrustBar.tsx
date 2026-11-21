@@ -4,7 +4,7 @@ import styles from './BelowHero.module.css';
 const stats = [
   { icon: CalendarDays, value: '40+', label: 'Years of combined experience' },
   { icon: Users, value: 'Thousands', label: 'Of successful installations' },
-  { icon: Building2, value: 'Commercial & Residential', label: 'System integration' },
+  { icon: Building2, value: 'Commercial Installation', label: 'System integration' },
   { icon: Headphones, value: 'Service & Support', label: 'Before, during & after the job' },
 ];
 

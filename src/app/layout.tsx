@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | A/V DAVEY",
   },
   description:
-    "Connecticut's trusted AV partner since 1989. Professional AV installation, live event production, service & support, video production, and equipment sales. Bridgeport, CT.",
+    "Connecticut's trusted AV partner since 1993. Professional AV installation, live event production, service & support, video production, and equipment sales. Bridgeport, CT.",
   keywords: [
     "AV installation",
     "audio visual Connecticut",
@@ -57,13 +57,13 @@ const businessJsonLd = {
   "@id": `${SITE_URL}/#business`,
   name: "A/V DAVEY",
   description:
-    "Connecticut audio visual company since 1989: AV installation and integration, live event production and staging, service and support, video production and streaming, and equipment sales.",
+    "Connecticut audio visual company since 1993: AV installation and integration, live event production and staging, service and support, video production and streaming, and equipment sales.",
   url: SITE_URL,
   logo: `${SITE_URL}/images/logo-avdavey.png`,
   image: `${SITE_URL}/opengraph-image.jpg`,
   telephone: PHONE,
   email: EMAIL,
-  foundingDate: "1989",
+  foundingDate: "1993",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Bridgeport",
