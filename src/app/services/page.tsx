@@ -39,7 +39,7 @@ const services = [
     icon: Presentation,
     title: "Event Production & Staging",
     description:
-      "From intimate corporate meetings to large-scale galas and conferences, A/V DAVEY delivers complete event production services. We handle audio, lighting, video, projection, staging and on-site technical management so your event runs without a hitch.",
+      "From small private parties and club dinners to large-scale galas and conferences, A/V DAVEY delivers complete event production services. We handle audio, lighting, video, projection, staging and on-site technical management so your event runs without a hitch.",
     capabilities: [
       "Professional audio systems",
       "Lighting design & production",
