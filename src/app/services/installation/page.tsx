@@ -22,7 +22,6 @@ const capabilities = [
   "Sound Masking",
   "Monitoring & Control",
   "Commercial Integration",
-  "Residential Integration",
   "System Training",
   "Documentation & Support",
 ];
@@ -63,7 +62,7 @@ const process = [
 const faqs = [
   {
     q: "What types of spaces do you work in?",
-    a: "We work in conference rooms, boardrooms, training rooms, auditoriums, lobbies, retail spaces, restaurants, houses of worship, and residential homes throughout Connecticut and the greater Tri-State region.",
+    a: "We work in conference rooms, boardrooms, training rooms, auditoriums, lobbies, retail spaces, restaurants, and houses of worship throughout Connecticut and the greater Tri-State region.",
   },
   {
     q: "Do you service systems you didn't install?",
@@ -87,7 +86,7 @@ export default function InstallationPage() {
         eyebrow="Installation & Integration"
         title="AV Systems That Work"
         titleRed="From Day One."
-        subtitle="We design and install complete audio, video, control and collaboration systems for commercial and residential spaces throughout Connecticut and the greater Tri-State region."
+        subtitle="We design and install complete audio, video, control and collaboration systems for commercial spaces throughout Connecticut and the greater Tri-State region."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Installation & Integration" }]}
       />
 
@@ -109,7 +108,7 @@ export default function InstallationPage() {
                 Professional AV for Every Space
               </h2>
               <p className="font-['Barlow'] text-slate-600 leading-relaxed mb-6 text-base lg:text-lg">
-                A/V DAVEY has been designing and installing AV systems since 1989. We bring decades of real-world experience to every project, whether it&apos;s a single conference room or a complex multi-building installation.
+                A/V DAVEY has been designing and installing AV systems since 1993. We bring decades of real-world experience to every project, whether it&apos;s a single conference room or a complex multi-building installation.
               </p>
               <p className="font-['Barlow'] text-slate-600 leading-relaxed mb-8 text-base">
                 We work with the industry&apos;s leading equipment manufacturers and maintain close relationships with building management, IT teams, and contractors to ensure seamless installations.

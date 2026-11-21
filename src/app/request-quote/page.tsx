@@ -9,7 +9,7 @@ import { PHONE, PHONE_HREF, EMAIL, EMAIL_HREF } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Request a Quote",
   description:
-    "Request a quote from A/V DAVEY for AV installation, event production, service, video production or equipment. Connecticut's trusted AV partner since 1989.",
+    "Request a quote from A/V DAVEY for AV installation, event production, service, video production or equipment. Connecticut's trusted AV partner since 1993.",
 };
 
 
@@ -88,7 +88,7 @@ export default function RequestQuotePage() {
 
               <p className="flex items-center gap-2.5 px-2 font-['Barlow'] text-[14px] text-slate-500">
                 <ShieldCheck size={18} className="text-[#1265B7] flex-shrink-0" aria-hidden="true" />
-                No obligation. Connecticut&apos;s trusted AV partner since 1989.
+                No obligation. Connecticut&apos;s trusted AV partner since 1993.
               </p>
             </aside>
           </div>

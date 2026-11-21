@@ -18,7 +18,7 @@ const services = [
     icon: MonitorCog,
     title: "Installation & Integration",
     description:
-      "We design and install complete audio, video, control and collaboration systems for commercial and residential spaces. From simple meeting room setups to complex multi-room installations, we deliver systems that work reliably from day one.",
+      "We design and install complete audio, video, control and collaboration systems for commercial spaces. From simple meeting room setups to complex multi-room installations, we deliver systems that work reliably from day one.",
     capabilities: [
       "Video conferencing systems",
       "Collaborative display solutions",
@@ -27,7 +27,7 @@ const services = [
       "Projection & screens",
       "Digital signage",
       "Sound masking",
-      "Commercial & residential integration",
+      "Commercial AV integration",
     ],
     href: "/services/installation",
     image: "https://images.unsplash.com/photo-1661169399398-dd271af8f651?auto=format&fit=crop&w=1600&q=80",

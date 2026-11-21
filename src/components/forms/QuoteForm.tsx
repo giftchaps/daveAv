@@ -28,7 +28,7 @@ import {
 } from './FormParts';
 
 const TYPE_DETAILS: Record<string, { icon: LucideIcon; hint: string }> = {
-  installation: { icon: MonitorSpeaker, hint: 'Meeting rooms, venues, homes' },
+  installation: { icon: MonitorSpeaker, hint: 'Meeting rooms, offices, venues' },
   'event-production': { icon: Presentation, hint: 'Conferences, galas, live shows' },
   'service-support': { icon: Wrench, hint: 'Repairs, upgrades, maintenance' },
   'video-production': { icon: Clapperboard, hint: 'Filming, streaming, editing' },
@@ -261,9 +261,9 @@ export function QuoteForm({
           </div>
           <div>
             <label htmlFor="quote-phone" className={labelClass}>
-              Phone <span className="font-normal text-slate-400">(optional)</span>
+              Phone{req}
             </label>
-            <input id="quote-phone" name="phone" type="tel" autoComplete="tel" maxLength={40}
+            <input id="quote-phone" name="phone" type="tel" required autoComplete="tel" maxLength={40}
               aria-invalid={invalid('phone')} aria-describedby={describedBy('phone')}
               className={inputClass(invalid('phone'))} />
             <FieldError id="quote-phone-error" message={fields.phone} />

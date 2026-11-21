@@ -103,7 +103,7 @@ function layout(opts: { preheader: string; badge: string; body: string; footerNo
       <p style="margin:0 0 6px;font-family:${HEAD_FONT};font-weight:800;font-size:18px;letter-spacing:1px;text-transform:uppercase;color:#FFFFFF;">First to Show. Last to Go.</p>
       <p style="margin:0 0 14px;font-family:${BODY_FONT};font-size:13px;line-height:20px;color:${BRAND.sky};">Quality Equipment &middot; Personal Service &middot; Guaranteed Results</p>
       <p style="margin:0;font-family:${BODY_FONT};font-size:13px;line-height:21px;color:#FFFFFF;">
-        A/V DAVEY &middot; Bridgeport, CT &middot; Since 1989<br>
+        A/V DAVEY &middot; Bridgeport, CT &middot; Since 1993<br>
         <a href="${PHONE_HREF}" style="color:#FFFFFF;text-decoration:none;">${PHONE}</a> &middot;
         <a href="mailto:${EMAIL}" style="color:#FFFFFF;text-decoration:none;">${EMAIL}</a><br>
         <a href="${SITE_URL}" style="color:${BRAND.sky};">${siteHost()}</a> &middot;
@@ -370,7 +370,7 @@ export function customerConfirmation(s: Submission): RenderedEmail {
     '',
     `Need us sooner? Call ${PHONE}.`,
     '',
-    'A/V DAVEY · Bridgeport, CT · Since 1989',
+    'A/V DAVEY · Bridgeport, CT · Since 1993',
     `${PHONE} · ${EMAIL} · ${SITE_URL}`,
   ].join('\n');
 

@@ -79,7 +79,9 @@ export function validateSubmission(
 
   if (name.length < 2) errors.name = 'Please enter your name.';
   if (!EMAIL_RE.test(email)) errors.email = 'Please enter a valid email address.';
-  if (phone && !/^[0-9+().\-\s x ext]{7,40}$/i.test(phone)) errors.phone = 'Please enter a valid phone number.';
+  if (!phone) errors.phone = 'Please enter your phone number.';
+  else if (!/^[0-9+().\-\s x ext]{7,40}$/i.test(phone) || phone.replace(/\D/g, '').length < 10)
+    errors.phone = 'Please enter a valid phone number, including area code.';
 
   if (formType === 'contact') {
     const message = clean(input.message, LIMITS.message);
