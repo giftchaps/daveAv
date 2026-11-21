@@ -65,7 +65,7 @@ export const SERVICES = [
     title: 'Event Production & Staging',
     shortTitle: 'Event Production',
     slug: 'event-production',
-    description: 'Full-service AV for corporate events, live shows and conferences.',
+    description: 'Full-service AV for events of every size, from private parties to conferences.',
     icon: 'Presentation',
   },
   {

@@ -26,7 +26,7 @@ export default function EventProductionPage() {
         eyebrow="Event Production & Staging"
         title="Your Event Deserves"
         titleRed="Professional AV."
-        subtitle="From intimate corporate meetings to large-scale galas and conferences, A/V DAVEY delivers complete event AV production. We're first to show and last to go."
+        subtitle="From brunches, private parties and club dinners to large-scale galas and conferences, A/V DAVEY delivers complete event AV production, whatever the size. We're first to show and last to go."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Event Production & Staging" }]}
       />
 
