@@ -29,6 +29,7 @@ const quote: QuoteSubmission = {
   location: 'Stamford, CT',
   date: 'Early March 2027',
   promo: 'ngo',
+  delivery: 'delivery',
   description:
     'We are renovating two conference rooms (12 and 20 seats) and need video conferencing for Microsoft Teams, a large display in each, ceiling mics and simple touch-panel control.\nBudget is roughly $40-60k for both rooms.',
 };

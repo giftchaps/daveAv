@@ -35,6 +35,8 @@ export interface QuoteSubmission {
   date: string;
   description: string;
   promo: string;
+  /** Rental equipment: 'delivery' (we deliver and set up) or 'pickup' (customer collects). */
+  delivery: 'delivery' | 'pickup';
 }
 
 export type Submission = ContactSubmission | QuoteSubmission;
@@ -104,6 +106,7 @@ export function validateSubmission(
   const date = oneLine(clean(input.date, LIMITS.date));
   const description = clean(input.description, LIMITS.description);
   const promo = oneLine(clean(input.promo, LIMITS.promo)).replace(/[^a-z0-9-]/gi, '');
+  const delivery = clean(input.delivery, 20) === 'pickup' ? 'pickup' : 'delivery';
 
   if (!chosen.length || chosen.some((t) => !PROJECT_TYPE_LABELS.includes(t)))
     errors.projectType = 'Please choose at least one type of project.';
@@ -112,6 +115,6 @@ export function validateSubmission(
   if (Object.keys(errors).length) return { ok: false, errors };
   return {
     ok: true,
-    data: { formType, name, company, email, phone, projectType, location, date, description, promo },
+    data: { formType, name, company, email, phone, projectType, location, date, description, promo, delivery },
   };
 }

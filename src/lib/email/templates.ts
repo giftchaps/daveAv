@@ -189,7 +189,7 @@ function linkedPhone(phone: string): string {
 
 function promoLabel(promo: string): string {
   if (!promo) return '';
-  const known: Record<string, string> = { ngo: 'Non-profit pricing (20% off)', holiday: 'Holiday Offer' };
+  const known: Record<string, string> = { ngo: 'Non-profit pricing (20% off)', pickup: 'Pickup savings (50% off)', holiday: 'Holiday Offer' };
   return esc(known[promo.toLowerCase()] || promo);
 }
 
@@ -205,6 +205,7 @@ function submissionRows(s: Submission, forTeam: boolean): [string, string][] {
       [s.projectType.includes(',') ? 'Project types' : 'Project type', esc(s.projectType)],
       ['Location', esc(s.location)],
       ['Timeline', esc(s.date)],
+      ['Equipment', s.delivery === 'pickup' ? 'Customer will pick up (50% pickup savings)' : 'Delivery &amp; setup by A/V DAVEY'],
       ['Promotion', promoLabel(s.promo)],
     );
   }
@@ -240,6 +241,7 @@ function textBlock(s: Submission): string {
     lines.push(`${s.projectType.includes(',') ? 'Project types' : 'Project type'}: ${s.projectType}`);
     if (s.location) lines.push(`Location: ${s.location}`);
     if (s.date) lines.push(`Timeline: ${s.date}`);
+    lines.push(`Equipment: ${s.delivery === 'pickup' ? 'Customer will pick up (50% pickup savings)' : 'Delivery & setup by A/V DAVEY'}`);
     if (s.promo) lines.push(`Promotion: ${s.promo}`);
     lines.push('', 'Project description:', s.description);
   } else {
