@@ -26,6 +26,10 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  // The old Support Hub page was merged into Service & Support.
+  async redirects() {
+    return [{ source: "/support", destination: "/services/service-support", permanent: true }];
+  },
 };
 
 export default nextConfig;

@@ -14,7 +14,6 @@ const pages: { path: string; priority: number; changeFrequency: 'weekly' | 'mont
   { path: '/contact', priority: 0.7, changeFrequency: 'yearly' },
   { path: '/about', priority: 0.7, changeFrequency: 'yearly' },
   { path: '/team', priority: 0.6, changeFrequency: 'yearly' },
-  { path: '/support', priority: 0.6, changeFrequency: 'yearly' },
   { path: '/privacy-policy', priority: 0.2, changeFrequency: 'yearly' },
   { path: '/terms-of-service', priority: 0.2, changeFrequency: 'yearly' },
 ];

@@ -47,7 +47,7 @@ export const NAV_ITEMS = [
       { label: 'Our Team', href: '/team' },
     ],
   },
-  { label: 'Support', href: '/support' },
+  { label: 'Support', href: '/services/service-support' },
   { label: 'Contact', href: '/contact' },
 ];
 

@@ -10,7 +10,6 @@ import about from '../../public/images/headers/about.jpg';
 import team from '../../public/images/headers/team.jpg';
 import contact from '../../public/images/headers/contact.jpg';
 import requestQuote from '../../public/images/headers/request-quote.jpg';
-import support from '../../public/images/headers/support.jpg';
 
 /**
  * Background photos for the page headers (stock photos from Unsplash, stored
@@ -28,5 +27,4 @@ export const HEADER_IMAGES: Record<string, StaticImageData> = {
   'team': team,
   'contact': contact,
   'request-quote': requestQuote,
-  'support': support,
 };

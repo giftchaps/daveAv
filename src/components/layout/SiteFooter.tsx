@@ -28,7 +28,6 @@ const footerNav = {
     { label: 'Contact', href: '/contact' },
   ],
   Support: [
-    { label: 'Support Hub', href: '/support' },
     { label: 'Request Service', href: '/request-quote?type=service-support' },
     { label: 'Ask a Question', href: '/contact' },
     { label: 'Request a Quote', href: '/request-quote' },
