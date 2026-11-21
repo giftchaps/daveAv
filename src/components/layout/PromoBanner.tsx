@@ -31,7 +31,7 @@ const TEXTURE: React.CSSProperties = {
 };
 
 const noopSubscribe = () => () => {};
-const ROTATE_MS = 7000;
+const ROTATE_MS = 6000;
 
 interface PromoBannerProps {
   promotions: Promotion[];
@@ -57,12 +57,14 @@ export function PromoBanner({ promotions }: PromoBannerProps) {
     () => 'server',
   );
 
-  // Rotate through the offers on its own; pauses while hovered or focused.
+  // Rotate through the offers on its own. It only pauses while a mouse is over
+  // the bar or a keyboard user is focused inside it (taps on phones don't pause it).
+  // Changing `current` restarts the timer, so a manual change gets a full turn.
   useEffect(() => {
     if (promotions.length < 2 || paused) return;
-    const t = window.setInterval(() => setCurrent((c) => (c + 1) % promotions.length), ROTATE_MS);
-    return () => window.clearInterval(t);
-  }, [promotions.length, paused]);
+    const t = window.setTimeout(() => setCurrent((c) => (c + 1) % promotions.length), ROTATE_MS);
+    return () => window.clearTimeout(t);
+  }, [promotions.length, paused, current]);
 
   if (stored !== 'show' || dismissed || promotions.length === 0) return null;
 
@@ -87,11 +89,30 @@ export function PromoBanner({ promotions }: PromoBannerProps) {
       style={TEXTURE}
       role="region"
       aria-label="Current offer"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
+      onPointerEnter={(e) => e.pointerType === 'mouse' && setPaused(true)}
+      onPointerLeave={() => setPaused(false)}
+      onFocus={(e) => e.target.matches(':focus-visible') && setPaused(true)}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) setPaused(false);
+      }}
     >
+      {promotions.length > 1 && (
+        <>
+          {/* Timer line: shows the offer is about to change */}
+          <span
+            key={`${promo.id}-${paused}`}
+            className={`promo-timer absolute left-0 bottom-0 h-[2px] bg-white/60 ${paused ? 'is-paused' : ''}`}
+            style={{ animationDuration: `${ROTATE_MS}ms` }}
+            aria-hidden="true"
+          />
+          {/* Dots (phones) */}
+          <span className="sm:hidden absolute left-1/2 -translate-x-1/2 bottom-1 flex gap-1" aria-hidden="true">
+            {promotions.map((p, i) => (
+              <span key={p.id} className={`h-1 rounded-full transition-all ${i === current ? 'w-3 bg-white' : 'w-1 bg-white/50'}`} />
+            ))}
+          </span>
+        </>
+      )}
       <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2 sm:gap-4 min-h-[44px] py-1.5">
           {promotions.length > 1 && (

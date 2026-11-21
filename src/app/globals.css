@@ -161,3 +161,9 @@ img {
 @keyframes promo-swap { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 .promo-swap { animation: promo-swap .45s ease-out both; }
 @media (prefers-reduced-motion: reduce) { .promo-swap { animation: none; } }
+
+/* Offer banner timer line */
+@keyframes promo-timer { from { width: 0; } to { width: 100%; } }
+.promo-timer { width: 0; animation: promo-timer linear forwards; }
+.promo-timer.is-paused { animation: none; width: 0; }
+@media (prefers-reduced-motion: reduce) { .promo-timer { display: none; } }
