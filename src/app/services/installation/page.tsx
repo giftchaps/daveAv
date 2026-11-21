@@ -37,7 +37,7 @@ const process = [
     step: "02",
     title: "Design",
     description:
-      "We design a system tailored to your space and goals. No overengineering. No unnecessary complexity. A solution that fits.",
+      "We design a system tailored to your space and goals. No overengineering. No unnecessary complexity. Systems that are easy to use and maintain.",
   },
   {
     step: "03",

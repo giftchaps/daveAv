@@ -25,10 +25,10 @@ const team = [
   {
     name: "Felix Rosales",
     title: "AV Technician & Production Assistant",
-    bio: "Felix brings technical expertise and a hands-on approach to every installation and event. He works alongside Davey on installations, service calls, and event production, ensuring systems are installed and supported to A/V DAVEY standards.",
+    bio: "Felix brings technical expertise and a hands-on approach to every event and service call. He works alongside Davey on technical support, system and IT service, event production and video production, keeping every system running to A/V DAVEY standards.",
     image: "/images/team/felix-rosales.jpg",
     alt: "Felix Rosales running camera and audio at a corporate meeting",
-    specialties: ["AV Installation", "Event Production", "System Service", "Technical Support"],
+    specialties: ["Technical Support", "System & IT Service", "AV Event Production", "Video Production"],
   },
 ];
 
