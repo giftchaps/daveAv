@@ -32,7 +32,7 @@ export default function EquipmentSalesPage() {
         eyebrow="Equipment Sales"
         title="The Right Equipment"
         titleRed="For Your Application."
-        subtitle="A/V DAVEY sources and supplies professional-grade AV equipment from the industry's leading manufacturers. We match the right equipment to your specific needs."
+        subtitle="A/V DAVEY sources and supplies professional-grade AV equipment from the industry's leading manufacturers. We match the right equipment to your specific requirements."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Equipment Sales" }]}
       />
 
@@ -78,7 +78,7 @@ export default function EquipmentSalesPage() {
               href="/contact"
               className="inline-flex items-center gap-2 rounded-lg bg-[#B2081B] text-white px-6 py-3 font-['Barlow'] font-bold uppercase tracking-wide hover:bg-[#8e0615] transition-colors group flex-shrink-0"
             >
-              Discuss Your Needs
+              Discuss Your Requirements
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>

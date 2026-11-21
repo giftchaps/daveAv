@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const STEPS = [
   { title: "We review your request", text: "Within one business day, usually sooner." },
-  { title: "We talk it through", text: "A quick call or a site visit if the project needs one." },
+  { title: "We talk it through", text: "A quick call or a site visit if the project requires one." },
   { title: "You get a detailed proposal", text: "Tailored to your space, event and budget." },
   { title: "We walk you through it", text: "Every step, from the first plan to the final check." },
 ];

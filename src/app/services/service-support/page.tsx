@@ -29,7 +29,7 @@ export default function ServiceSupportPage() {
       <PageHero
         image={{ src: HEADER_IMAGES["service-support"] }}
         eyebrow="Service & Support"
-        title="When Your AV Needs Help,"
+        title="When Your AV Requires Help,"
         titleRed="Call People Who Know AV."
         subtitle="A/V DAVEY provides fast, knowledgeable service for AV systems of all types. Whether we installed it or not, we can help get it working."
         breadcrumbs={[{ label: "Services", href: "/services" }, { label: "Service & Support" }]}
