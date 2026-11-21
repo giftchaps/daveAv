@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { Menu, X, ChevronDown, ArrowRight, Phone } from 'lucide-react';
 import { TopBar } from './TopBar';
@@ -14,6 +15,28 @@ export function SiteHeader() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
+
+  // Which menu item is the current page. "Support" owns the Service & Support
+  // page, so "Services" is not highlighted there as well.
+  const SUPPORT_PATH = NAV_ITEMS.find((i) => i.label === 'Support')?.href;
+  const isActive = (item: (typeof NAV_ITEMS)[number]) => {
+    if (item.href === '/') return pathname === '/';
+    if (pathname === item.href) return true;
+    if (pathname === SUPPORT_PATH) return false;
+    return Boolean(
+      item.children?.some((c) => pathname === c.href) || (item.children && pathname.startsWith(`${item.href}/`)),
+    );
+  };
+
+  // Clicking a link to the page you're already on scrolls back to the top,
+  // so the click visibly does something.
+  const onNavClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href !== pathname) return;
+    event.preventDefault();
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  };
 
 
   useEffect(() => {
@@ -54,7 +77,7 @@ export function SiteHeader() {
             }`}
           >
             {/* Logo */}
-            <Link href="/" className="flex-shrink-0 flex items-center" aria-label="A/V DAVEY Home">
+            <Link href="/" className="flex-shrink-0 flex items-center" aria-label="A/V DAVEY Home" onClick={(e) => onNavClick(e, '/')}>
               <div
                 className="relative transition-all duration-300"
                 style={scrolled ? { width: '120px', height: '50px' } : { width: '140px', height: '58px' }}
@@ -83,9 +106,9 @@ export function SiteHeader() {
                     }}
                   >
                     <button
-                      className={`flex items-center gap-1 px-4 py-2 font-['Barlow'] font-semibold text-sm text-[#071E55] hover:text-[#1265B7] transition-colors cursor-pointer ${
-                        openDropdown === item.label ? 'text-[#1265B7]' : ''
-                      }`}
+                      className={`nav-link flex items-center gap-1 px-4 py-2 font-['Barlow'] font-semibold text-sm hover:text-[#1265B7] transition-colors cursor-pointer ${
+                        openDropdown === item.label || isActive(item) ? 'text-[#1265B7]' : 'text-[#071E55]'
+                      } ${isActive(item) ? 'is-active' : ''}`}
                       aria-expanded={openDropdown === item.label}
                       aria-haspopup="true"
                       onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
@@ -102,15 +125,16 @@ export function SiteHeader() {
                       <div className="absolute top-full left-0 pt-1 w-64 z-50">
                         <div className="bg-white border border-gray-100 rounded-lg shadow-xl overflow-hidden">
                           <div className="py-1">
-                            <Link href={item.href} className="block px-5 py-3 font-semibold text-sm text-[#071E55] hover:bg-[#F4F6FA]" onClick={() => setOpenDropdown(null)}>
+                            <Link href={item.href} aria-current={pathname === item.href ? 'page' : undefined} className={`block px-5 py-3 font-semibold text-sm hover:bg-[#F4F6FA] ${pathname === item.href ? 'text-[#1265B7] bg-[#F4F6FA]' : 'text-[#071E55]'}`} onClick={(e) => { setOpenDropdown(null); onNavClick(e, item.href); }}>
                               {item.label === 'Services' ? 'All Services' : 'About A/V DAVEY'}
                             </Link>
                             {item.children.map((child) => (
                               <Link
                                 key={child.href}
                                 href={child.href}
-                                className="flex items-center justify-between px-5 py-3 font-['Barlow'] text-sm text-[#071E55] hover:bg-[#F4F6FA] hover:text-[#1265B7] transition-colors group"
-                                onClick={() => setOpenDropdown(null)}
+                                aria-current={pathname === child.href ? 'page' : undefined}
+                                className={`flex items-center justify-between px-5 py-3 font-['Barlow'] text-sm hover:bg-[#F4F6FA] hover:text-[#1265B7] transition-colors group ${pathname === child.href ? 'text-[#1265B7] font-semibold bg-[#F4F6FA]' : 'text-[#071E55]'}`}
+                                onClick={(e) => { setOpenDropdown(null); onNavClick(e, child.href); }}
                               >
                                 {child.label}
                                 <ArrowRight size={13} className="opacity-0 group-hover:opacity-100 transition-opacity text-[#1265B7]" />
@@ -125,7 +149,11 @@ export function SiteHeader() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="px-4 py-2 font-['Barlow'] font-semibold text-sm text-[#071E55] hover:text-[#1265B7] transition-colors"
+                    aria-current={isActive(item) ? 'page' : undefined}
+                    onClick={(e) => onNavClick(e, item.href)}
+                    className={`nav-link px-4 py-2 font-['Barlow'] font-semibold text-sm hover:text-[#1265B7] transition-colors ${
+                      isActive(item) ? 'is-active text-[#1265B7]' : 'text-[#071E55]'
+                    }`}
                   >
                     {item.label}
                   </Link>
@@ -196,7 +224,7 @@ export function SiteHeader() {
                   item.children ? (
                     <div key={item.label}>
                       <button
-                        className="flex items-center justify-between w-full px-6 py-3 font-['Barlow'] font-semibold text-base text-[#071E55] hover:bg-[#F4F6FA] transition-colors"
+                        className={`flex items-center justify-between w-full px-6 py-3 font-['Barlow'] font-semibold text-base hover:bg-[#F4F6FA] transition-colors border-l-[3px] ${isActive(item) ? 'text-[#1265B7] border-[#B2081B]' : 'text-[#071E55] border-transparent'}`}
                         onClick={() =>
                           setMobileExpanded(mobileExpanded === item.label ? null : item.label)
                         }
@@ -212,15 +240,16 @@ export function SiteHeader() {
                       </button>
                       {mobileExpanded === item.label && (
                         <div className="bg-[#F4F6FA] border-t border-gray-100">
-                          <Link href={item.href} className="block pl-10 pr-6 py-3 font-semibold text-sm text-[#071E55]" onClick={closeMobile}>
+                          <Link href={item.href} aria-current={pathname === item.href ? 'page' : undefined} className={`block pl-10 pr-6 py-3 font-semibold text-sm ${pathname === item.href ? 'text-[#1265B7]' : 'text-[#071E55]'}`} onClick={(e) => { closeMobile(); onNavClick(e, item.href); }}>
                             {item.label === 'Services' ? 'All Services' : 'About A/V DAVEY'}
                           </Link>
                           {item.children.map((child) => (
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="flex items-center gap-2 pl-10 pr-6 py-3 font-['Barlow'] text-sm text-slate-600 hover:text-[#1265B7] transition-colors"
-                              onClick={closeMobile}
+                              aria-current={pathname === child.href ? 'page' : undefined}
+                              className={`flex items-center gap-2 pl-10 pr-6 py-3 font-['Barlow'] text-sm hover:text-[#1265B7] transition-colors ${pathname === child.href ? 'text-[#1265B7] font-semibold' : 'text-slate-600'}`}
+                              onClick={(e) => { closeMobile(); onNavClick(e, child.href); }}
                             >
                               <span className="w-1 h-1 rounded-full bg-[#B2081B] flex-shrink-0" />
                               {child.label}
@@ -233,8 +262,9 @@ export function SiteHeader() {
                     <Link
                       key={item.label}
                       href={item.href}
-                      className="block px-6 py-3 font-['Barlow'] font-semibold text-base text-[#071E55] hover:bg-[#F4F6FA] hover:text-[#1265B7] transition-colors"
-                      onClick={closeMobile}
+                      aria-current={isActive(item) ? 'page' : undefined}
+                      className={`block px-6 py-3 font-['Barlow'] font-semibold text-base hover:bg-[#F4F6FA] hover:text-[#1265B7] transition-colors border-l-[3px] ${isActive(item) ? 'text-[#1265B7] border-[#B2081B]' : 'text-[#071E55] border-transparent'}`}
+                      onClick={(e) => { closeMobile(); onNavClick(e, item.href); }}
                     >
                       {item.label}
                     </Link>

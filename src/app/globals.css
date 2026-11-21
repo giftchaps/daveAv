@@ -146,3 +146,13 @@ img {
 @media (prefers-reduced-motion: reduce) {
   .tagline-glow { animation: none; }
 }
+
+/* Main menu: red underline under the current page (and on hover). */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: ''; position: absolute; left: 16px; right: 16px; bottom: 2px; height: 2px; border-radius: 2px;
+  background: #b2081b; transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+}
+.nav-link:hover::after, .nav-link.is-active::after { transform: scaleX(1); }
+.nav-link:hover:not(.is-active)::after { background: rgba(18, 101, 183, .5); }
+@media (prefers-reduced-motion: reduce) { .nav-link::after { transition: none; } }
